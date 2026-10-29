@@ -12,6 +12,7 @@ A connected, source-graded reader for Patañjali's Yoga Sūtra: Sanskrit, three 
 - Sanskrit text: GRETIL, CC BY-NC-SA 4.0. This project must stay non-commercial and share alike for that data.
 - Woods (1914), Johnston (1912), Vivekananda (1896): public domain.
 - Gītā Sanskrit: github.com/gita/gita (Unlicense).
+- Data in this repo (`data/`, `pipeline/data/`): CC BY-NC-SA 4.0 as a whole, because it is built on the GRETIL Sanskrit. See `DATA-LICENSE.md` for credit and for the public-domain parts.
 - Code: not yet licensed; all rights reserved by the author until chosen.
 
 ## Run

@@ -46,3 +46,6 @@ Move to Next.js with a static page per sūtra (shareable URLs, search-indexable)
 
 ## Woods corrections log
 `data/woods_corrections.json` (also in `pipeline/data/`) lists every change from the OCR (Internet Archive `yogasystemofpata00wooduoft`) to the cleaned text; shown at `/corrections`. 159 sūtras identical, 36 read by hand. Limit: checks cleaned text against the OCR, not the printed page.
+
+## Licence decision
+Corpus and `pipeline/data/` are CC BY-NC-SA 4.0 (`DATA-LICENSE.md`). Code licence still undecided. The site must stay non-commercial.
