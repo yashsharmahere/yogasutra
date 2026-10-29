@@ -27,11 +27,13 @@ export default async function SutraPage({ params }: { params: Promise<{ id: stri
     <>
       <div className="crumb-bar">
         <div className="crumbs"><Link href={`/read/${s.pada}`}>{pada.name}</Link><span>/</span><span>{g.heading}</span><span>/</span><span className="mono">{s.id}</span></div>
+      </div>
+      <div className="num-bar">
+        <span className="s-num">{s.id}</span>
         <SutraNav prev={prev ? { id: prev.id, iast: prev.iast } : null} next={next ? { id: next.id, iast: next.iast } : null} />
       </div>
       <div className="sutra-top">
       <div className="s-head">
-        <span className="s-num">{s.id}</span>
         <p className="big-deva">{s.deva}</p>
         <p className="big-iast">{s.iast}</p>
         <p className="woods col" style={{ marginTop: "var(--s-3)" }}>“<Woods t={s.en} />” <span className="who">Woods, 1914</span></p>

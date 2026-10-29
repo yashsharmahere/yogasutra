@@ -484,3 +484,5 @@ footer .wrap>span+span{padding-left:var(--s-7);border-left:1px solid var(--rule)
 .sutra-nav a+a,.sutra-nav .off+a,.sutra-nav a+.off,.sutra-nav .off+.off{border-left:1px solid var(--rule)}
 .sutra-nav a:hover{background:var(--card);color:var(--indigo)}
 .sutra-nav .off{color:var(--ink-3);opacity:.5}
+.num-bar{display:flex;justify-content:space-between;align-items:center;gap:var(--s-4);margin-bottom:var(--s-4)}
+.num-bar .s-num{line-height:1}
