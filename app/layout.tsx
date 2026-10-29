@@ -1,7 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
 import type { Metadata } from "next";
-import ThreadSpine from "@/components/ThreadSpine";
 import ThemeToggle from "@/components/ThemeToggle";
 import Nav from "@/components/Nav";
 import Splash from "@/components/Splash";
@@ -25,7 +24,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Splash />
-        <ThreadSpine />
         <header className="top"><div className="wrap top-in">
           <Link className="mark" href="/"><span className="deva">एकतान</span><span className="en">Ekatāna</span></Link>
           <Nav />

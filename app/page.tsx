@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { PADAS, S, C, D, byId, cById } from "@/lib/corpus";
 import { Woods } from "@/components/Bits";
+import Icon, { Ornament } from "@/components/Icons";
 import PullServer from "@/components/PullServer";
 
-const GROUND = [["/sutra/1-1", "Read from 1.1", "Sanskrit, transliteration and three translations, grouped under Woods' own headings."], ["/concepts/samadhi", "Follow samādhi", "Concentration, traced through every sūtra whose Sanskrit names it."], ["/sutra/2-29", "The eight limbs", "2.29 lists them; the following 34 sūtras take them one by one."], ["/concepts/klesa", "The five afflictions", "What troubles the mind, and the order in which the text says they arise."], ["/gita", "Read it beside the Gītā", "Where the Bhagavad Gītā uses the same words or teaches the same thing, each link read and typed."], ["/visuals", "See the structure", "The eight limbs, the afflictions, the ladder of concentration, drawn from the sūtras themselves."], ["/patanjali", "Meet Patañjali", "What the tradition says, and what scholars can say with confidence."], ["/tests", "How Ask is tested", "Thirty questions with the sūtras a good answer must cite."]];
+const GROUND = [["/sutra/1-1", "Read from 1.1", "Sanskrit, transliteration and three translations, grouped under Woods' own headings.", "read"], ["/concepts/samadhi", "Follow samādhi", "Concentration, traced through every sūtra whose Sanskrit names it.", "samadhi"], ["/sutra/2-29", "The eight limbs", "2.29 lists them; the following 34 sūtras take them one by one.", "limb"], ["/concepts/klesa", "The five afflictions", "What troubles the mind, and the order in which the text says they arise.", "affliction"], ["/gita", "Read it beside the Gītā", "Where the Bhagavad Gītā uses the same words or teaches the same thing, each link read and typed.", "gita"], ["/visuals", "See the structure", "The eight limbs, the afflictions, the ladder of concentration, drawn from the sūtras themselves.", "structure"], ["/patanjali", "Meet Patañjali", "What the tradition says, and what scholars can say with confidence.", "serpent"], ["/tests", "How Ask is tested", "Thirty questions with the sūtras a good answer must cite.", "test"]];
 
 export default function Home() {
   const s12 = byId["1.2"];
   return (
     <>
-      <section className="hero2">
+      <section className="hero2 weave-bg">
         <div className="hero-glyph" aria-hidden="true"><span className="deva">सूत्र</span><small>sūtra · a thread</small></div>
         <p className="eyebrow">Patañjali · Yoga Sūtra</p>
         <h1>One text.<br /><i>One thread.</i></h1>
@@ -38,11 +39,13 @@ export default function Home() {
         </div>
       </section>
 
+      <Ornament />
       <section>
         <div className="sec-h"><p className="eyebrow">Four chapters</p><h2>One continuous journey</h2></div>
         <div className="padas">
           {PADAS.map((p) => (
             <Link key={p.n} className="pada-card" href={`/read/${p.n}`}>
+              <Icon name={["samadhi", "sadhana", "vibhuti", "kaivalya"][p.n - 1]} size={34} />
               <span className="mono pada-n">{p.n}</span>
               <span className="r-deva" style={{ display: "block", fontSize: "var(--s-6)" }}>{p.deva}</span>
               <span className="iast" style={{ display: "block", color: "var(--ink-2)" }}>{p.name} · {p.woods}</span>
@@ -53,9 +56,10 @@ export default function Home() {
         </div>
       </section>
 
+      <Ornament />
       <section>
         <div className="sec-h"><p className="eyebrow">Ways in</p><h2>Where to start</h2></div>
-        <div className="starts">{GROUND.map(([h, a, b]) => <Link key={h} href={h}><span className="t">{a}</span><span className="d">{b}</span></Link>)}</div>
+        <div className="starts">{GROUND.map(([h, a, b, ic]) => <Link key={h} href={h}><Icon name={ic} size={26} /><span className="t">{a}</span><span className="d">{b}</span></Link>)}</div>
       </section>
     </>
   );

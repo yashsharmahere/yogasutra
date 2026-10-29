@@ -9,7 +9,7 @@ export const metadata = { title: "Patañjali", description: "What the tradition 
 export default function Patanjali() {
   return (
     <>
-      <div className="pat-hero">
+      <div className="pat-hero weave-bg">
         <div className="pat-copy">
           <p className="eyebrow">Patañjali</p>
           <h1 className="pat-h">The name belongs to the text more than to a biography.</h1>
