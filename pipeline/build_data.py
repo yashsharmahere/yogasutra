@@ -36,6 +36,7 @@ for line in (ROOT / "data/vivekananda_1896.tsv").read_text(encoding="utf-8").spl
     if line.strip():
         k, v = line.split("\t", 1); vivek[k] = v.strip()
 vv_extra = json.loads((ROOT / "data/vivekananda_extra.json").read_text(encoding="utf-8"))
+vv_map = json.loads((ROOT / "data/vivekananda_mapping.json").read_text(encoding="utf-8"))["by_ours"]
 assert set(sanskrit) - set(vivek) == {"4.16"} and not (set(vivek) - set(sanskrit)), set(sanskrit) ^ set(vivek)
 
 # Johnston is kept exactly as Project Gutenberg prints it; suspected transcription errors are flagged, not changed.
@@ -178,7 +179,7 @@ for k in sanskrit:
     p, n = k.split(".")
     sutras.append({"id": k, "pada": int(p), "n": int(n), "group": group_of[k], "iast": sanskrit[k],
                    "deva": deva(sanskrit[k]), "en": english[k], "jn": johnston[k],
-                   **({"vv": vivek[k]} if k in vivek else {}), **({"vvnote": vv_extra["notes"][k]} if k in vv_extra["notes"] else {}),
+                   **({"vv": vivek[k]} if k in vivek else {}), **({"vvmap": {"ref": vv_map[k]["vv"], "how": vv_map[k]["how"]}} if k in vv_map else {}), **({"vvnote": vv_extra["notes"][k]} if k in vv_extra["notes"] else {}),
                    **({"jnote": JOHNSTON_NOTES[k]} if k in JOHNSTON_NOTES else {}), "concepts": tags.get(k, [])})
 
 src_meta = json.loads((ROOT / "data/johnston_source.json").read_text())

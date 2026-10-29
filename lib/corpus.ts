@@ -1,6 +1,6 @@
 import corpus from "@/data/corpus.json";
 
-export type Sutra = { id: string; pada: number; n: number; group: number; iast: string; deva: string; en: string; jn: string; vv?: string; jnote?: string; vvnote?: string; concepts: string[] };
+export type Sutra = { id: string; pada: number; n: number; group: number; iast: string; deva: string; en: string; jn: string; vv?: string; jnote?: string; vvnote?: string; vvmap?: { ref: string; how: string }; concepts: string[] };
 export type Concept = { id: string; iast: string; deva: string; en: string; woods: string; kind: string; pattern: string; gloss: string; sutras: string[] };
 export type Group = { id: number; pada: number; range: string; heading: string; summary: string; sutras: string[] };
 

@@ -36,7 +36,7 @@ Claude is given the full edition (195 sūtras, three translations) in the prompt
 
 ## Known open items
 1. Johnston 4.4 ("the Boston of the feeling of selfhood") unverified; the IA scan was unreadable there.
-2. Vivekananda mapping for 3.23–3.56 and 4.17–4.33 follows the offset logic above and has not been checked pair by pair. A PDF edition (Samadhi Yoga Ashram repack, 56 sūtras in Book 3) shows ~40% wording differences from the Complete Works text, so it is a revised printing, not the 1896 text.
+2. ~~Vivekananda mapping unverified~~ Done: all 194 matched aphorisms checked against the Devanagari on his page; 159 identical, 35 spelling-only; his 3.22 and our 4.16 are the only unmatched. See `pipeline/data/vivekananda_mapping.json`. A PDF edition (Samadhi Yoga Ashram repack, 56 sūtras in Book 3) shows ~40% wording differences from the Complete Works text, so it is a revised printing, not the 1896 text.
 3. Ask answers from the first test run were not saved; re-run all 30 to store text.
 4. Audio: deferred. VedAnvaya uses a permissioned recording; draft (never send) a permission email to the recording's owner first.
 5. Not built: word-by-word glosses, Vyāsa commentary, per-sūtra URLs (hash routing now).

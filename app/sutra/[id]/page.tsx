@@ -42,7 +42,8 @@ export default async function SutraPage({ params }: { params: Promise<{ id: stri
         <div className="layer"><div className="lh"><span>English · Vivekananda</span><Grade g="source" /></div><div>{s.vv ?? <i>{D.vvExtra.gap.note}</i>}{s.vvnote && <span className="flag">Transcription note: {s.vvnote}</span>}
           {s.id === "3.21" && <span className="flag">{D.vvExtra.extra.note} His 3.22: “{D.vvExtra.extra.text}” From here his third-pāda numbers run one higher.</span>}
           {s.id === "4.15" && <span className="flag">{D.vvExtra.gap.note}</span>}
-          <p className="prov">Swami Vivekananda, <i>Raja Yoga</i> (New York, 1896), aphorisms as printed in <i>The Complete Works</i>, vol. 1. His commentary is not reproduced. Matched to this edition by the Sanskrit printed beside each aphorism.</p></div></div>
+          <p className="prov">Swami Vivekananda, <i>Raja Yoga</i> (New York, 1896), aphorisms as printed in <i>The Complete Works</i>, vol. 1. His commentary is not reproduced. Matched to this edition by the Sanskrit printed beside each aphorism.</p>
+          {s.vvmap && <p className="prov"><span className="grade g-derived">Mapping verified</span> His aphorism {s.vvmap.ref}. {s.vvmap.how}.</p>}</div></div>
         <div className="layer"><div className="lh"><span>Group</span><Grade g="source" /></div><div><b style={{ fontWeight: 500 }}>{g.heading}</b> <span className="mono muted">{g.range}</span><p className="muted" style={{ fontSize: "var(--s-2)" }}>{g.summary}</p><p className="prov">Woods&apos; own grouping and heading.</p></div></div>
         <div className="layer"><div className="lh"><span>Terms</span><Grade g="derived" /></div><div>
           {terms.length ? terms.map((c) => <Link key={c.id} className="chip" href={`/concepts/${c.id}`}><span className="iast">{c.iast}</span><small>{c.en}</small></Link>) : <span className="muted">No indexed terms.</span>}
