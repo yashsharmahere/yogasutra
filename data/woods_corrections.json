@@ -1,0 +1,387 @@
+{
+ "source": "Internet Archive item yogasystemofpata00wooduoft (University of Toronto copy), OCR text, section 'Translation of the Yoga-sutras without the Comment or the Explanation'",
+ "method": "Each sūtra's OCR text was compared with the cleaned text by lowercase letters only (a-z). 159 of 195 were identical. The 36 that differed were read by hand and every difference is listed here. The comparison ignores capitals, punctuation and spacing, so it cannot show those; they are covered by the general rules below.",
+ "verified_identical": 159,
+ "read_by_hand": 36,
+ "general_rules": [
+  "Each sūtra ends with a full stop here. The printed group layout ends sūtras with commas or semicolons, which the OCR keeps.",
+  "Line-break hyphens are closed up (\"mind- stuff\" becomes \"mind-stuff\"); hyphens that belong to Woods' compounds are kept.",
+  "Nothing was added to Woods' wording; square brackets are his own."
+ ],
+ "limits": [
+  "This checks the cleaned text against the OCR, not against the printed page. An error that the OCR and the cleaned text share would not show here.",
+  "Where OCR dropped a diacritic (Icvara for Içvara), the restoration follows Woods' own spelling elsewhere in the book."
+ ],
+ "entries": [
+  {
+   "id": "1.13",
+   "changes": [
+    {
+     "from": "Translation of the Yoga-sutras",
+     "to": "(removed)",
+     "kind": "page-furniture"
+    }
+   ]
+  },
+  {
+   "id": "1.23",
+   "changes": [
+    {
+     "from": "Icvara",
+     "to": "Içvara",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "1.24",
+   "changes": [
+    {
+     "from": "Icvara",
+     "to": "Içvara",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "1.25",
+   "changes": [
+    {
+     "from": "Icvara",
+     "to": "Içvara",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "1.28",
+   "changes": [
+    {
+     "from": "Kepetition",
+     "to": "Repetition",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "1.42",
+   "changes": [
+    {
+     "from": "; [xxxiii",
+     "to": "(removed)",
+     "kind": "page-furniture"
+    }
+   ]
+  },
+  {
+   "id": "1.45",
+   "changes": [
+    {
+     "from": "alinga",
+     "to": "aliṅga",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "2.1",
+   "changes": [
+    {
+     "from": "Icvara",
+     "to": "Içvara",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "2.3",
+   "changes": [
+    {
+     "from": "(avidya)",
+     "to": "(avidyā)",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "2.5",
+   "changes": [
+    {
+     "from": "{avidya)",
+     "to": "(avidyā)",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "2.10",
+   "changes": [
+    {
+     "from": "e (stray letter before the sūtra text)",
+     "to": "(removed)",
+     "kind": "page-furniture"
+    }
+   ]
+  },
+  {
+   "id": "2.14",
+   "changes": [
+    {
+     "from": "All is pain ii. 15. Present and future and past correlations with objects result unavoidably in pain.",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "2.15",
+   "changes": [
+    {
+     "from": "(guna)",
+     "to": "(guṇa)",
+     "kind": "diacritic"
+    },
+    {
+     "from": "There is an escape ii. 16. Only yogins are sensitive to future pain. …",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "2.19",
+   "changes": [
+    {
+     "from": "(guna)",
+     "to": "(guṇa)",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "2.20",
+   "changes": [
+    {
+     "from": "(piddha)",
+     "to": "(çuddha)",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "2.24",
+   "changes": [
+    {
+     "from": "{avidya)",
+     "to": "(avidyā)",
+     "kind": "ocr-error"
+    },
+    {
+     "from": "The escape ii. 25. Positive state of Isolation follows the ending of the correlation.",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "2.29",
+   "changes": [
+    {
+     "from": "First indirect aid : i.",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "2.31",
+   "changes": [
+    {
+     "from": "Second indirect aid : ii. Five observances ii. 32. …",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "2.32",
+   "changes": [
+    {
+     "from": "l9vara",
+     "to": "Içvara",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "2.45",
+   "changes": [
+    {
+     "from": "Icvara",
+     "to": "Içvara",
+     "kind": "diacritic"
+    },
+    {
+     "from": "Third indirect aid: iii.",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "2.47",
+   "changes": [
+    {
+     "from": "[menta",
+     "to": "[mental]",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "2.48",
+   "changes": [
+    {
+     "from": "Fourth indirect aid: iv.",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "2.52",
+   "changes": [
+    {
+     "from": "Fifth indirect aid : v.",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "2.55",
+   "changes": [
+    {
+     "from": "[withdrawa",
+     "to": "[withdrawal]",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "3.1",
+   "changes": [
+    {
+     "from": "Second direct aid : vii. Contemplation iii. 2. …",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "3.2",
+   "changes": [
+    {
+     "from": "Third direct aid : viii. Concentration iii. 3. …",
+     "to": "(removed: the next group's heading)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "3.17",
+   "changes": [
+    {
+     "from": "intended- ohject and presented -idea",
+     "to": "intended-object and presented-idea",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "3.36",
+   "changes": [
+    {
+     "from": "[superna -taste",
+     "to": "[supernal]-taste",
+     "kind": "ocr-error"
+    },
+    {
+     "from": "[supernalJ-smell",
+     "to": "[supernal]-smell",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "3.39",
+   "changes": [
+    {
+     "from": "Udana",
+     "to": "Udāna",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "3.40",
+   "changes": [
+    {
+     "from": "Samana",
+     "to": "Samāna",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "4.13",
+   "changes": [
+    {
+     "from": "(guna)",
+     "to": "(guṇa)",
+     "kind": "diacritic"
+    }
+   ]
+  },
+  {
+   "id": "4.14",
+   "changes": [
+    {
+     "from": "iv. 15. Because, while the [physical] thing remains the same …",
+     "to": "(removed: this is sūtra 4.15, whose marker was misread)",
+     "kind": "group-heading"
+    }
+   ]
+  },
+  {
+   "id": "4.29",
+   "changes": [
+    {
+     "from": "Eain-cloud",
+     "to": "Rain-cloud",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "4.32",
+   "changes": [
+    {
+     "from": "{gum)",
+     "to": "(guṇa)",
+     "kind": "ocr-error"
+    }
+   ]
+  },
+  {
+   "id": "4.34",
+   "changes": [
+    {
+     "from": "I (stray letter after the sūtra)",
+     "to": "(removed)",
+     "kind": "page-furniture"
+    }
+   ]
+  }
+ ]
+}

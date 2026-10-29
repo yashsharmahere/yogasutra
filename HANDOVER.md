@@ -43,3 +43,6 @@ Claude is given the full edition (195 sūtras, three translations) in the prompt
 
 ## Next build
 Move to Next.js with a static page per sūtra (shareable URLs, search-indexable), keep this data pipeline as-is, keep the non-commercial licence notice, and carry over the provenance and test-set features.
+
+## Woods corrections log
+`data/woods_corrections.json` (also in `pipeline/data/`) lists every change from the OCR (Internet Archive `yogasystemofpata00wooduoft`) to the cleaned text; shown at `/corrections`. 159 sūtras identical, 36 read by hand. Limit: checks cleaned text against the OCR, not the printed page.
