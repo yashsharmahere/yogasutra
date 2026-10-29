@@ -532,3 +532,6 @@ html,body{overflow-x:clip}
 .hero-art{width:min(50vw,660px)}
 .hero2 .lede2{max-width:44ch}
 @media (max-width:900px){.hero-art{width:130vw;opacity:.32}}
+.pada-art{color:var(--indigo);filter:drop-shadow(0 0 10px var(--glow));margin-bottom:var(--s-3)}
+.pada-art path{fill:currentColor}
+:root[data-theme="light"] .pada-art{filter:none}
