@@ -1,5 +1,4 @@
 import Link from "next/link";
-import PatanjaliFigure from "@/components/PatanjaliFigure";
 import ThreadServer from "@/components/ThreadServer";
 import { Grade } from "@/components/Bits";
 import { PADAS, S } from "@/lib/corpus";
@@ -21,8 +20,9 @@ export default function Patanjali() {
           </p>
         </div>
         <figure className="pat-figure">
-          <PatanjaliFigure />
-          <figcaption className="cite">Patañjali in his traditional form, drawn for this site. No portrait survives, so this is an image and not a likeness.</figcaption>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="pat-img" src="/patanjali.webp" width={994} height={1070} alt="Patañjali shown in the traditional form: seated with hands in prayer, a crown of seven cobra hoods behind him, his lower body coiled as a serpent." />
+          <figcaption className="cite">Patañjali in his traditional form, as an AI-generated image. No portrait survives, so this is an imagining and not a likeness.</figcaption>
         </figure>
       </div>
 

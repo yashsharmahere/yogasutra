@@ -545,3 +545,8 @@ html,body{overflow-x:clip}
 .pada-range .range{font-family:var(--f-mono);color:var(--indigo);font-size:var(--s-2);letter-spacing:.02em}
 .pada-range .range i{font-style:normal;color:var(--ink-3);margin:0 .25em}
 .pada-range .cnt{font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3)}
+
+/* Patañjali image: bronze figure, bottom dissolves into the page */
+.pat-figure{max-width:460px}
+.pat-img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 30px var(--glow));-webkit-mask-image:linear-gradient(#000 78%,transparent 99%);mask-image:linear-gradient(#000 78%,transparent 99%)}
+:root[data-theme="light"] .pat-img{filter:drop-shadow(0 8px 18px rgba(29,27,23,.28))}
