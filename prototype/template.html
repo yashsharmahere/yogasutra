@@ -731,25 +731,25 @@ function scoreAnswer(test, r){
   // A flagged term inside a correct refusal is a denial ("the text never mentions…"), so it is not flagged.
   if (forbidHit.length && !(status === "not_in_text" && test.type !== "cite")) return {...base, outcome:"review", why:`Uses a flagged term: ${forbidHit.join(", ")}`};
   if (struck || bad.length) return {...base, outcome:"review", why: struck ? `${struck} sentence(s) with no valid citation` : `Unknown citation: ${bad.join(", ")}`};
-  if (test.type === "absent") return status === "not_in_text" ? {...base, outcome:"refused"} : {...base, outcome:"review", why:"Answered a question the text does not address"};
+  if (test.type === "absent") return status === "not_in_text" ? {...base, outcome:"refused"} : {...base, outcome:"review", why:"Answered a question this edition gives no sufficient basis for"};
   if (test.type === "partial") return (goldHit.length || status === "not_in_text") ? {...base, outcome: status==="not_in_text" ? "refused" : "ok"} : {...base, outcome:"missed", why:"Did not cite the nearest sūtras"};
-  if (status === "not_in_text") return {...base, outcome:"missed", why:"Said the text does not address it"};
+  if (status === "not_in_text") return {...base, outcome:"missed", why:"Declined a question this edition does answer"};
   return goldHit.length ? {...base, outcome:"ok"} : {...base, outcome:"missed", why:"Cited none of the expected sūtras"};
 }
-const OUT = {ok:["out-ok","Acceptable"], refused:["out-ref","Correct refusal"], missed:["out-miss","Missed"], review:["out-rev","Needs review"]};
+const OUT = {ok:["out-ok","Acceptable"], refused:["out-ref","Correctly declined"], missed:["out-miss","Missed"], review:["out-rev","Needs review"]};
 function outPill(o){ return o ? `<span class="out ${OUT[o][0]}">${OUT[o][1]}</span>` : `<span class="out out-none">Not run</span>`; }
 function runSummary(run){
   if (!run) return runLoaded ? "The test set has not been run yet." : "Loading the latest run…";
   const c = k => run.rows.filter(x => x.outcome === k).length;
   const avg = run.rows.length ? (run.rows.reduce((n,x) => n + (x.cited||[]).length, 0) / run.rows.length).toFixed(1) : 0;
-  return `Latest run, ${new Date(run.at).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})}: ${c("ok")+c("refused")} of ${run.rows.length} acceptable (${c("ok")} answered, ${c("refused")} correctly refused), ${c("missed")} missed, ${c("review")} need review. Answers cite ${avg} sūtras on average; the score checks that an expected sūtra is among them, not that every citation is needed.${run.tier?` Model tier: ${esc(run.tier)}.`:""}`;
+  return `Latest run, ${new Date(run.at).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})}: ${c("ok")+c("refused")} of ${run.rows.length} acceptable (${c("ok")} answered, ${c("refused")} correctly declined), ${c("missed")} missed, ${c("review")} need review. Answers cite ${avg} sūtras on average; the score checks that an expected sūtra is among them, not that every citation is needed.${run.tier?` Model tier: ${esc(run.tier)}.`:""}`;
 }
 function tests(){
   return `<div class="sec-h"><p class="eyebrow">Ask · test set</p><h2>Thirty questions Ask has to get right</h2>
   <p>Each question has the sūtras a good answer must cite. Some ask about things the text never mentions, where the right answer is to say so. The set and its expected sūtras are written for this edition, so they are graded Editorial; each run's answers are Model-assisted.</p></div>
   <div class="layers" style="margin-top:0">
     <div class="layer"><div class="lh"><span>Scoring</span>${grade("derived")}</div><div>
-      <b style="font-weight:500">Acceptable</b> when an answer cites at least one expected sūtra. <b style="font-weight:500">Correct refusal</b> when the text does not cover the question and the answer says so. <b style="font-weight:500">Missed</b> when it cites none of the expected sūtras, or refuses a question the text does answer. <b style="font-weight:500">Needs review</b> when an answer has a sentence with no valid citation, answers what the text does not address, or uses a flagged term; a person then reads it.</div></div>
+      <b style="font-weight:500">Acceptable</b> when an answer cites at least one expected sūtra. <b style="font-weight:500">Correctly declined</b> when this edition gives no sufficient basis for the question and the answer says so. <b style="font-weight:500">Missed</b> when it cites none of the expected sūtras, or refuses a question the text does answer. <b style="font-weight:500">Needs review</b> when an answer has a sentence with no valid citation, answers what the text does not address, or uses a flagged term; a person then reads it.</div></div>
   </div>
   <p id="runsum" class="note-box" style="margin-top:var(--s-5);max-width:68ch">${runSummary(latestRun)}</p>
   <p id="runctl" style="margin-top:var(--s-4)" hidden><button class="btn" type="button" id="runall">Run all 30</button> <button class="btn ghost" type="button" id="runstop" hidden>Stop</button> <span id="runprog" class="thinking" hidden></span></p>
@@ -761,7 +761,7 @@ function testRows(){
   const rows = latestRun ? Object.fromEntries(latestRun.rows.map(x => [x.id, x])) : {};
   return T.map((t,i) => { const x = rows[t.id];
     return `<tr id="row-${t.id}"><td class="mono">${i+1}</td><td>${esc(t.q)}${x && x.why ? `<span class="flag" style="color:var(--ink-3)">${esc(x.why)}</span>`:""}${answerDetails(x)}<button type="button" class="examples-btn runone" data-runone="${t.id}" hidden>Run again</button></td>
-      <td>${t.type==="absent" ? '<span class="muted">Say it isn\'t in the text</span>' : (t.gold||[]).map(g => `<a class="mono" href="${sHref(g)}">${g}</a>`).join(" ")}${t.type==="partial"?' <span class="muted">or say so</span>':""}</td>
+      <td>${t.type==="absent" ? '<span class="muted">Say the edition gives no sufficient basis</span>' : (t.gold||[]).map(g => `<a class="mono" href="${sHref(g)}">${g}</a>`).join(" ")}${t.type==="partial"?' <span class="muted">or say so</span>':""}</td>
       <td>${latestCell(x)}</td></tr>`; }).join("");
 }
 function latestCell(x){
@@ -870,7 +870,7 @@ Rules:
 1. Every sentence must cite at least one sūtra number from this edition that supports it, written like "2.46".
 2. Use only these sūtras. Do not draw on the Vyāsa commentary, other translations, or general knowledge of yoga. If you would need outside knowledge, leave that part out.
 3. Give each sentence a kind: "text" when it restates what the cited sūtras say, "reading" when it interprets or connects them beyond their wording.
-4. If the edition does not address the question, set status to "not_in_text" and use "note" to say in one or two sentences what the text does and does not cover, citing any nearby sūtras in "sentences". Do not answer from outside knowledge.
+4. If this edition does not give a sufficient basis for an answer, set status to "not_in_text". That value means "no sufficient basis in these 195 sūtras", never "absent from yoga". In "note", say in one or two sentences whether the edition addresses the subject directly, only indirectly, or not enough to answer, and cite any nearby sūtras in "sentences". Never claim the subject is absent from other texts, commentaries or traditions, and do not answer from outside knowledge.
 5. At most 6 sentences. Plain English. Sanskrit terms in IAST are fine.
 
 Reply with only JSON in this shape:
@@ -921,7 +921,7 @@ function renderAnswer(q, r){
   const notIn = r && r.status === "not_in_text";
   ans.innerHTML = `<div class="answer">
     <div class="meta">${grade("model")}<span>Question: ${esc(q)}</span></div>
-    ${notIn ? `<div class="note-box"><b style="font-weight:500">The text doesn't address this directly.</b> ${esc(r.note||"")}</div>` : (r && r.note ? `<p class="muted">${esc(r.note)}</p>` : "")}
+    ${notIn ? `<div class="note-box"><b style="font-weight:500">This edition doesn't give a sufficient basis for a full answer.</b> ${esc(r.note||"")}</div>` : (r && r.note ? `<p class="muted">${esc(r.note)}</p>` : "")}
     ${html || (notIn ? "" : `<p class="muted">No sentences came back.</p>`)}
     <p class="cite">${all.size} sūtras cited${dropped?` · ${dropped} sentence${dropped>1?"s":""} struck because ${dropped>1?"they cite":"it cites"} nothing in this edition`:""}. Sentences marked Reading interpret beyond the wording. Tap a number to see the sūtra.</p>
     ${all.size ? `<div class="mini">${[...all].sort((a,b)=>S.indexOf(byId[a])-S.indexOf(byId[b])).map(id => `<a href="${sHref(id)}"><span class="mono">${id}</span><span><span class="deva">${esc(byId[id].deva)}</span><br>${woodsHTML(byId[id].en)}<br><span class="jn" style="font-size:var(--s-2)">${esc(byId[id].jn)}</span>${byId[id].vv?`<br><span class="jn" style="font-size:var(--s-2)">${esc(byId[id].vv)}</span>`:""}</span></a>`).join("")}</div>` : ""}
@@ -1052,9 +1052,9 @@ function method(){
       <li>The whole edition is small enough to hand to the model in full, so nothing is pre-filtered. The model sees only the 195 sūtras, all three translations, and the question.</li>
       <li>It must return one citation or more for every sentence. The page checks each citation against the edition. A sentence with no valid citation is shown struck through, not quietly removed.</li>
       <li>Sentences that interpret rather than restate are marked Reading. Where the translations differ in a way that matters, the answer is asked to say so.</li>
-      <li>Questions the text does not reach (diet, for example) are answered with what the text does and does not cover.</li>
+      <li>Questions this edition does not give a sufficient basis for (diet, for example) are answered with what the sūtras do and do not cover. The answer says "no sufficient basis in this edition"; it never claims the subject is absent from yoga or from other texts.</li>
       <li>A <a href="#tests">30-question test set</a> checks all of this. <span id="bench-sum">Loading the latest run…</span></li>
-      <li>The score measures grounding: whether an answer rests on the right sūtras, or says the text is silent. It does not grade how well an answer is written, and it does not penalise extra citations. Every answer can be read on the test page.</li>
+      <li>The score measures grounding: whether an answer rests on the right sūtras, or says the edition gives no sufficient basis. It does not grade how well an answer is written, and it does not penalise extra citations. Every answer can be read on the test page.</li>
     </ul>
     <h3>Consulted, not reproduced</h3>
     <p>These were used to check the edition. None of their text is shown.</p>
