@@ -487,3 +487,48 @@ footer .wrap>span+span{padding-left:var(--s-7);border-left:1px solid var(--rule)
 .num-bar{display:flex;justify-content:space-between;align-items:center;gap:var(--s-4);margin-bottom:var(--s-4)}
 .num-bar .s-num{line-height:1}
 @media (min-width:981px){.sutra-top .num-bar{margin-right:calc(var(--s-4) - var(--gutter))}}
+
+/* Home hero illustration */
+.hero2{overflow:visible}
+.hero-art{position:absolute;z-index:0;top:-120px;right:calc(-1 * max(16px, (100vw - 1080px) / 2));width:min(58vw,720px);height:auto;overflow:visible;pointer-events:none}
+.hero2>*:not(.hero-art):not(.hero-glyph){position:relative;z-index:1}
+.ht-guide path,.ht-guide circle{fill:none;stroke:var(--ink-3);stroke-width:.8;stroke-dasharray:2 5;opacity:.35}
+.ht-guide .ht-dot{fill:var(--indigo);stroke:none;opacity:.5}
+.ht-glowlayer path{fill:none;stroke:var(--indigo);stroke-width:5;opacity:.38}
+.ht-line path{fill:none;stroke:var(--indigo);stroke-width:1.6;stroke-linecap:round}
+.ht-line .ht-echo{stroke-width:.9;opacity:.6}
+.ht-line .ht-fan{stroke-width:1.1}
+.ht-draw{stroke-dasharray:1;stroke-dashoffset:1;animation:ht-draw 2.6s cubic-bezier(.45,.05,.2,1) .2s forwards}
+.ht-fan.ht-draw{animation-duration:2.2s}
+@keyframes ht-draw{to{stroke-dashoffset:0}}
+.ht-nodes circle{fill:var(--indigo)}
+.ht-nodes>circle{opacity:0;animation:ht-fade .8s ease forwards}
+.ht-knot{opacity:0;animation:ht-fade 1s ease forwards}
+.ht-knot-core{fill:#FFF3D6}
+:root[data-theme="light"] .ht-knot-core{fill:var(--indigo)}
+.ht-label{opacity:0;animation:ht-fade 1.2s ease 2.6s forwards}
+.ht-deva{font-family:var(--f-deva);font-size:22px;fill:var(--indigo)}
+.ht-cap{font-family:var(--f-ui);font-size:11px;letter-spacing:.18em;fill:var(--ink-2)}
+.ht-rule{fill:none;stroke:var(--indigo);stroke-width:.9;opacity:.7}
+.ht-rule-dot{fill:var(--indigo)}
+.ht-bead{fill:#FFF3D6;filter:drop-shadow(0 0 6px var(--indigo)) drop-shadow(0 0 14px var(--glow))}
+@keyframes ht-fade{to{opacity:1}}
+@keyframes ht-pulse{0%,100%{opacity:1}50%{opacity:.55}}
+.ht-knot .ht-knot-core{animation:ht-pulse 4s ease-in-out 3.5s infinite}
+@media (max-width:900px){
+  .hero-art{width:130vw;right:-62vw;top:-40px;opacity:.42}
+  .ht-label{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .ht-draw{animation:none;stroke-dashoffset:0}
+  .ht-nodes>circle,.ht-knot,.ht-label{animation:none;opacity:1}
+  .ht-knot .ht-knot-core{animation:none}
+}
+.hero2>.hero-art{position:absolute;max-width:none;z-index:0}
+html,body{overflow-x:clip}
+.hero2.weave-bg::before{opacity:.6}
+.ht-nodes .ht-halo{fill:url(#ht-knot)}
+.ht-line .ht-fan{stroke:url(#ht-fade)}
+.hero-art{width:min(50vw,660px)}
+.hero2 .lede2{max-width:44ch}
+@media (max-width:900px){.hero-art{width:130vw;opacity:.32}}

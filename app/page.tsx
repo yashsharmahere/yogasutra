@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PADAS, S, C, D, byId, cById } from "@/lib/corpus";
 import { Woods } from "@/components/Bits";
 import Icon, { Ornament } from "@/components/Icons";
+import HeroThread from "@/components/HeroThread";
 import PullServer from "@/components/PullServer";
 
 const GROUND = [["/sutra/1-1", "Read from 1.1", "Sanskrit, transliteration and three translations, grouped under Woods' own headings.", "read"], ["/concepts/samadhi", "Follow samādhi", "Concentration, traced through every sūtra whose Sanskrit names it.", "samadhi"], ["/sutra/2-29", "The eight limbs", "2.29 lists them; the following 34 sūtras take them one by one.", "limb"], ["/concepts/klesa", "The five afflictions", "What troubles the mind, and the order in which the text says they arise.", "affliction"], ["/gita", "Read it beside the Gītā", "Where the Bhagavad Gītā uses the same words or teaches the same thing, each link read and typed.", "gita"], ["/visuals", "See the structure", "The eight limbs, the afflictions, the ladder of concentration, drawn from the sūtras themselves.", "structure"], ["/patanjali", "Meet Patañjali", "What the tradition says, and what scholars can say with confidence.", "serpent"], ["/tests", "How Ask is tested", "Thirty questions with the sūtras a good answer must cite.", "test"]];
@@ -11,7 +12,7 @@ export default function Home() {
   return (
     <>
       <section className="hero2 weave-bg">
-        <div className="hero-glyph" aria-hidden="true"><span className="deva">सूत्र</span><small>sūtra · a thread</small></div>
+        <HeroThread />
         <p className="eyebrow">Patañjali · Yoga Sūtra</p>
         <h1>One text.<br /><i>One thread.</i></h1>
         <p className="lede2">The word <i>sūtra</i> means thread. Here are all {S.length} of them in Sanskrit with three public-domain translations, joined by the words they share. Every layer says where it came from.</p>
