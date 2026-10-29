@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { S, C, G, D, PADAS, byId, cById, slug, unslug } from "@/lib/corpus";
 import { Grade, Woods, SLink } from "@/components/Bits";
+import { Plate } from "@/components/Plate";
+import { platesFor } from "@/lib/plates";
+import ThreadServer from "@/components/ThreadServer";
 
 export const generateStaticParams = () => S.map((s) => ({ id: slug(s.id) }));
 export const dynamicParams = false;
@@ -54,6 +57,8 @@ export default async function SutraPage({ params }: { params: Promise<{ id: stri
           {gl.map((l) => <p key={l.bg} style={{ marginBottom: ".6rem" }}><Link href="/gita">Gītā {l.bg}</Link> <span className="muted">({D.gita.kinds[l.kind].split(":")[0]})</span> {l.note}</p>)}
           <p className="prov">Found by search, kept after being read by hand.</p></div></div>}
       </div>
+      {platesFor(s.id).length > 0 && <section style={{ marginTop: "var(--s-7)" }}><p className="eyebrow">In a diagram</p>{platesFor(s.id).map((k: string) => <Plate key={k} k={k} compact />)}</section>}
+      <section style={{ marginTop: "var(--s-7)" }}><p className="eyebrow">Where it sits on the thread</p><ThreadServer here={s.id} on={related} /></section>
       <nav className="prefs" style={{ marginTop: "var(--s-7)", justifyContent: "space-between" }}>
         {prev ? <SLink id={prev.id}>← {prev.id}</SLink> : <span />}{next ? <SLink id={next.id}>{next.id} →</SLink> : <span />}
       </nav>

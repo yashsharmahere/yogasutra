@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="top"><div className="wrap top-in">
           <Link className="mark" href="/"><span className="deva">एकतान</span><span className="en">Ekatāna</span></Link>
           <nav className="main">
-            <Link href="/read/1">Read</Link><Link href="/concepts">Concepts</Link><Link href="/gita">Gītā</Link><Link href="/search">Search</Link><Link href="/method">Method</Link>
+            <Link href="/read/1">Read</Link><Link href="/concepts">Concepts</Link><Link href="/gita">Gītā</Link><Link href="/visuals">Visualize</Link><Link href="/graph">Graph</Link><Link href="/search">Search</Link><Link href="/method">Method</Link>
           </nav>
         </div></header>
         <main id="main"><div className="wrap" id="view">{children}</div></main>

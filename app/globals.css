@@ -241,7 +241,7 @@ th{font-family:var(--f-ui);font-weight:500;font-size:var(--s-1);color:var(--ink-
 .examples-btn{display:block;margin-top:.4rem;font-family:var(--f-ui);font-size:var(--s-1);background:transparent;border:1px solid var(--rule);color:var(--ink-2);padding:.15rem .55rem;border-radius:999px;cursor:pointer}
 .examples-btn:hover{border-color:var(--indigo);color:var(--ink)}
 .out-ok{color:var(--g-derived)} .out-ref{color:var(--indigo)} .out-miss{color:var(--g-editorial)} .out-rev{color:var(--lac)} .out-none{color:var(--ink-3)}
-.plate{display:grid;gap:var(--s-3);margin-top:var(--s-7)}
+.plate{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s-3);margin-top:var(--s-7)}
 .plate-h{display:flex;gap:var(--s-4);align-items:baseline;flex-wrap:wrap}
 .plate-h h3{font-size:var(--s-5)}
 .dg-wrap{overflow-x:auto;border:1px solid var(--rule);background:var(--card);border-radius:var(--radius)}

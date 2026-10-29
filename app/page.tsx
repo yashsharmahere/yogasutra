@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PADAS, S, C } from "@/lib/corpus";
+import ThreadServer from "@/components/ThreadServer";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <p className="col muted" style={{ fontSize: "var(--s-4)" }}>
         The {S.length} sūtras in Sanskrit, with three public-domain English translations side by side, an index of {C.length} terms, and links to the Bhagavad Gītā. Every layer says where it came from.
       </p>
+      <section style={{ marginTop: "var(--s-6)" }}><ThreadServer /></section>
       <section>
         <div className="eyebrow" style={{ marginBottom: "var(--s-4)" }}>Four chapters</div>
         <div className="rows">
