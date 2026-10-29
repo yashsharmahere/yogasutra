@@ -22,7 +22,7 @@ export default function Patanjali() {
         <figure className="pat-figure">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="pat-img" src="/patanjali.webp" width={994} height={1070} alt="Patañjali shown in the traditional form: seated with hands in prayer, a crown of seven cobra hoods behind him, his lower body coiled as a serpent." />
-          <figcaption className="cite">An AI-generated image after the Patañjali statue at the Isha Yoga Center, Coimbatore. No portrait of Patañjali survives, so this is an imagining and not a likeness.</figcaption>
+          <figcaption className="cite">An AI-generated image after the Patañjali statue at the Isha Yoga Center, Coimbatore, India. No portrait of Patañjali survives, so this is an imagining and not a likeness.</figcaption>
         </figure>
       </div>
 
