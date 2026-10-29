@@ -48,11 +48,11 @@ export default function Home() {
           {PADAS.map((p) => (
             <Link key={p.n} className="pada-card" href={`/read/${p.n}`}>
               <PadaArt n={p.n} />
-              <span className="mono pada-n">{p.n}</span>
               <span className="r-deva" style={{ display: "block", fontSize: "var(--s-6)" }}>{p.deva}</span>
-              <span className="iast" style={{ display: "block", color: "var(--ink-2)" }}>{p.name} · {p.woods}</span>
-              <span className="mini-thread" aria-hidden="true">{S.filter((s) => s.pada === p.n).map((s) => <i key={s.id} style={{ height: 6 + Math.min(s.concepts.length, 5) * 4 }} />)}</span>
-              <span className="muted" style={{ fontFamily: "var(--f-ui)", fontSize: "var(--s-1)" }}>{S.filter((s) => s.pada === p.n).length} sūtras</span>
+              <span className="iast pada-sub" style={{ display: "block", color: "var(--ink-2)" }}>{p.name} · {p.woods}</span>
+              {(() => { const ss = S.filter((s) => s.pada === p.n); return (
+                <span className="pada-range"><span className="range">{ss[0].id.replace("-", ".")}<i>–</i>{ss[ss.length - 1].id.replace("-", ".")}</span><span className="cnt">{ss.length} sūtras</span></span>
+              ); })()}
             </Link>
           ))}
         </div>

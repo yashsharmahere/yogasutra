@@ -535,3 +535,13 @@ html,body{overflow-x:clip}
 .pada-art{color:var(--indigo);filter:drop-shadow(0 0 10px var(--glow));margin-bottom:var(--s-3)}
 .pada-art path{fill:currentColor}
 :root[data-theme="light"] .pada-art{filter:none}
+
+/* chapter cards: emblem box, two-line subtitle, sūtra range */
+.pada-art{display:block;margin-bottom:0}
+.pada-card>.pada-art{height:56px}
+.pada-sub{min-height:0}
+@media (min-width:640px){.pada-sub{min-height:calc(2 * 1.6em)}}
+.pada-range{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;margin-top:.4rem;padding-top:.7rem;border-top:1px solid var(--rule)}
+.pada-range .range{font-family:var(--f-mono);color:var(--indigo);font-size:var(--s-2);letter-spacing:.02em}
+.pada-range .range i{font-style:normal;color:var(--ink-3);margin:0 .25em}
+.pada-range .cnt{font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3)}
