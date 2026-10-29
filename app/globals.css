@@ -486,3 +486,4 @@ footer .wrap>span+span{padding-left:var(--s-7);border-left:1px solid var(--rule)
 .sutra-nav .off{color:var(--ink-3);opacity:.5}
 .num-bar{display:flex;justify-content:space-between;align-items:center;gap:var(--s-4);margin-bottom:var(--s-4)}
 .num-bar .s-num{line-height:1}
+@media (min-width:981px){.sutra-top .num-bar{margin-right:calc(var(--s-4) - var(--gutter))}}
