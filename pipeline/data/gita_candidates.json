@@ -1,0 +1,2888 @@
+[
+{
+"ys": "1.33",
+"bg": "2.14",
+"terms": [
+"duhkha"
+],
+"grams": [
+"haduḥkha",
+"khaduḥkh",
+"sukhaduḥ",
+"ukhaduḥk"
+],
+"score": 6
+},
+{
+"ys": "1.33",
+"bg": "15.5",
+"terms": [
+"duhkha"
+],
+"grams": [
+"haduḥkha",
+"khaduḥkh",
+"sukhaduḥ",
+"ukhaduḥk"
+],
+"score": 6
+},
+{
+"ys": "2.15",
+"bg": "14.18",
+"terms": [
+"guna",
+"vrtti"
+],
+"grams": [
+"guṇavṛtt",
+"uṇavṛtti"
+],
+"score": 6
+},
+{
+"ys": "1.33",
+"bg": "2.38",
+"terms": [
+"duhkha"
+],
+"grams": [
+"khaduḥkh",
+"sukhaduḥ",
+"ukhaduḥk"
+],
+"score": 5
+},
+{
+"ys": "1.33",
+"bg": "6.7",
+"terms": [
+"duhkha"
+],
+"grams": [
+"khaduḥkh",
+"sukhaduḥ",
+"ukhaduḥk"
+],
+"score": 5
+},
+{
+"ys": "1.33",
+"bg": "12.18",
+"terms": [
+"duhkha"
+],
+"grams": [
+"khaduḥkh",
+"sukhaduḥ",
+"ukhaduḥk"
+],
+"score": 5
+},
+{
+"ys": "1.33",
+"bg": "13.21",
+"terms": [
+"duhkha"
+],
+"grams": [
+"khaduḥkh",
+"sukhaduḥ",
+"ukhaduḥk"
+],
+"score": 5
+},
+{
+"ys": "2.15",
+"bg": "14.20",
+"terms": [
+"duhkha",
+"guna"
+],
+"grams": [
+"duḥkhair"
+],
+"score": 5
+},
+{
+"ys": "2.29",
+"bg": "4.29",
+"terms": [
+"prana"
+],
+"grams": [
+"prāṇāyām",
+"rāṇāyāma",
+"āṇāyāmap"
+],
+"score": 5
+},
+{
+"ys": "2.29",
+"bg": "8.12",
+"terms": [
+"dharana",
+"prana"
+],
+"grams": [
+"adhāraṇā"
+],
+"score": 5
+},
+{
+"ys": "2.30",
+"bg": "17.14",
+"terms": [
+"ahimsa"
+],
+"grams": [
+"ahmacary",
+"brahmaca",
+"rahmacar"
+],
+"score": 5
+},
+{
+"ys": "1.12",
+"bg": "6.35",
+"terms": [
+"abhyasa",
+"vairagya"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.15",
+"bg": "13.9",
+"terms": [
+"vairagya"
+],
+"grams": [
+"airāgyam",
+"vairāgya"
+],
+"score": 4
+},
+{
+"ys": "1.16",
+"bg": "13.20",
+"terms": [
+"guna",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.16",
+"bg": "13.22",
+"terms": [
+"guna",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.16",
+"bg": "13.24",
+"terms": [
+"guna",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.20",
+"bg": "2.54",
+"terms": [
+"prajna",
+"samadhi"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.24",
+"bg": "3.4",
+"terms": [
+"karma",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.24",
+"bg": "8.1",
+"terms": [
+"karma",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.24",
+"bg": "11.3",
+"terms": [
+"isvara",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.24",
+"bg": "13.23",
+"terms": [
+"isvara",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.24",
+"bg": "15.17",
+"terms": [
+"isvara",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.24",
+"bg": "18.8",
+"terms": [
+"karma",
+"klesa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.24",
+"bg": "18.43",
+"terms": [
+"isvara",
+"karma"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.30",
+"bg": "14.8",
+"terms": [],
+"grams": [
+"amādālas",
+"mādālasy",
+"pramādāl",
+"ramādāla"
+],
+"score": 4
+},
+{
+"ys": "1.33",
+"bg": "12.13",
+"terms": [
+"duhkha",
+"maitri"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "2.1",
+"bg": "5.29",
+"terms": [
+"isvara",
+"tapas"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "2.12",
+"bg": "18.8",
+"terms": [
+"karma",
+"klesa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "2.32",
+"bg": "5.29",
+"terms": [
+"isvara",
+"tapas"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "2.38",
+"bg": "8.11",
+"terms": [],
+"grams": [
+"ahmacary",
+"brahmaca",
+"hmacarya",
+"rahmacar"
+],
+"score": 4
+},
+{
+"ys": "2.38",
+"bg": "17.14",
+"terms": [],
+"grams": [
+"ahmacary",
+"brahmaca",
+"hmacarya",
+"rahmacar"
+],
+"score": 4
+},
+{
+"ys": "2.44",
+"bg": "17.15",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy",
+"vādhyāyā"
+],
+"score": 4
+},
+{
+"ys": "2.45",
+"bg": "16.14",
+"terms": [
+"isvara",
+"siddhi"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "2.49",
+"bg": "4.29",
+"terms": [
+"prana"
+],
+"grams": [
+"prāṇāyām",
+"rāṇāyāma"
+],
+"score": 4
+},
+{
+"ys": "2.53",
+"bg": "8.12",
+"terms": [
+"dharana",
+"manas"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "3.11",
+"bg": "6.12",
+"terms": [
+"citta",
+"ekagrata"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "3.11",
+"bg": "12.9",
+"terms": [
+"citta",
+"samadhi"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "3.12",
+"bg": "6.12",
+"terms": [
+"citta",
+"ekagrata"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "3.22",
+"bg": "3.6",
+"terms": [
+"karma",
+"samyama"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "3.22",
+"bg": "4.27",
+"terms": [
+"karma",
+"samyama"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "3.49",
+"bg": "15.19",
+"terms": [
+"purusa"
+],
+"grams": [
+"arvabhāv",
+"sarvabhā"
+],
+"score": 4
+},
+{
+"ys": "4.21",
+"bg": "6.19",
+"terms": [
+"citta",
+"smrti"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "4.30",
+"bg": "18.8",
+"terms": [
+"karma",
+"klesa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "4.34",
+"bg": "13.20",
+"terms": [
+"guna",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "4.34",
+"bg": "13.22",
+"terms": [
+"guna",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "4.34",
+"bg": "13.24",
+"terms": [
+"guna",
+"purusa"
+],
+"grams": [],
+"score": 4
+},
+{
+"ys": "1.8",
+"bg": "2.70",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh",
+"ratiṣṭha"
+],
+"score": 3
+},
+{
+"ys": "1.8",
+"bg": "16.8",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh",
+"ratiṣṭha"
+],
+"score": 3
+},
+{
+"ys": "1.15",
+"bg": "18.52",
+"terms": [
+"vairagya"
+],
+"grams": [
+"vairāgya"
+],
+"score": 3
+},
+{
+"ys": "1.19",
+"bg": "13.35",
+"terms": [
+"prakrti"
+],
+"grams": [
+"aprakṛti"
+],
+"score": 3
+},
+{
+"ys": "1.24",
+"bg": "3.28",
+"terms": [
+"karma"
+],
+"grams": [
+"akarmavi"
+],
+"score": 3
+},
+{
+"ys": "1.24",
+"bg": "4.13",
+"terms": [
+"karma"
+],
+"grams": [
+"akarmavi"
+],
+"score": 3
+},
+{
+"ys": "1.27",
+"bg": "7.8",
+"terms": [
+"pranava"
+],
+"grams": [
+"praṇavaḥ"
+],
+"score": 3
+},
+{
+"ys": "1.30",
+"bg": "1.22",
+"terms": [],
+"grams": [
+"avasthit",
+"navasthi",
+"ānavasth"
+],
+"score": 3
+},
+{
+"ys": "1.33",
+"bg": "2.45",
+"terms": [],
+"grams": [
+"uṇyaviṣa",
+"yaviṣayā",
+"ṇyaviṣay"
+],
+"score": 3
+},
+{
+"ys": "1.41",
+"bg": "16.3",
+"terms": [],
+"grams": [
+"abhijāta",
+"bhijātas",
+"hijātasy"
+],
+"score": 3
+},
+{
+"ys": "2.1",
+"bg": "4.28",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy"
+],
+"score": 3
+},
+{
+"ys": "2.1",
+"bg": "16.1",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy"
+],
+"score": 3
+},
+{
+"ys": "2.1",
+"bg": "17.15",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy"
+],
+"score": 3
+},
+{
+"ys": "2.5",
+"bg": "2.65",
+"terms": [
+"duhkha"
+],
+"grams": [
+"duḥkhānā"
+],
+"score": 3
+},
+{
+"ys": "2.5",
+"bg": "13.21",
+"terms": [
+"duhkha"
+],
+"grams": [
+"duḥkhānā"
+],
+"score": 3
+},
+{
+"ys": "2.20",
+"bg": "14.19",
+"terms": [
+"drastr"
+],
+"grams": [
+"ānupaśya"
+],
+"score": 3
+},
+{
+"ys": "2.30",
+"bg": "8.11",
+"terms": [],
+"grams": [
+"ahmacary",
+"brahmaca",
+"rahmacar"
+],
+"score": 3
+},
+{
+"ys": "2.32",
+"bg": "4.28",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy"
+],
+"score": 3
+},
+{
+"ys": "2.32",
+"bg": "16.1",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy"
+],
+"score": 3
+},
+{
+"ys": "2.32",
+"bg": "17.15",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy"
+],
+"score": 3
+},
+{
+"ys": "2.39",
+"bg": "4.21",
+"terms": [],
+"grams": [
+"aparigra",
+"arigraha",
+"parigrah"
+],
+"score": 3
+},
+{
+"ys": "2.39",
+"bg": "6.10",
+"terms": [],
+"grams": [
+"aparigra",
+"arigraha",
+"parigrah"
+],
+"score": 3
+},
+{
+"ys": "2.43",
+"bg": "18.49",
+"terms": [
+"siddhi"
+],
+"grams": [
+"yasiddhi"
+],
+"score": 3
+},
+{
+"ys": "2.44",
+"bg": "4.28",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy"
+],
+"score": 3
+},
+{
+"ys": "2.44",
+"bg": "16.1",
+"terms": [
+"svadhyaya"
+],
+"grams": [
+"svādhyāy"
+],
+"score": 3
+},
+{
+"ys": "2.45",
+"bg": "2.54",
+"terms": [
+"samadhi"
+],
+"grams": [
+"samādhis"
+],
+"score": 3
+},
+{
+"ys": "2.50",
+"bg": "5.27",
+"terms": [],
+"grams": [
+"bhyantar",
+"hyantara",
+"ābhyanta"
+],
+"score": 3
+},
+{
+"ys": "2.51",
+"bg": "5.27",
+"terms": [],
+"grams": [
+"bhyantar",
+"hyantara",
+"ābhyanta"
+],
+"score": 3
+},
+{
+"ys": "3.1",
+"bg": "6.19",
+"terms": [
+"citta"
+],
+"grams": [
+"cittasya"
+],
+"score": 3
+},
+{
+"ys": "3.11",
+"bg": "6.19",
+"terms": [
+"citta"
+],
+"grams": [
+"cittasya"
+],
+"score": 3
+},
+{
+"ys": "3.12",
+"bg": "6.19",
+"terms": [
+"citta"
+],
+"grams": [
+"cittasya"
+],
+"score": 3
+},
+{
+"ys": "3.32",
+"bg": "13.12",
+"terms": [],
+"grams": [
+"adarśana",
+"darśanam",
+"hadarśan"
+],
+"score": 3
+},
+{
+"ys": "3.37",
+"bg": "2.53",
+"terms": [
+"samadhi"
+],
+"grams": [
+"samādhāv"
+],
+"score": 3
+},
+{
+"ys": "3.38",
+"bg": "6.19",
+"terms": [
+"citta"
+],
+"grams": [
+"cittasya"
+],
+"score": 3
+},
+{
+"ys": "4.2",
+"bg": "7.20",
+"terms": [
+"prakrti"
+],
+"grams": [
+"prakṛtyā"
+],
+"score": 3
+},
+{
+"ys": "4.7",
+"bg": "18.12",
+"terms": [
+"karma"
+],
+"grams": [
+"trividha"
+],
+"score": 3
+},
+{
+"ys": "4.7",
+"bg": "18.18",
+"terms": [
+"karma"
+],
+"grams": [
+"trividha"
+],
+"score": 3
+},
+{
+"ys": "4.17",
+"bg": "6.19",
+"terms": [
+"citta"
+],
+"grams": [
+"cittasya"
+],
+"score": 3
+},
+{
+"ys": "4.18",
+"bg": "2.60",
+"terms": [
+"purusa"
+],
+"grams": [
+"puruṣasy"
+],
+"score": 3
+},
+{
+"ys": "4.29",
+"bg": "18.19",
+"terms": [],
+"grams": [
+"asaṃkhyā",
+"aṃkhyāne",
+"saṃkhyān"
+],
+"score": 3
+},
+{
+"ys": "4.30",
+"bg": "18.45",
+"terms": [
+"karma"
+],
+"grams": [
+"akarmani"
+],
+"score": 3
+},
+{
+"ys": "1.7",
+"bg": "9.2",
+"terms": [],
+"grams": [
+"pratyakṣ",
+"ratyakṣā"
+],
+"score": 2
+},
+{
+"ys": "1.8",
+"bg": "6.38",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "1.10",
+"bg": "18.41",
+"terms": [],
+"grams": [
+"abhāvapr",
+"bhāvapra"
+],
+"score": 2
+},
+{
+"ys": "1.30",
+"bg": "1.27",
+"terms": [],
+"grams": [
+"avasthit",
+"navasthi"
+],
+"score": 2
+},
+{
+"ys": "1.30",
+"bg": "3.34",
+"terms": [],
+"grams": [
+"avasthit",
+"vasthita"
+],
+"score": 2
+},
+{
+"ys": "1.30",
+"bg": "4.41",
+"terms": [],
+"grams": [
+"asaṃśaya",
+"nasaṃśay"
+],
+"score": 2
+},
+{
+"ys": "1.30",
+"bg": "9.4",
+"terms": [],
+"grams": [
+"avasthit",
+"vasthita"
+],
+"score": 2
+},
+{
+"ys": "1.30",
+"bg": "13.29",
+"terms": [],
+"grams": [
+"avasthit",
+"vasthita"
+],
+"score": 2
+},
+{
+"ys": "1.30",
+"bg": "15.11",
+"terms": [],
+"grams": [
+"avasthit",
+"vasthita"
+],
+"score": 2
+},
+{
+"ys": "1.30",
+"bg": "16.24",
+"terms": [],
+"grams": [
+"avasthit",
+"vasthita"
+],
+"score": 2
+},
+{
+"ys": "1.30",
+"bg": "18.10",
+"terms": [],
+"grams": [
+"asaṃśaya",
+"nasaṃśay"
+],
+"score": 2
+},
+{
+"ys": "1.35",
+"bg": "14.12",
+"terms": [],
+"grams": [
+"pravṛtti",
+"ravṛttir"
+],
+"score": 2
+},
+{
+"ys": "1.35",
+"bg": "18.46",
+"terms": [],
+"grams": [
+"pravṛtti",
+"ravṛttir"
+],
+"score": 2
+},
+{
+"ys": "1.41",
+"bg": "16.4",
+"terms": [],
+"grams": [
+"bhijātas",
+"hijātasy"
+],
+"score": 2
+},
+{
+"ys": "2.35",
+"bg": "6.11",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.35",
+"bg": "14.27",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.35",
+"bg": "15.3",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.36",
+"bg": "2.70",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.36",
+"bg": "6.11",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.36",
+"bg": "6.38",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.36",
+"bg": "14.27",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.36",
+"bg": "15.3",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.36",
+"bg": "16.8",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.37",
+"bg": "2.70",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.37",
+"bg": "6.11",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.37",
+"bg": "6.38",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.37",
+"bg": "14.27",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.37",
+"bg": "15.3",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.37",
+"bg": "16.8",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.38",
+"bg": "2.70",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.38",
+"bg": "6.11",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.38",
+"bg": "6.38",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.38",
+"bg": "14.27",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.38",
+"bg": "15.3",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "2.38",
+"bg": "16.8",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "2.39",
+"bg": "18.53",
+"terms": [],
+"grams": [
+"arigraha",
+"parigrah"
+],
+"score": 2
+},
+{
+"ys": "2.41",
+"bg": "6.29",
+"terms": [],
+"grams": [
+"adarśana",
+"madarśan"
+],
+"score": 2
+},
+{
+"ys": "2.43",
+"bg": "3.34",
+"terms": [],
+"grams": [
+"endriyas",
+"yendriya"
+],
+"score": 2
+},
+{
+"ys": "2.43",
+"bg": "18.38",
+"terms": [],
+"grams": [
+"endriyas",
+"yendriya"
+],
+"score": 2
+},
+{
+"ys": "2.54",
+"bg": "2.67",
+"terms": [],
+"grams": [
+"driyāṇāṃ",
+"ndriyāṇā"
+],
+"score": 2
+},
+{
+"ys": "2.54",
+"bg": "10.22",
+"terms": [],
+"grams": [
+"driyāṇāṃ",
+"ndriyāṇā"
+],
+"score": 2
+},
+{
+"ys": "2.55",
+"bg": "2.8",
+"terms": [],
+"grams": [
+"driyāṇām",
+"ndriyāṇā"
+],
+"score": 2
+},
+{
+"ys": "2.55",
+"bg": "4.39",
+"terms": [],
+"grams": [
+"atendriy",
+"yatendri"
+],
+"score": 2
+},
+{
+"ys": "2.55",
+"bg": "5.28",
+"terms": [],
+"grams": [
+"atendriy",
+"yatendri"
+],
+"score": 2
+},
+{
+"ys": "3.31",
+"bg": "13.8",
+"terms": [],
+"grams": [
+"sthairya",
+"thairyam"
+],
+"score": 2
+},
+{
+"ys": "3.32",
+"bg": "11.10",
+"terms": [],
+"grams": [
+"adarśana",
+"darśanam"
+],
+"score": 2
+},
+{
+"ys": "3.49",
+"bg": "18.62",
+"terms": [],
+"grams": [
+"arvabhāv",
+"sarvabhā"
+],
+"score": 2
+},
+{
+"ys": "4.22",
+"bg": "6.43",
+"terms": [],
+"grams": [
+"buddhisa",
+"uddhisaṃ"
+],
+"score": 2
+},
+{
+"ys": "4.25",
+"bg": "8.6",
+"terms": [],
+"grams": [
+"bhāvabhā",
+"hāvabhāv"
+],
+"score": 2
+},
+{
+"ys": "4.25",
+"bg": "10.11",
+"terms": [],
+"grams": [
+"tmabhāva",
+"ātmabhāv"
+],
+"score": 2
+},
+{
+"ys": "4.34",
+"bg": "2.70",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "4.34",
+"bg": "6.11",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "4.34",
+"bg": "6.38",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "4.34",
+"bg": "14.27",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "4.34",
+"bg": "15.3",
+"terms": [],
+"grams": [
+"pratiṣṭh",
+"ratiṣṭhā"
+],
+"score": 2
+},
+{
+"ys": "4.34",
+"bg": "16.8",
+"terms": [],
+"grams": [
+"apratiṣṭ",
+"pratiṣṭh"
+],
+"score": 2
+},
+{
+"ys": "1.8",
+"bg": "2.57",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "1.8",
+"bg": "2.58",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "1.8",
+"bg": "2.61",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "1.8",
+"bg": "2.68",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "1.8",
+"bg": "3.15",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "1.8",
+"bg": "6.11",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "1.8",
+"bg": "14.27",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "1.8",
+"bg": "15.3",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "1.20",
+"bg": "3.31",
+"terms": [],
+"grams": [
+"śraddhāv"
+],
+"score": 1
+},
+{
+"ys": "1.20",
+"bg": "4.39",
+"terms": [],
+"grams": [
+"śraddhāv"
+],
+"score": 1
+},
+{
+"ys": "1.20",
+"bg": "6.47",
+"terms": [],
+"grams": [
+"śraddhāv"
+],
+"score": 1
+},
+{
+"ys": "1.20",
+"bg": "17.13",
+"terms": [],
+"grams": [
+"śraddhāv"
+],
+"score": 1
+},
+{
+"ys": "1.20",
+"bg": "18.71",
+"terms": [],
+"grams": [
+"śraddhāv"
+],
+"score": 1
+},
+{
+"ys": "1.23",
+"bg": "11.44",
+"terms": [],
+"grams": [
+"praṇidhā"
+],
+"score": 1
+},
+{
+"ys": "1.28",
+"bg": "3.9",
+"terms": [],
+"grams": [
+"tadartha"
+],
+"score": 1
+},
+{
+"ys": "1.28",
+"bg": "9.5",
+"terms": [],
+"grams": [
+"abhāvana"
+],
+"score": 1
+},
+{
+"ys": "1.28",
+"bg": "10.15",
+"terms": [],
+"grams": [
+"abhāvana"
+],
+"score": 1
+},
+{
+"ys": "1.29",
+"bg": "13.7",
+"terms": [],
+"grams": [
+"cetanādh"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "1.11",
+"terms": [],
+"grams": [
+"avasthit"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "1.20",
+"terms": [],
+"grams": [
+"avasthit"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "4.23",
+"terms": [],
+"grams": [
+"vasthita"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "6.35",
+"terms": [],
+"grams": [
+"asaṃśaya"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "7.1",
+"terms": [],
+"grams": [
+"asaṃśaya"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "8.7",
+"terms": [],
+"grams": [
+"asaṃśaya"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "16.1",
+"terms": [],
+"grams": [
+"avasthit"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "18.39",
+"terms": [],
+"grams": [
+"yapramād"
+],
+"score": 1
+},
+{
+"ys": "1.30",
+"bg": "18.68",
+"terms": [],
+"grams": [
+"asaṃśaya"
+],
+"score": 1
+},
+{
+"ys": "1.35",
+"bg": "11.31",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "1.35",
+"bg": "14.13",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "1.35",
+"bg": "14.22",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "1.35",
+"bg": "15.4",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "1.35",
+"bg": "16.7",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "1.35",
+"bg": "18.30",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "1.37",
+"bg": "2.56",
+"terms": [],
+"grams": [
+"vītarāga"
+],
+"score": 1
+},
+{
+"ys": "1.37",
+"bg": "4.10",
+"terms": [],
+"grams": [
+"vītarāga"
+],
+"score": 1
+},
+{
+"ys": "1.42",
+"bg": "3.32",
+"terms": [],
+"grams": [
+"ajñānavi"
+],
+"score": 1
+},
+{
+"ys": "1.42",
+"bg": "16.15",
+"terms": [],
+"grams": [
+"ajñānavi"
+],
+"score": 1
+},
+{
+"ys": "1.47",
+"bg": "17.16",
+"terms": [],
+"grams": [
+"prasādaḥ"
+],
+"score": 1
+},
+{
+"ys": "1.49",
+"bg": "2.45",
+"terms": [],
+"grams": [
+"yaviṣayā"
+],
+"score": 1
+},
+{
+"ys": "2.1",
+"bg": "11.44",
+"terms": [],
+"grams": [
+"praṇidhā"
+],
+"score": 1
+},
+{
+"ys": "2.3",
+"bg": "2.64",
+"terms": [],
+"grams": [
+"rāgadveṣ"
+],
+"score": 1
+},
+{
+"ys": "2.3",
+"bg": "3.34",
+"terms": [],
+"grams": [
+"rāgadveṣ"
+],
+"score": 1
+},
+{
+"ys": "2.3",
+"bg": "18.23",
+"terms": [],
+"grams": [
+"rāgadveṣ"
+],
+"score": 1
+},
+{
+"ys": "2.3",
+"bg": "18.51",
+"terms": [],
+"grams": [
+"rāgadveṣ"
+],
+"score": 1
+},
+{
+"ys": "2.18",
+"bg": "14.6",
+"terms": [],
+"grams": [
+"prakāśak"
+],
+"score": 1
+},
+{
+"ys": "2.18",
+"bg": "18.44",
+"terms": [],
+"grams": [
+"yātmakaṃ"
+],
+"score": 1
+},
+{
+"ys": "2.20",
+"bg": "15.10",
+"terms": [],
+"grams": [
+"ānupaśya"
+],
+"score": 1
+},
+{
+"ys": "2.21",
+"bg": "3.9",
+"terms": [],
+"grams": [
+"tadartha"
+],
+"score": 1
+},
+{
+"ys": "2.28",
+"bg": "4.27",
+"terms": [],
+"grams": [
+"jñānadīp"
+],
+"score": 1
+},
+{
+"ys": "2.28",
+"bg": "10.11",
+"terms": [],
+"grams": [
+"jñānadīp"
+],
+"score": 1
+},
+{
+"ys": "2.30",
+"bg": "4.21",
+"terms": [],
+"grams": [
+"parigrah"
+],
+"score": 1
+},
+{
+"ys": "2.30",
+"bg": "6.10",
+"terms": [],
+"grams": [
+"parigrah"
+],
+"score": 1
+},
+{
+"ys": "2.30",
+"bg": "18.53",
+"terms": [],
+"grams": [
+"parigrah"
+],
+"score": 1
+},
+{
+"ys": "2.32",
+"bg": "11.44",
+"terms": [],
+"grams": [
+"praṇidhā"
+],
+"score": 1
+},
+{
+"ys": "2.33",
+"bg": "9.5",
+"terms": [],
+"grams": [
+"abhāvana"
+],
+"score": 1
+},
+{
+"ys": "2.33",
+"bg": "10.15",
+"terms": [],
+"grams": [
+"abhāvana"
+],
+"score": 1
+},
+{
+"ys": "2.34",
+"bg": "9.5",
+"terms": [],
+"grams": [
+"abhāvana"
+],
+"score": 1
+},
+{
+"ys": "2.34",
+"bg": "10.15",
+"terms": [],
+"grams": [
+"abhāvana"
+],
+"score": 1
+},
+{
+"ys": "2.35",
+"bg": "2.57",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.35",
+"bg": "2.58",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.35",
+"bg": "2.61",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.35",
+"bg": "2.68",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.35",
+"bg": "2.70",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.35",
+"bg": "3.15",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.35",
+"bg": "6.38",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.35",
+"bg": "16.8",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.36",
+"bg": "2.57",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.36",
+"bg": "2.58",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.36",
+"bg": "2.61",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.36",
+"bg": "2.68",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.36",
+"bg": "3.15",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.37",
+"bg": "2.57",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.37",
+"bg": "2.58",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.37",
+"bg": "2.61",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.37",
+"bg": "2.68",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.37",
+"bg": "3.15",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.38",
+"bg": "2.57",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.38",
+"bg": "2.58",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.38",
+"bg": "2.61",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.38",
+"bg": "2.68",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.38",
+"bg": "3.15",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "2.41",
+"bg": "3.34",
+"terms": [],
+"grams": [
+"yendriya"
+],
+"score": 1
+},
+{
+"ys": "2.41",
+"bg": "11.10",
+"terms": [],
+"grams": [
+"adarśana"
+],
+"score": 1
+},
+{
+"ys": "2.41",
+"bg": "12.4",
+"terms": [],
+"grams": [
+"yendriya"
+],
+"score": 1
+},
+{
+"ys": "2.41",
+"bg": "13.12",
+"terms": [],
+"grams": [
+"adarśana"
+],
+"score": 1
+},
+{
+"ys": "2.41",
+"bg": "18.38",
+"terms": [],
+"grams": [
+"yendriya"
+],
+"score": 1
+},
+{
+"ys": "2.42",
+"bg": "7.24",
+"terms": [],
+"grams": [
+"anuttama"
+],
+"score": 1
+},
+{
+"ys": "2.43",
+"bg": "12.4",
+"terms": [],
+"grams": [
+"yendriya"
+],
+"score": 1
+},
+{
+"ys": "2.45",
+"bg": "11.44",
+"terms": [],
+"grams": [
+"praṇidhā"
+],
+"score": 1
+},
+{
+"ys": "2.50",
+"bg": "18.19",
+"terms": [],
+"grams": [
+"asaṃkhyā"
+],
+"score": 1
+},
+{
+"ys": "2.50",
+"bg": "18.28",
+"terms": [],
+"grams": [
+"dīrghasū"
+],
+"score": 1
+},
+{
+"ys": "2.54",
+"bg": "2.8",
+"terms": [],
+"grams": [
+"ndriyāṇā"
+],
+"score": 1
+},
+{
+"ys": "2.54",
+"bg": "2.61",
+"terms": [],
+"grams": [
+"endriyāṇ"
+],
+"score": 1
+},
+{
+"ys": "2.54",
+"bg": "3.6",
+"terms": [],
+"grams": [
+"endriyāṇ"
+],
+"score": 1
+},
+{
+"ys": "2.54",
+"bg": "6.24",
+"terms": [],
+"grams": [
+"ivendriy"
+],
+"score": 1
+},
+{
+"ys": "2.55",
+"bg": "2.61",
+"terms": [],
+"grams": [
+"endriyāṇ"
+],
+"score": 1
+},
+{
+"ys": "2.55",
+"bg": "2.67",
+"terms": [],
+"grams": [
+"ndriyāṇā"
+],
+"score": 1
+},
+{
+"ys": "2.55",
+"bg": "3.6",
+"terms": [],
+"grams": [
+"endriyāṇ"
+],
+"score": 1
+},
+{
+"ys": "2.55",
+"bg": "10.22",
+"terms": [],
+"grams": [
+"ndriyāṇā"
+],
+"score": 1
+},
+{
+"ys": "3.7",
+"bg": "4.36",
+"terms": [],
+"grams": [
+"rvebhyaḥ"
+],
+"score": 1
+},
+{
+"ys": "3.9",
+"bg": "1.40",
+"terms": [],
+"grams": [
+"bhibhava"
+],
+"score": 1
+},
+{
+"ys": "3.9",
+"bg": "4.7",
+"terms": [],
+"grams": [
+"yutthāna"
+],
+"score": 1
+},
+{
+"ys": "3.9",
+"bg": "16.12",
+"terms": [],
+"grams": [
+"rodhapar"
+],
+"score": 1
+},
+{
+"ys": "3.10",
+"bg": "2.36",
+"terms": [],
+"grams": [
+"tavāhitā"
+],
+"score": 1
+},
+{
+"ys": "3.10",
+"bg": "6.7",
+"terms": [],
+"grams": [
+"praśānta"
+],
+"score": 1
+},
+{
+"ys": "3.10",
+"bg": "6.27",
+"terms": [],
+"grams": [
+"praśānta"
+],
+"score": 1
+},
+{
+"ys": "3.11",
+"bg": "18.32",
+"terms": [],
+"grams": [
+"sarvārth"
+],
+"score": 1
+},
+{
+"ys": "3.14",
+"bg": "18.66",
+"terms": [],
+"grams": [
+"adharmān"
+],
+"score": 1
+},
+{
+"ys": "3.17",
+"bg": "3.28",
+"terms": [],
+"grams": [
+"avibhāga"
+],
+"score": 1
+},
+{
+"ys": "3.17",
+"bg": "4.13",
+"terms": [],
+"grams": [
+"avibhāga"
+],
+"score": 1
+},
+{
+"ys": "3.17",
+"bg": "5.25",
+"terms": [],
+"grams": [
+"rvabhūta"
+],
+"score": 1
+},
+{
+"ys": "3.17",
+"bg": "6.29",
+"terms": [],
+"grams": [
+"rvabhūta"
+],
+"score": 1
+},
+{
+"ys": "3.17",
+"bg": "6.31",
+"terms": [],
+"grams": [
+"rvabhūta"
+],
+"score": 1
+},
+{
+"ys": "3.17",
+"bg": "12.4",
+"terms": [],
+"grams": [
+"rvabhūta"
+],
+"score": 1
+},
+{
+"ys": "3.18",
+"bg": "18.75",
+"terms": [],
+"grams": [
+"sākṣātka"
+],
+"score": 1
+},
+{
+"ys": "3.32",
+"bg": "6.29",
+"terms": [],
+"grams": [
+"adarśana"
+],
+"score": 1
+},
+{
+"ys": "3.32",
+"bg": "13.9",
+"terms": [],
+"grams": [
+"darśanam"
+],
+"score": 1
+},
+{
+"ys": "3.44",
+"bg": "16.1",
+"terms": [],
+"grams": [
+"attvasaṃ"
+],
+"score": 1
+},
+{
+"ys": "3.47",
+"bg": "16.1",
+"terms": [],
+"grams": [
+"attvasaṃ"
+],
+"score": 1
+},
+{
+"ys": "3.49",
+"bg": "3.32",
+"terms": [],
+"grams": [
+"sarvajñā"
+],
+"score": 1
+},
+{
+"ys": "3.49",
+"bg": "3.40",
+"terms": [],
+"grams": [
+"ādhiṣṭhā"
+],
+"score": 1
+},
+{
+"ys": "3.54",
+"bg": "6.31",
+"terms": [],
+"grams": [
+"sarvathā"
+],
+"score": 1
+},
+{
+"ys": "3.54",
+"bg": "13.24",
+"terms": [],
+"grams": [
+"sarvathā"
+],
+"score": 1
+},
+{
+"ys": "4.3",
+"bg": "11.33",
+"terms": [],
+"grams": [
+"nimittam"
+],
+"score": 1
+},
+{
+"ys": "4.5",
+"bg": "11.31",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "4.5",
+"bg": "14.12",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "4.5",
+"bg": "14.13",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "4.5",
+"bg": "14.22",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "4.5",
+"bg": "15.4",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "4.5",
+"bg": "16.7",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "4.5",
+"bg": "18.30",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "4.5",
+"bg": "18.46",
+"terms": [],
+"grams": [
+"pravṛtti"
+],
+"score": 1
+},
+{
+"ys": "4.7",
+"bg": "16.21",
+"terms": [],
+"grams": [
+"trividha"
+],
+"score": 1
+},
+{
+"ys": "4.7",
+"bg": "17.23",
+"terms": [],
+"grams": [
+"trividha"
+],
+"score": 1
+},
+{
+"ys": "4.7",
+"bg": "18.4",
+"terms": [],
+"grams": [
+"trividha"
+],
+"score": 1
+},
+{
+"ys": "4.7",
+"bg": "18.29",
+"terms": [],
+"grams": [
+"trividha"
+],
+"score": 1
+},
+{
+"ys": "4.7",
+"bg": "18.36",
+"terms": [],
+"grams": [
+"trividha"
+],
+"score": 1
+},
+{
+"ys": "4.12",
+"bg": "1.44",
+"terms": [],
+"grams": [
+"dharmāṇā"
+],
+"score": 1
+},
+{
+"ys": "4.15",
+"bg": "11.13",
+"terms": [],
+"grams": [
+"vibhakta"
+],
+"score": 1
+},
+{
+"ys": "4.15",
+"bg": "13.17",
+"terms": [],
+"grams": [
+"vibhakta"
+],
+"score": 1
+},
+{
+"ys": "4.15",
+"bg": "18.20",
+"terms": [],
+"grams": [
+"vibhakta"
+],
+"score": 1
+},
+{
+"ys": "4.23",
+"bg": "18.32",
+"terms": [],
+"grams": [
+"sarvārth"
+],
+"score": 1
+},
+{
+"ys": "4.25",
+"bg": "4.34",
+"terms": [],
+"grams": [
+"adarśina"
+],
+"score": 1
+},
+{
+"ys": "4.25",
+"bg": "5.18",
+"terms": [],
+"grams": [
+"adarśina"
+],
+"score": 1
+},
+{
+"ys": "4.25",
+"bg": "18.47",
+"terms": [],
+"grams": [
+"vabhāvan"
+],
+"score": 1
+},
+{
+"ys": "4.29",
+"bg": "6.31",
+"terms": [],
+"grams": [
+"sarvathā"
+],
+"score": 1
+},
+{
+"ys": "4.29",
+"bg": "13.24",
+"terms": [],
+"grams": [
+"sarvathā"
+],
+"score": 1
+},
+{
+"ys": "4.34",
+"bg": "2.57",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "4.34",
+"bg": "2.58",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "4.34",
+"bg": "2.61",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "4.34",
+"bg": "2.68",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+},
+{
+"ys": "4.34",
+"bg": "3.15",
+"terms": [],
+"grams": [
+"pratiṣṭh"
+],
+"score": 1
+}
+]

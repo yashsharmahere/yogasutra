@@ -1,0 +1,1126 @@
+<title>Ekatāna</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap">
+<style>
+/* Layout: a reading instrument. One header, a 68ch reading column, and a "thread" strip
+   (one strand per pāda, one knot per sūtra) that recurs as the map of the whole text. */
+:root{
+  --paper:#ECEEE8; --paper-2:#E2E5DE; --card:#F6F7F3; --ink:#1B211F; --ink-2:#4B5450; --ink-3:#737B76; --rule:#C8CDC5;
+  --indigo:#2C3A8E; --indigo-soft:#DADEF0; --lac:#9A2E28; --lac-soft:#F0DCD8;
+  --g-source:#2C3A8E; --g-derived:#36684A; --g-editorial:#85621A; --g-model:#7A3B8C;
+  --f-deva:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif;
+  --f-iast:"Tiro Devanagari Sanskrit","Literata",Georgia,serif;
+  --f-body:"Literata",Georgia,"Times New Roman",serif;
+  --f-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --s-1:.75rem; --s-2:.875rem; --s-3:1rem; --s-4:1.125rem; --s-5:1.375rem; --s-6:1.75rem; --s-7:2.5rem; --s-8:3.5rem;
+  --radius:3px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#12141B; --paper-2:#191C25; --card:#1C1F29; --ink:#E7E5DD; --ink-2:#AEB0B6; --ink-3:#7F828C; --rule:#2D313D;
+  --indigo:#A5B0F4; --indigo-soft:#262C4E; --lac:#EC9086; --lac-soft:#3B2323;
+  --g-source:#A5B0F4; --g-derived:#8CC9A2; --g-editorial:#E0BE70; --g-model:#D3A1E2; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#12141B; --paper-2:#191C25; --card:#1C1F29; --ink:#E7E5DD; --ink-2:#AEB0B6; --ink-3:#7F828C; --rule:#2D313D;
+  --indigo:#A5B0F4; --indigo-soft:#262C4E; --lac:#EC9086; --lac-soft:#3B2323;
+  --g-source:#A5B0F4; --g-derived:#8CC9A2; --g-editorial:#E0BE70; --g-model:#D3A1E2; color-scheme:dark }
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s-3);line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:var(--indigo);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;font-weight:500;line-height:1.2;margin:0}
+p{margin:0}
+.wrap{max-width:1080px;margin:0 auto}
+.col{max-width:68ch}
+.eyebrow{font-family:var(--f-ui);font-size:var(--s-1);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.deva{font-family:var(--f-deva)}
+.iast{font-family:var(--f-iast);font-style:italic}
+.muted{color:var(--ink-2)}
+
+/* Header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+.top-in{display:flex;align-items:center;gap:var(--s-5);padding-block:.75rem;flex-wrap:wrap}
+.mark{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;color:var(--ink)}
+.mark .deva{font-size:1.5rem;line-height:1}
+.mark .en{font-family:var(--f-ui);font-weight:600;font-size:var(--s-3);letter-spacing:.01em}
+nav.main{display:flex;gap:.25rem;flex-wrap:wrap;margin-left:auto;font-family:var(--f-ui);font-size:var(--s-2)}
+nav.main a{color:var(--ink-2);text-decoration:none;padding:.35rem .6rem;border-radius:var(--radius)}
+nav.main a:hover{color:var(--ink);background:var(--paper-2)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--paper-2);font-weight:500}
+
+main{padding-block:var(--s-7) var(--s-8)}
+section+section{margin-top:var(--s-8)}
+
+/* Grade badges */
+.grade{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--f-ui);font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.grade::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:currentColor}
+.g-source{color:var(--g-source)} .g-derived{color:var(--g-derived)} .g-editorial{color:var(--g-editorial)} .g-model{color:var(--g-model)}
+
+/* The thread */
+.thread{display:grid;gap:.9rem}
+.strand{display:grid;grid-template-columns:7.5rem 1fr;align-items:center;gap:var(--s-3)}
+.strand-label{font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-2);line-height:1.3}
+.strand-label b{display:block;color:var(--ink);font-weight:500;font-size:var(--s-2)}
+.knots{position:relative;display:flex;justify-content:space-between;align-items:center;height:34px;min-width:0}
+.knots::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--ink-3)}
+.knot{position:relative;flex:1 1 0;display:flex;justify-content:center;align-items:center;height:100%;text-decoration:none;min-width:0}
+.knot i{display:block;width:3px;height:calc(6px + var(--k) * 4px);background:var(--ink-2);border-radius:2px;transition:background .15s,transform .15s}
+.knot:hover i,.knot:focus-visible i{background:var(--indigo);transform:scaleY(1.25)}
+.knot.on i{background:var(--lac);width:4px}
+.knot.here i{background:var(--indigo);width:5px}
+.thread-cap{font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-2);min-height:2.6em;margin-top:.25rem;padding-left:calc(7.5rem + var(--s-3))}
+.thread-cap .mono{color:var(--ink)}
+@media (max-width:600px){
+  .strand{grid-template-columns:1fr;gap:.2rem}
+  .thread-cap{padding-left:0}
+}
+
+/* Home */
+.hero{display:grid;gap:var(--s-5)}
+.hero h1{font-family:var(--f-body);font-size:clamp(2rem,5vw,3.25rem);font-weight:400;letter-spacing:-.01em;max-width:20ch}
+.hero h1 em{font-family:var(--f-iast)}
+.hero .lede{font-size:var(--s-4);color:var(--ink-2);max-width:60ch}
+.facts{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-6);font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-2)}
+.facts b{font-family:var(--f-mono);font-weight:500;color:var(--ink);font-size:var(--s-5);display:block;line-height:1.1}
+.def{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s-7);align-items:start}
+@media (max-width:820px){.def{grid-template-columns:1fr;gap:var(--s-6)}}
+.big-deva{font-family:var(--f-deva);font-size:clamp(2rem,6vw,3.4rem);line-height:1.35;color:var(--ink)}
+.big-iast{font-family:var(--f-iast);font-style:italic;font-size:var(--s-5);color:var(--ink-2);margin-top:.4rem}
+.woods{font-family:var(--f-body);font-size:var(--s-4);line-height:1.55}
+.woods .br{color:var(--ink-3)}
+.jn{font-family:var(--f-body);color:var(--ink-2)}
+.who{font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3);letter-spacing:.02em;margin-right:.35rem}
+.flag{display:block;font-family:var(--f-ui);font-size:var(--s-1);color:var(--lac);margin-top:.35rem}
+.shelf{display:grid;gap:0;max-width:68ch}
+.shelf div{display:grid;gap:.2rem;padding-block:.8rem;border-bottom:1px solid var(--rule)}
+.shelf b{font-weight:500}
+.shelf span{font-size:var(--s-2);color:var(--ink-2)}
+.rules{counter-reset:r;display:grid;gap:var(--s-3);padding:0;margin:0;list-style:none;max-width:68ch}
+.rules li{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.25rem}
+.rules li::before{counter-increment:r;content:counter(r);font-family:var(--f-mono);color:var(--indigo)}
+.cite{font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3);margin-top:.5rem}
+.starts{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.starts a{display:grid;gap:.35rem;background:var(--paper);padding:var(--s-4);text-decoration:none;color:var(--ink);align-content:start}
+.starts a:hover{background:var(--card)}
+.starts .t{font-family:var(--f-ui);font-weight:500;font-size:var(--s-3);color:var(--indigo)}
+.starts .d{font-size:var(--s-2);color:var(--ink-2);line-height:1.5}
+.grades{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:var(--s-5)}
+.grades div{display:grid;gap:.4rem;align-content:start}
+.grades p{font-size:var(--s-2);color:var(--ink-2)}
+.sec-h{display:grid;gap:.5rem;margin-bottom:var(--s-5)}
+.sec-h h2{font-size:var(--s-6)}
+.sec-h p{color:var(--ink-2);max-width:62ch}
+
+/* Read */
+.tabs{display:flex;gap:.25rem;flex-wrap:wrap;border-bottom:1px solid var(--rule);margin-bottom:var(--s-5)}
+.tabs a{font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-2);text-decoration:none;padding:.6rem .8rem;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a[aria-current="page"]{color:var(--ink);border-color:var(--indigo);font-weight:500}
+.tabs .deva{font-size:1rem;margin-right:.35rem}
+.prefs{display:flex;gap:var(--s-4);flex-wrap:wrap;font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-2);margin-bottom:var(--s-6);align-items:center}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden}
+.seg button{font:inherit;background:transparent;color:var(--ink-2);border:0;padding:.3rem .65rem;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.group{margin-top:var(--s-7)}
+.group-h{display:grid;gap:.3rem;padding-bottom:var(--s-3);border-bottom:1px solid var(--rule);max-width:68ch}
+.group-h h3{font-size:var(--s-5)}
+.group-h p{font-size:var(--s-2);color:var(--ink-2)}
+.row{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:var(--s-3);padding-block:var(--s-4);border-bottom:1px solid var(--rule);max-width:68ch;text-decoration:none;color:var(--ink)}
+.row:hover{background:var(--card)}
+.row .num{font-family:var(--f-mono);font-size:var(--s-2);color:var(--ink-3);padding-top:.35rem}
+.row .r-deva{font-family:var(--f-deva);font-size:1.3rem;line-height:1.5}
+.row .r-iast{font-family:var(--f-iast);font-style:italic;color:var(--ink-2)}
+.row .r-en{font-size:var(--s-3);margin-top:.35rem}
+.row .r-en .br{color:var(--ink-3)}
+
+/* Sutra page */
+.crumbs{font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-3);display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s-5)}
+.crumbs a{color:var(--ink-2)}
+.s-head{display:grid;gap:var(--s-3)}
+.s-num{font-family:var(--f-mono);font-size:var(--s-6);color:var(--indigo);font-weight:500}
+.layers{border-top:1px solid var(--rule);margin-top:var(--s-6)}
+.layer{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:var(--s-4);padding-block:var(--s-4);border-bottom:1px solid var(--rule)}
+.layer .lh{display:grid;gap:.3rem;align-content:start}
+.layer .lh span:first-child{font-family:var(--f-ui);font-size:var(--s-2);font-weight:500}
+.layer .prov{font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3);margin-top:.45rem;line-height:1.5}
+@media (max-width:640px){.layer{grid-template-columns:1fr;gap:.5rem}}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{display:inline-flex;gap:.4rem;align-items:baseline;border:1px solid var(--rule);background:var(--card);border-radius:999px;padding:.2rem .7rem;text-decoration:none;color:var(--ink);font-size:var(--s-2)}
+.chip:hover{border-color:var(--indigo)}
+.chip .iast{color:var(--ink)}
+.chip small{font-family:var(--f-ui);color:var(--ink-3);font-size:var(--s-1)}
+.pager{display:flex;justify-content:space-between;gap:var(--s-4);margin-top:var(--s-6);font-family:var(--f-ui);font-size:var(--s-2)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s-7)}
+@media (max-width:820px){.two{grid-template-columns:1fr;gap:var(--s-6)}}
+.mini{display:grid;gap:0}
+.mini a{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:var(--s-2);padding-block:.6rem;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);font-size:var(--s-2)}
+.mini a:hover{background:var(--card)}
+.mini .mono{color:var(--ink-3)}
+.mini .why{display:block;font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3);margin-top:.15rem}
+.btn{font-family:var(--f-ui);font-size:var(--s-2);font-weight:500;border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:.55rem 1rem;border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-flex;gap:.4rem;align-items:center}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn:disabled{opacity:.5;cursor:default}
+
+/* Concepts */
+.kind{margin-top:var(--s-6)}
+.kind h3{font-family:var(--f-ui);font-size:var(--s-1);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:.4rem}
+.clist a{display:grid;grid-template-columns:minmax(7rem,10rem) minmax(0,1fr) 5.5rem;gap:var(--s-3);align-items:center;padding-block:.55rem;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.clist a:hover{background:var(--card)}
+.clist .en{font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-2)}
+.bar{display:flex;align-items:center;gap:.5rem;font-family:var(--f-mono);font-size:var(--s-1);color:var(--ink-3)}
+.bar i{display:block;height:6px;background:var(--indigo);border-radius:1px;opacity:.75}
+@media (max-width:520px){.clist a{grid-template-columns:minmax(0,1fr) 4.5rem}.clist .en{grid-column:1;grid-row:2;margin-top:-.4rem}}
+.c-title{display:flex;align-items:baseline;gap:var(--s-4);flex-wrap:wrap}
+.c-title .deva{font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.2}
+.c-title .iast{font-size:var(--s-6);color:var(--ink-2)}
+.pattern{font-family:var(--f-mono);font-size:var(--s-1);background:var(--paper-2);padding:.1rem .35rem;border-radius:2px;color:var(--ink-2);word-break:break-all}
+
+/* Graph */
+.graph-box{position:relative;border:1px solid var(--rule);background:var(--card);border-radius:var(--radius);overflow:hidden}
+.graph-box svg{display:block;width:100%;height:auto;touch-action:none}
+.graph-box .nlabel{font-family:var(--f-iast);font-style:italic;font-size:13px;fill:var(--ink);pointer-events:none;paint-order:stroke;stroke:var(--card);stroke-width:3px}
+.graph-box .edge{stroke:var(--ink-3);stroke-opacity:.35}
+.graph-box .edge.hot{stroke:var(--lac);stroke-opacity:.9}
+.graph-box .node{fill:var(--indigo);stroke:var(--card);stroke-width:1.5px;cursor:pointer}
+.graph-box .node.hot{fill:var(--lac)}
+.graph-box .node.dim,.graph-box .nlabel.dim{opacity:.25}
+.graph-side{font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-2)}
+.legend{display:flex;gap:var(--s-5);flex-wrap:wrap;font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3);margin-top:.6rem}
+
+/* Ask */
+.ask-form{display:grid;gap:var(--s-3)}
+.ask-form textarea{font:inherit;font-size:var(--s-4);width:100%;min-height:4.5rem;resize:vertical;border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:var(--radius);padding:.75rem .9rem}
+.ask-row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.examples{display:flex;flex-wrap:wrap;gap:.4rem}
+.examples button{font-family:var(--f-ui);font-size:var(--s-2);background:transparent;border:1px solid var(--rule);color:var(--ink-2);padding:.3rem .7rem;border-radius:999px;cursor:pointer;text-align:left}
+.examples button:hover{border-color:var(--indigo);color:var(--ink)}
+.answer{margin-top:var(--s-6);display:grid;gap:var(--s-4)}
+.answer .meta{display:flex;gap:var(--s-4);flex-wrap:wrap;align-items:center;font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3)}
+.sent{font-size:var(--s-4);line-height:1.6}
+.sent.reading .stext{font-style:italic}
+.sent .tag{font-family:var(--f-ui);font-size:.6875rem;letter-spacing:.07em;text-transform:uppercase;color:var(--g-editorial);margin-left:.35rem;font-style:normal;font-weight:600}
+.sent.bad .stext{text-decoration:line-through;color:var(--ink-3)}
+.sent.bad .tag{color:var(--lac)}
+.cbtn{font-family:var(--f-mono);font-size:var(--s-1);border:1px solid var(--rule);background:var(--card);color:var(--indigo);border-radius:2px;padding:.05rem .35rem;margin-left:.3rem;cursor:pointer;vertical-align:.1em}
+.cbtn[aria-expanded="true"]{background:var(--indigo);color:var(--paper);border-color:var(--indigo)}
+.evid{margin-top:.6rem;border-left:2px solid var(--indigo);padding:.5rem 0 .5rem var(--s-4);font-size:var(--s-3)}
+.evid .deva{font-size:1.15rem}
+.note-box{border:1px solid var(--rule);background:var(--card);padding:var(--s-4);border-radius:var(--radius);font-size:var(--s-3)}
+.note-box.warn{border-color:var(--lac);background:var(--lac-soft)}
+.thinking{font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-2)}
+.thinking::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:dots 1.4s steps(4) infinite}
+@keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
+
+/* Search */
+.search-in{font:inherit;font-size:var(--s-5);width:100%;border:0;border-bottom:2px solid var(--ink);background:transparent;color:var(--ink);padding:.4rem 0}
+.search-in::placeholder{color:var(--ink-3)}
+mark{background:var(--indigo-soft);color:inherit;padding:0 .1em;border-radius:2px}
+
+/* Method */
+.tbl-wrap{overflow-x:auto}
+#view{overflow-wrap:break-word}
+.iast,.deva,.big-deva,.big-iast,.r-iast,.r-deva,.pair,.pair *,.link-card,.link-card *{overflow-wrap:anywhere}
+.s-head{min-width:0}
+@media (max-width:520px){.seg{flex-wrap:wrap}.seg button{padding:.3rem .5rem}.prefs{gap:var(--s-2)}}
+table{border-collapse:collapse;width:100%;font-size:var(--s-2);min-width:34rem}
+th,td{text-align:left;padding:.65rem .75rem .65rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-ui);font-weight:500;font-size:var(--s-1);color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+.prose{display:grid;gap:var(--s-4);max-width:68ch}
+.prose h3{font-size:var(--s-5);margin-top:var(--s-4)}
+.prose ul{margin:0;padding-left:1.2rem;display:grid;gap:.4rem}
+
+.link-card{display:grid;gap:.5rem;padding-block:var(--s-4);border-bottom:1px solid var(--rule);max-width:68ch}
+.link-card .lk{display:flex;gap:var(--s-3);flex-wrap:wrap;align-items:baseline;font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3)}
+.kind-pill{font-family:var(--f-ui);font-size:.6875rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--indigo);border:1px solid var(--indigo);border-radius:2px;padding:.05rem .4rem}
+.link-card .bgd{font-family:var(--f-deva);font-size:1.15rem;line-height:1.5}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s-5);max-width:none}
+@media (max-width:720px){.pair{grid-template-columns:1fr;gap:var(--s-3)}}
+.stats{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-6);font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-2);margin-bottom:var(--s-5)}
+.stats b{font-family:var(--f-mono);font-weight:500;color:var(--ink);font-size:var(--s-5);display:block;line-height:1.1}
+.out{font-family:var(--f-ui);font-size:.6875rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.examples-btn{display:block;margin-top:.4rem;font-family:var(--f-ui);font-size:var(--s-1);background:transparent;border:1px solid var(--rule);color:var(--ink-2);padding:.15rem .55rem;border-radius:999px;cursor:pointer}
+.examples-btn:hover{border-color:var(--indigo);color:var(--ink)}
+.out-ok{color:var(--g-derived)} .out-ref{color:var(--indigo)} .out-miss{color:var(--g-editorial)} .out-rev{color:var(--lac)} .out-none{color:var(--ink-3)}
+.plate{display:grid;gap:var(--s-3);margin-top:var(--s-7)}
+.plate-h{display:flex;gap:var(--s-4);align-items:baseline;flex-wrap:wrap}
+.plate-h h3{font-size:var(--s-5)}
+.dg-wrap{overflow-x:auto;border:1px solid var(--rule);background:var(--card);border-radius:var(--radius)}
+.dg-wrap svg{display:block;width:100%;min-width:680px;height:auto}
+.dg text{font-family:var(--f-ui);font-size:12px;fill:var(--ink-2)}
+.dg .t1{font-family:var(--f-iast);font-style:italic;font-size:15px;fill:var(--ink)}
+.dg .t3{font-family:var(--f-mono);font-size:11px;fill:var(--indigo)}
+.dg .lab{font-size:11px;fill:var(--ink-3)}
+.dg .lab-s{font-family:var(--f-ui);font-size:11px;font-weight:600;letter-spacing:.06em;fill:var(--ink-3)}
+.dg .bx{fill:var(--paper);stroke:var(--rule);stroke-width:1}
+.dg .bx-key{fill:var(--indigo-soft);stroke:var(--indigo);stroke-width:1}
+.dg .field{fill:var(--paper-2);stroke:var(--rule);stroke-width:1}
+.dg a:hover .bx,.dg a:focus .bx,.dg a:hover .bx-key,.dg a:focus .bx-key{stroke:var(--indigo);stroke-width:2}
+.dg a:focus{outline:none}
+.dg .ln{stroke:var(--ink-3);stroke-width:1.25;fill:none}
+.dg .ln-key{stroke:var(--indigo);stroke-width:1.5;fill:none}
+.dg .ah{fill:var(--ink-3)} .dg .ah-key{fill:var(--indigo)}
+.dg-cap{font-size:var(--s-2);color:var(--ink-2);max-width:68ch}
+.heat{border-collapse:separate;border-spacing:2px;min-width:0;width:auto;font-size:var(--s-2)}
+.heat th,.heat td{border:0;padding:.3rem .5rem}
+.heat td.c{min-width:3.2rem;text-align:center;font-family:var(--f-mono);font-variant-numeric:tabular-nums;border-radius:2px}
+.heat td.c a{color:inherit;text-decoration:none;display:block}
+.heat th.k{text-align:left;font-family:var(--f-ui);font-size:var(--s-1);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding-top:.8rem}
+.heat td.term{white-space:nowrap}
+footer{border-top:1px solid var(--rule);padding-block:var(--s-6) var(--s-7);font-family:var(--f-ui);font-size:var(--s-2);color:var(--ink-3)}
+footer .wrap{display:flex;gap:var(--s-5);flex-wrap:wrap;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="#home" aria-label="Ekatāna home"><span class="deva">एकतान</span><span class="en">Ekatāna</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="#read" data-nav="read">Read</a>
+      <a href="#concepts" data-nav="concepts">Concepts</a>
+      <a href="#visuals" data-nav="visuals">Visualize</a>
+      <a href="#connections" data-nav="connections">Gītā</a>
+      <a href="#ask" data-nav="ask">Ask</a>
+      <a href="#search" data-nav="search">Search</a>
+      <a href="#method" data-nav="method">Method</a>
+    </nav>
+  </div>
+</header>
+<main id="main"><div class="wrap" id="view"></div></main>
+<footer><div class="wrap">
+  <span>Sanskrit from GRETIL (CC BY-NC-SA 4.0). English by J. H. Woods (1914), Charles Johnston (1912) and Swami Vivekananda (1896), all public domain.</span>
+  <span>A prototype by Yash. <a href="#method">How this edition is built</a></span>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const D = /*__CORPUS__*/null;
+const S = D.sutras, byId = Object.fromEntries(S.map(s => [s.id, s]));
+const C = D.concepts, cById = Object.fromEntries(C.map(c => [c.id, c]));
+const view = document.getElementById("view");
+const esc = t => String(t).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const sHref = id => "#s-" + id.replace(".", "-");
+const woodsHTML = t => esc(t).replace(/\[([^\]]*)\]/g, '<span class="br">[$1]</span>');
+const fold = t => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const store = {get(k,d){try{const v=localStorage.getItem("ek:"+k);return v==null?d:v}catch(e){return d}}, set(k,v){try{localStorage.setItem("ek:"+k,v)}catch(e){}}};
+const GRADE = {
+  source:["g-source","Source"], derived:["g-derived","Derived"], editorial:["g-editorial","Editorial"], model:["g-model","Model-assisted"]
+};
+const grade = g => `<span class="grade ${GRADE[g][0]}">${GRADE[g][1]}</span>`;
+
+/* ---------- The thread ---------- */
+function thread({here=null, on=null, capId}={}){
+  const onSet = new Set(on || []);
+  const strands = D.padas.map(p => {
+    const ks = S.filter(s => s.pada === p.n).map(s =>
+      `<a class="knot${s.id===here?" here":""}${onSet.has(s.id)?" on":""}" href="${sHref(s.id)}" data-id="${s.id}" style="--k:${Math.min(s.concepts.length,5)}" aria-label="Sūtra ${s.id}"><i></i></a>`).join("");
+    return `<div class="strand"><div class="strand-label"><b>${p.name}</b>${p.n} · ${S.filter(s=>s.pada===p.n).length} sūtras</div><div class="knots">${ks}</div></div>`;
+  }).join("");
+  return `<div class="thread" data-thread>${strands}</div><p class="thread-cap" id="${capId||"cap"}" aria-live="polite">Hover or tap a knot to read it. Taller knots carry more of the indexed terms.</p>`;
+}
+function wireThread(root=view){
+  root.querySelectorAll("[data-thread]").forEach(th => {
+    const cap = th.nextElementSibling;
+    const show = id => { const s = byId[id]; cap.innerHTML = `<span class="mono">${s.id}</span> <span class="iast">${esc(s.iast)}</span><br>${woodsHTML(s.en)}`; };
+    th.addEventListener("pointerover", e => { const k = e.target.closest(".knot"); if (k) show(k.dataset.id); });
+    th.addEventListener("focusin", e => { const k = e.target.closest(".knot"); if (k) show(k.dataset.id); });
+  });
+}
+
+/* ---------- Views ---------- */
+function home(){
+  const s12 = byId["1.2"];
+  return `
+  <section class="hero">
+    <p class="eyebrow">Patañjali · Yogasūtra · c. 4th–5th century CE</p>
+    <h1>The Yoga Sūtra, on one thread.</h1>
+    <p class="lede">All 195 sūtras in Sanskrit and two public-domain English translations, every key term followed across the four pādas, and answers that cite the line they stand on. <em>Ekatāna</em> is the text's own word for an unbroken flow of attention (3.2).</p>
+    <div class="facts">
+      <span><b>195</b>sūtras</span><span><b>4</b>pādas</span><span><b>${C.length}</b>indexed terms</span><span><b>${D.links.length}</b>term links</span><span><b>${D.groups.length}</b>thematic groups</span><span><b>${D.gita.links.length}</b>Gītā links</span>
+    </div>
+  </section>
+  <section>
+    ${thread({capId:"cap-home"})}
+  </section>
+  <section class="def">
+    <div>
+      <p class="eyebrow" style="margin-bottom:.8rem">1.2 · the definition the whole text rests on</p>
+      <p class="big-deva">${esc(s12.deva)}</p>
+      <p class="big-iast">${esc(s12.iast)}</p>
+    </div>
+    <div style="display:grid;gap:var(--s-4)">
+      <p class="woods">“${woodsHTML(s12.en)}”</p>
+      <p class="cite">J. H. Woods, 1914. Square brackets mark words Woods supplied.</p>
+      <p class="jn">“${esc(s12.jn)}”</p>
+      <p class="cite">Charles Johnston, 1912. A freer, plain-English reading of the same sūtra.</p>
+      <div class="chips">${s12.concepts.map(chip).join("")}</div>
+      <p><a class="btn ghost" href="${sHref("1.2")}">Open 1.2 and everything behind it</a></p>
+    </div>
+  </section>
+  <section>
+    <div class="sec-h"><p class="eyebrow">Ways in</p><h2>Where to start</h2></div>
+    <div class="starts">
+      <a href="#s-1-1"><span class="t">Read from 1.1</span><span class="d">Sanskrit, transliteration and Woods' translation, grouped under his own headings.</span></a>
+      <a href="#c-samadhi"><span class="t">Follow samādhi</span><span class="d">Concentration, traced through every sūtra whose Sanskrit names it.</span></a>
+      <a href="#s-2-29"><span class="t">The eight limbs</span><span class="d">2.29 lists them; the following 34 sūtras take them one by one.</span></a>
+      <a href="#c-klesa"><span class="t">The five afflictions</span><span class="d">What troubles the mind, and the order in which the text says they arise.</span></a>
+      <a href="#connections"><span class="t">Read it beside the Gītā</span><span class="d">Where the Bhagavad Gītā uses the same words or teaches the same thing, each link read and typed.</span></a>
+      <a href="#visuals"><span class="t">See the structure</span><span class="d">The eight limbs, the afflictions, the ladder of concentration, drawn from the sūtras themselves.</span></a>
+      <a href="#ask"><span class="t">Ask, and check the answer</span><span class="d">Every sentence of an answer cites the sūtra it rests on.</span></a>
+    </div>
+  </section>
+  <section>
+    <div class="sec-h"><p class="eyebrow">How to read this edition</p><h2>Every layer says how it was made</h2>
+    <p>A grade sits on each layer, not on the page. A weaker grade is never upgraded by standing next to a stronger one.</p></div>
+    <div class="grades">
+      <div>${grade("source")}<p>The Sanskrit as GRETIL gives it, and Woods' English as printed in 1914.</p></div>
+      <div>${grade("derived")}<p>Computed from a source by a stated rule: the Devanagari, the term index, the links.</p></div>
+      <div>${grade("editorial")}<p>Written for this edition: the one-line term glosses. Labelled so they are never mistaken for the text.</p></div>
+      <div>${grade("model")}<p>Answers from Ask. Each sentence cites sūtras, and citations are checked against the edition.</p></div>
+    </div>
+  </section>`;
+}
+
+function chip(cid){ const c = cById[cid]; return `<a class="chip" href="#c-${c.id}"><span class="iast">${esc(c.iast)}</span><small>${esc(c.en)}</small></a>`; }
+
+function prefsBar(){
+  const sc = store.get("script","both"), tr = store.get("tr","woods");
+  const b = (k,v,cur,l) => `<button type="button" data-pref="${k}" data-val="${v}" aria-pressed="${cur===v}">${l}</button>`;
+  return `<div class="prefs"><span>Script</span><span class="seg">${b("script","both",sc,"Both")}${b("script","deva",sc,"देवनागरी")}${b("script","iast",sc,"IAST")}</span>
+  <span>English</span><span class="seg">${b("tr","woods",tr,"Woods 1914")}${b("tr","johnston",tr,"Johnston 1912")}${b("tr","vivekananda",tr,"Vivekananda 1896")}${b("tr","both",tr,"All three")}${b("tr","none",tr,"Hide")}</span></div>`;
+}
+function rowHTML(s){
+  const sc = store.get("script","both"), tr = store.get("tr","woods");
+  const w = tr==="woods"||tr==="both", j = tr==="johnston"||tr==="both", v = (tr==="vivekananda"||tr==="both") && s.vv;
+  return `<a class="row" href="${sHref(s.id)}"><span class="num">${s.id}</span><span>
+    ${sc!=="iast"?`<span class="r-deva" style="display:block">${esc(s.deva)}</span>`:""}
+    ${sc!=="deva"?`<span class="r-iast" style="display:block">${esc(s.iast)}</span>`:""}
+    ${w?`<span class="r-en" style="display:block">${tr==="both"?'<span class="who">Woods</span>':""}${woodsHTML(s.en)}</span>`:""}
+    ${j?`<span class="r-en jn" style="display:block">${tr==="both"?'<span class="who">Johnston</span>':""}${esc(s.jn)}</span>`:""}
+    ${v?`<span class="r-en jn" style="display:block">${tr==="both"?'<span class="who">Vivekananda</span>':""}${esc(s.vv)}</span>`:""}
+    ${tr==="vivekananda"&&!s.vv?`<span class="r-en muted" style="display:block"><i>No counterpart in Vivekananda's edition.</i></span>`:""}</span></a>`;
+}
+function read(p){
+  const pada = D.padas[p-1];
+  const tabs = D.padas.map(x => `<a href="#read-${x.n}" ${x.n===p?'aria-current="page"':""}><span class="deva">${x.deva}</span>${x.n} · ${x.woods}</a>`).join("");
+  const groups = D.groups.filter(g => g.pada === p).map(g => `
+    <div class="group"><div class="group-h"><p class="eyebrow"><span class="mono">${g.range}</span> · Woods' heading</p><h3>${esc(g.heading)}</h3><p>${esc(g.summary)}</p></div>
+    ${g.sutras.map(id => rowHTML(byId[id])).join("")}</div>`).join("");
+  return `<div class="sec-h"><p class="eyebrow">Read</p><h2>${pada.name} <span class="deva muted" style="font-size:.8em">${pada.deva}</span></h2>
+    <p>Book ${p} in Woods: “${pada.woods}”. ${S.filter(s=>s.pada===p).length} sūtras in ${D.groups.filter(g=>g.pada===p).length} groups.</p></div>
+    <nav class="tabs" aria-label="Pādas">${tabs}</nav>${prefsBar()}<div id="rows">${groups}</div>`;
+}
+
+function related(s){
+  const mine = new Set(s.concepts);
+  return S.filter(x => x.id !== s.id).map(x => ({x, shared: x.concepts.filter(c => mine.has(c))}))
+    .filter(r => r.shared.length).sort((a,b) => b.shared.length - a.shared.length || S.indexOf(a.x) - S.indexOf(b.x)).slice(0,6);
+}
+function sutra(id){
+  const s = byId[id]; if (!s) return notFound();
+  const i = S.indexOf(s), prev = S[i-1], next = S[i+1], g = D.groups[s.group], pada = D.padas[s.pada-1];
+  const rel = related(s);
+  const terms = s.concepts.length
+    ? `<div class="chips">${s.concepts.map(chip).join("")}</div>`
+    : `<p class="muted">None of the ${C.length} indexed terms occurs in this sūtra's Sanskrit. That says something about the term list, not about the sūtra.</p>`;
+  return `
+  <div class="crumbs"><a href="#read-${s.pada}">${pada.name}</a><span>/</span><span>${esc(g.heading)}</span><span>/</span><span class="mono">${s.id}</span></div>
+  <div class="s-head">
+    <span class="s-num">${s.id}</span>
+    <p class="big-deva">${esc(s.deva)}</p>
+    <p class="big-iast">${esc(s.iast)}</p>
+    <p class="woods col" style="margin-top:var(--s-3)">“${woodsHTML(s.en)}” <span class="who">Woods, 1914</span></p>
+    <p class="jn col">“${esc(s.jn)}” <span class="who">Johnston, 1912</span></p>
+    ${s.vv?`<p class="jn col">“${esc(s.vv)}” <span class="who">Vivekananda, 1896</span></p>`:`<p class="jn col muted"><i>Vivekananda's edition has no counterpart for this sūtra.</i></p>`}
+  </div>
+  <div class="layers">
+    <div class="layer"><div class="lh"><span>Sanskrit</span>${grade("source")}</div><div><span class="iast">${esc(s.iast)}</span>
+      <p class="prov">GRETIL e-text, input and proofreading by Philipp A. Maas, from Kāśinātha Śāstrī Āgāśe's Ānandāśrama edition (Pune, 1904). Reference <span class="mono">ys_${s.id}</span>.</p></div></div>
+    <div class="layer"><div class="lh"><span>Devanagari</span>${grade("derived")}</div><div><span class="deva" style="font-size:1.2rem">${esc(s.deva)}</span>
+      <p class="prov">Transliterated from the IAST line above by a fixed rule. Words ending in a consonant are closed up with the next word, as printed editions do.</p></div></div>
+    <div class="layer"><div class="lh"><span>English · Woods</span>${grade("source")}</div><div>${woodsHTML(s.en)}
+      <p class="prov">James Haughton Woods, <i>The Yoga-System of Patañjali</i>, Harvard Oriental Series 17 (1914), sūtras translated without the commentary. Square brackets are Woods' own. Taken from OCR and corrected by hand.</p></div></div>
+    <div class="layer"><div class="lh"><span>English · Johnston</span>${grade("source")}</div><div>${esc(s.jn)}${s.jnote?`<span class="flag">Transcription note: ${esc(s.jnote)}</span>`:""}
+      <p class="prov">Charles Johnston, <i>The Yoga Sutras of Patanjali: The Book of the Spiritual Man</i> (New York, 1912), as transcribed in Project Gutenberg eBook #2526. Kept exactly as Gutenberg prints it; suspected errors are flagged, not changed.</p></div></div>
+    <div class="layer"><div class="lh"><span>English · Vivekananda</span>${grade("source")}</div><div>${s.vv?esc(s.vv):`<i>${esc(D.vvExtra.gap.note)}</i>`}${s.vvnote?`<span class="flag">Transcription note: ${esc(s.vvnote)}</span>`:""}
+      ${s.id==="3.21"?`<span class="flag">${esc(D.vvExtra.extra.note)} His 3.22: “${esc(D.vvExtra.extra.text)}” From here his third-pāda numbers run one higher.</span>`:""}${s.id==="4.15"?`<span class="flag">${esc(D.vvExtra.gap.note)}</span>`:""}
+      <p class="prov">Swami Vivekananda, <i>Raja Yoga</i> (New York, 1896), aphorisms as printed in <i>The Complete Works</i>, vol. 1 (ramakrishnavivekananda.info). Kept as printed; his commentary is not reproduced here. Matched to this edition by the Sanskrit given beside each aphorism.</p></div></div>
+    <div class="layer"><div class="lh"><span>Group</span>${grade("source")}</div><div><b style="font-weight:500">${esc(g.heading)}</b> <span class="mono muted">${g.range}</span><p class="muted" style="font-size:var(--s-2)">${esc(g.summary)}</p>
+      <p class="prov">Woods' own grouping and heading.</p></div></div>
+    <div class="layer"><div class="lh"><span>Terms</span>${grade("derived")}</div><div>${terms}
+      <p class="prov">A term is tagged when its stem pattern matches this sūtra's Sanskrit. Patterns are listed on each term's page.</p></div></div>
+  </div>
+  <div class="two" style="margin-top:var(--s-7)">
+    <div><div class="sec-h"><p class="eyebrow">Shares the most terms with</p></div>
+      ${rel.length ? `<div class="mini">${rel.map(r => `<a href="${sHref(r.x.id)}"><span class="mono">${r.x.id}</span><span><span class="iast">${esc(r.x.iast)}</span><span class="why">${r.shared.map(c=>cById[c].iast).join(" · ")}</span></span></a>`).join("")}</div>`
+        : `<p class="muted">No other sūtra shares an indexed term with this one.</p>`}</div>
+    <div><div class="sec-h"><p class="eyebrow">Where it sits</p></div>${thread({here:s.id, capId:"cap-s"})}
+      <p style="margin-top:var(--s-4)"><a class="btn ghost" href="#ask" data-askabout="${s.id}">Ask about ${s.id}</a></p></div>
+  </div>
+  ${platesFor(s.id)}
+  ${gitaFor(s.id)}
+  <div class="pager">${prev?`<a href="${sHref(prev.id)}">← ${prev.id}</a>`:"<span></span>"}${next?`<a href="${sHref(next.id)}">${next.id} →</a>`:"<span></span>"}</div>`;
+}
+
+function concepts(){
+  const kinds = Object.entries(D.kinds).map(([k,label]) => {
+    const list = C.filter(c => c.kind === k).sort((a,b) => b.sutras.length - a.sutras.length);
+    return `<div class="kind"><h3>${label}</h3><div class="clist">${list.map(c => `<a href="#c-${c.id}"><span><span class="iast" style="font-size:var(--s-4)">${esc(c.iast)}</span></span><span class="en">${esc(c.en)} · Woods: ${esc(c.woods)}</span><span class="bar"><i style="width:${c.sutras.length*3}px"></i>${c.sutras.length}</span></a>`).join("")}</div></div>`;
+  }).join("");
+  return `<div class="sec-h"><p class="eyebrow">Concepts</p><h2>${C.length} terms, followed through the text</h2>
+  <p>Each term is found by matching its stem in the Sanskrit, so a count means “the word is there”, not “the idea is discussed”. Numbers are sūtras containing the term.</p></div>${kinds}`;
+}
+function concept(cid){
+  const c = cById[cid]; if (!c) return notFound();
+  const co = D.links.filter(l => l.a === c.id || l.b === c.id).map(l => ({o: l.a===c.id?l.b:l.a, n:l.n, s:l.sutras})).sort((a,b)=>b.n-a.n);
+  return `
+  <div class="crumbs"><a href="#concepts">Concepts</a><span>/</span><span>${esc(D.kinds[c.kind])}</span></div>
+  <div class="c-title"><span class="deva">${esc(c.deva)}</span><span class="iast">${esc(c.iast)}</span></div>
+  <div class="layers">
+    <div class="layer"><div class="lh"><span>Gloss</span>${grade("editorial")}</div><div>${esc(c.gloss)}<p class="prov">Written for this edition. Common English: ${esc(c.en)}. Woods' rendering: “${esc(c.woods)}”.</p></div></div>
+    <div class="layer"><div class="lh"><span>Occurrences</span>${grade("derived")}</div><div><span class="mono">${c.sutras.length}</span> sūtras match <span class="pattern">${esc(c.pattern)}</span>
+      <p class="prov">A regular expression run over the IAST of every sūtra. Lookbehinds exclude look-alike words, such as <i>nivṛtti</i> (cessation) for <i>vṛtti</i>.</p></div></div>
+  </div>
+  <section style="margin-top:var(--s-6)">${thread({on:c.sutras, capId:"cap-c"})}</section>
+  <div class="two" style="margin-top:var(--s-6)">
+    <div><div class="sec-h"><p class="eyebrow">Sūtras containing ${esc(c.iast)}</p></div><div class="mini">
+      ${c.sutras.map(id => `<a href="${sHref(id)}"><span class="mono">${id}</span><span>${woodsHTML(byId[id].en)}</span></a>`).join("")}</div></div>
+    <div><div class="sec-h"><p class="eyebrow">Shares a sūtra with</p></div>
+      ${co.length?`<div class="mini">${co.map(x => `<a href="#c-${x.o}"><span class="mono">${x.n}×</span><span><span class="iast">${esc(cById[x.o].iast)}</span> <span class="muted" style="font-family:var(--f-ui);font-size:var(--s-1)">${esc(cById[x.o].en)}</span><span class="why">${x.s.join(", ")}</span></span></a>`).join("")}</div>`
+      :`<p class="muted">This term never shares a sūtra with another indexed term.</p>`}</div>
+  </div>`;
+}
+
+function graph(){
+  return `<div class="sec-h"><p class="eyebrow">Graph</p><h2>Which ideas stand in the same sūtra</h2>
+  <p>Each circle is a term; its size is the number of sūtras that contain it. A line joins two terms that occur together, and its weight counts how often. Tap a term to light up its neighbours; tap again to open it.</p></div>
+  <div class="graph-box" id="gbox"><svg id="gsvg" viewBox="0 0 900 620" role="img" aria-label="Co-occurrence graph of ${C.length} terms"></svg></div>
+  <div class="legend"><span>${grade("derived")}</span><span>${C.length} terms · ${D.links.length} links · drawn from the Sanskrit, not from commentary</span></div>
+  <p class="graph-side" id="gside" aria-live="polite" style="margin-top:var(--s-4)">Strongest link: ${(() => { const l = D.links[0]; return `<a href="#c-${l.a}">${cById[l.a].iast}</a> and <a href="#c-${l.b}">${cById[l.b].iast}</a>, together in ${l.n} sūtras (${l.sutras.join(", ")}).`; })()}</p>`;
+}
+function drawGraph(){
+  if (!window.d3){ const b = document.getElementById("gbox"); if (b) b.innerHTML = `<p class="note-box" style="margin:var(--s-4)">The graph couldn't load its drawing library. Reload the page to try again; every term and link is also listed on the <a href="#concepts">Concepts</a> page.</p>`; return; }
+  const svg = d3.select("#gsvg"); if (svg.empty()) return;
+  const W = 900, H = 620;
+  const nodes = C.map(c => ({id:c.id, c, r: 5 + Math.sqrt(c.sutras.length) * 3.2}));
+  const links = D.links.map(l => ({source:l.a, target:l.b, n:l.n}));
+  const sim = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(links).id(d => d.id).distance(l => 90 - l.n * 8).strength(.5))
+    .force("charge", d3.forceManyBody().strength(-210))
+    .force("center", d3.forceCenter(W/2, H/2))
+    .force("collide", d3.forceCollide(d => d.r + 4))
+    .force("x", d3.forceX(W/2).strength(.06)).force("y", d3.forceY(H/2).strength(.09))
+    .stop();
+  for (let i = 0; i < 320; i++) sim.tick();
+  nodes.forEach(n => { n.x = Math.max(n.r+40, Math.min(W-n.r-40, n.x)); n.y = Math.max(n.r+16, Math.min(H-n.r-16, n.y)); });
+  const g = svg.append("g");
+  const E = g.selectAll("line").data(links).join("line").attr("class","edge")
+    .attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y)
+    .attr("stroke-width", d => .8 + d.n * .9);
+  const N = g.selectAll("circle").data(nodes).join("circle").attr("class","node").attr("r",d=>d.r).attr("cx",d=>d.x).attr("cy",d=>d.y)
+    .attr("tabindex",0).attr("role","button").attr("aria-label",d=>`${d.c.iast}, ${d.c.sutras.length} sūtras`);
+  const L = g.selectAll("text").data(nodes).join("text").attr("class","nlabel").attr("x",d=>d.x + d.r + 4).attr("y",d=>d.y + 4).text(d=>d.c.iast);
+  const nb = id => new Set(links.filter(l => l.source.id===id || l.target.id===id).flatMap(l => [l.source.id, l.target.id]));
+  let sel = null;
+  const side = document.getElementById("gside");
+  function focus(d){
+    sel = d ? d.id : null;
+    if (!d){ N.classed("hot",false).classed("dim",false); L.classed("dim",false); E.classed("hot",false); return; }
+    const set = nb(d.id); set.add(d.id);
+    N.classed("hot", n => n.id === d.id).classed("dim", n => !set.has(n.id));
+    L.classed("dim", n => !set.has(n.id));
+    E.classed("hot", l => l.source.id===d.id || l.target.id===d.id);
+    const co = D.links.filter(l => l.a===d.id||l.b===d.id).sort((a,b)=>b.n-a.n);
+    side.innerHTML = `<a href="#c-${d.id}"><span class="iast">${esc(d.c.iast)}</span></a> (${esc(d.c.en)}) appears in ${d.c.sutras.length} sūtras and shares a sūtra with ${co.length} other terms` +
+      (co.length ? `: ${co.slice(0,6).map(l => { const o = l.a===d.id?l.b:l.a; return `<a href="#c-${o}">${cById[o].iast}</a> ${l.n}×`; }).join(", ")}.` : ".") + ` Tap it again to open its page.`;
+  }
+  N.on("click", (e,d) => { if (sel === d.id) location.hash = "c-" + d.id; else focus(d); })
+   .on("keydown", (e,d) => { if (e.key==="Enter"||e.key===" "){ e.preventDefault(); if (sel===d.id) location.hash="c-"+d.id; else focus(d); }});
+  svg.on("click", e => { if (e.target.tagName === "svg") focus(null); });
+}
+
+/* ---------- Diagrams ---------- */
+const HREF = id => "#s-" + id.replace(".", "-");
+function defs(k){ return `<defs><marker id="ah-${k}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker><marker id="ahk-${k}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-key" d="M0,0 L10,5 L0,10 z"/></marker></defs>`; }
+function box(x,y,w,h,{iast,en,en2,id,key}){
+  const cx = x + w/2, lines = [iast&&["t1",iast], en&&["",en], en2&&["",en2], id&&["t3",id]].filter(Boolean);
+  const step = 17, y0 = y + h/2 - (lines.length-1)*step/2 + 4;
+  const tx = lines.map(([c,s],i) => `<text class="${c}" x="${cx}" y="${y0 + i*step}" text-anchor="middle">${esc(s)}</text>`).join("");
+  const inner = `<rect class="${key?"bx-key":"bx"}" x="${x}" y="${y}" width="${w}" height="${h}" rx="3"/>${tx}`;
+  return id ? `<a href="${HREF(id.split(/[–,\s]/)[0])}" aria-label="${esc((iast||"")+" "+(en||"")+", sūtra "+id)}">${inner}</a>` : inner;
+}
+const arrow = (k,x1,y1,x2,y2,label,key,lx,ly) => `<line class="${key?"ln-key":"ln"}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" marker-end="url(#${key?"ahk":"ah"}-${k})"/>${label?`<text class="lab" x="${lx??(x1+x2)/2}" y="${ly??((y1+y2)/2-6)}" text-anchor="middle">${esc(label)}</text>`:""}`;
+const bracket = (x1,x2,y,label,cls="ln") => `<path class="${cls}" d="M${x1},${y-8} L${x1},${y} L${x2},${y} L${x2},${y-8}"/><text class="lab" x="${(x1+x2)/2}" y="${y+18}" text-anchor="middle">${esc(label)}</text>`;
+const svg = (k,w,h,label,body) => `<div class="dg-wrap"><svg class="dg" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}">${defs(k)}${body}</svg></div>`;
+
+const PLATES = {
+  limbs: {title:"The eight limbs", cites:"2.29, 3.4, 3.7, 3.8", covers:["2.28","2.55","3.1","3.8"],
+    claim:"The eight aids of 2.29: five outer ones, then three inner ones that together are saṃyama, and even those three stand outside seedless concentration.",
+    draw(){
+      const L=[["yama","restraints","2.30"],["niyama","observances","2.32"],["āsana","posture","2.46"],["prāṇāyāma","breath","2.49"],["pratyāhāra","withdrawal","2.54"],["dhāraṇā","focus","3.1"],["dhyāna","meditation","3.2"],["samādhi","absorption","3.3"]];
+      let b = `<text class="lab-s" x="12" y="28">2.29 · THE EIGHT AIDS TO YOGA, IN ORDER</text>`;
+      L.forEach(([i,e,id],n) => { const x = 12+n*117; b += box(x,44,105,84,{iast:i,en:e,id,key:n>=5}); if(n<7) b += arrow("limbs",x+105,86,x+117,86,"",n>=5); });
+      b += bracket(12,12+4*117+105,150,"outer aids (bahiraṅga) · 3.7");
+      b += bracket(12+5*117,12+7*117+105,150,"inner aids, together called saṃyama · 3.4, 3.7","ln-key");
+      b += arrow("limbs",12+6*117+52,176,12+6*117+52,228,"still outer to this · 3.8",true,12+6*117+52-90,206);
+      b += box(12+6*117+52-140,232,280,62,{iast:"nirbīja samādhi",en:"seedless concentration",id:"1.51"});
+      return svg("limbs",960,310,this.claim,b);
+    }},
+  klesa: {title:"The five afflictions", cites:"2.3–2.11", covers:["2.3","2.12"],
+    claim:"Ignorance is the field in which the other four afflictions grow, and each of them can be dormant, attenuated, intercepted or active.",
+    draw(){
+      let b = `<rect class="field" x="12" y="16" width="706" height="262" rx="3"/>`;
+      b += `<a href="${HREF("2.4")}" aria-label="avidyā, the field of the others, sūtra 2.4"><text class="t1" x="32" y="46">avidyā · ignorance</text><text x="32" y="66">the field in which the others grow</text><text class="t3" x="32" y="84">2.4</text></a>`;
+      b += `<text x="32" y="106" class="lab">mistaking the impermanent, impure, painful and not-self for their opposites · 2.5</text>`;
+      [["asmitā","I-am-ness","seer and seeing","as one","2.6"],["rāga","attachment","dwells on","pleasure","2.7"],["dveṣa","aversion","dwells on","pain","2.8"],["abhiniveśa","clinging to life","present even","in the wise","2.9"]]
+        .forEach(([i,e,e2,e3,id],n) => { b += box(32+n*170,128,158,128,{iast:i,en:e,en2:e2+" "+e3,id}); });
+      b += `<text class="lab-s" x="742" y="34">EACH CAN BE · 2.4</text>`;
+      [["prasupta","dormant"],["tanu","attenuated"],["vicchinna","intercepted"],["udāra","active"]].forEach(([i,e],n) => {
+        const y = 48+n*58; b += `<rect class="bx" x="742" y="${y}" width="206" height="46" rx="3"/><text class="t1" x="756" y="${y+20}">${i}</text><text x="756" y="${y+37}">${e}</text>`;
+        if(n<3) b += `<line class="ln" x1="845" y1="${y+46}" x2="845" y2="${y+58}"/>`; });
+      return svg("klesa",960,292,this.claim,b);
+    }},
+  pain: {title:"How suffering arises, and how it ends", cites:"2.16–2.26", covers:["2.15","2.27"],
+    claim:"Ignorance binds the seer to the seen, and that binding causes the suffering still to come. Discernment ends ignorance, the binding falls away, and the seer stands alone.",
+    draw(){
+      let b = `<text class="lab-s" x="12" y="26">HOW IT ARISES</text>`;
+      b += box(12,40,270,76,{iast:"avidyā",en:"ignorance",id:"2.24"});
+      b += box(345,40,270,76,{iast:"saṃyoga",en:"the seer bound to the seen",id:"2.17"});
+      b += box(678,40,270,76,{iast:"heyaṃ duḥkham anāgatam",en:"suffering yet to come",id:"2.16"});
+      b += arrow("pain",282,78,345,78,"causes") + arrow("pain",615,78,678,78,"causes");
+      b += `<text class="lab-s" x="12" y="166">HOW IT ENDS</text>`;
+      b += box(12,180,270,76,{iast:"vivekakhyāti",en:"unwavering discernment",id:"2.26",key:true});
+      b += box(345,180,270,76,{iast:"saṃyogābhāva",en:"ignorance gone, no binding",id:"2.25",key:true});
+      b += box(678,180,270,76,{iast:"kaivalya",en:"the seer alone",id:"2.25",key:true});
+      b += arrow("pain",282,218,345,218,"ends",true) + arrow("pain",615,218,678,218,"leaves",true);
+      return svg("pain",960,272,this.claim,b);
+    }},
+  vrtti: {title:"The five fluctuations", cites:"1.5–1.11", covers:["1.5","1.11"],
+    claim:"The mind's fluctuations are of five kinds, afflicted or not; valid knowledge itself has three sources.",
+    draw(){
+      let b = box(330,14,300,72,{iast:"vṛtti",en:"fluctuations: five kinds, afflicted or not",id:"1.5"});
+      const K=[["pramāṇa","valid knowledge","perception · inference · word","1.7"],["viparyaya","misconception","not based on its form","1.8"],["vikalpa","conceptualizing","words with no object","1.9"],["nidrā","sleep","awareness of absence","1.10"],["smṛti","memory","holding what was known","1.11"]];
+      K.forEach(([i,e,e2,id],n) => { const x = 12+n*189; b += `<path class="ln" d="M480,86 L480,104 L${x+88},104 L${x+88},126"/>`; b += box(x,126,177,100,{iast:i,en:e,en2:e2,id}); });
+      b += `<text class="lab" x="490" y="100">listed in 1.6</text>`;
+      return svg("vrtti",960,240,this.claim,b);
+    }},
+  ladder: {title:"The ladder of concentration", cites:"1.41–1.51", covers:["1.41","1.51"],
+    claim:"Absorption moves from coarse objects to subtle ones, then to inner clarity and truth-bearing insight, whose trace stills every other trace until concentration has no seed at all.",
+    draw(){
+      const St=[["savitarka","coarse, with words","1.42"],["nirvitarka","coarse, words gone","1.43"],["savicāra · nirvicāra","subtle objects","1.44"],["adhyātma-prasāda","inner clarity","1.47"],["ṛtambharā prajñā","truth-bearing insight","1.48"],["nirbīja samādhi","seedless","1.51"]];
+      let b = "";
+      St.forEach(([i,e,id],n) => { const x = 12+n*158, y = 230-n*38; b += box(x,y,146,70,{iast:i,en:e,id,key:n===5}); if(n<5) b += arrow("ladder",x+146,y+35,x+158,y-3,"",n===4); });
+      b += bracket(12,12+2*158+146,322,"seeded concentration (sabīja) · 1.46");
+      b += `<text class="lab" x="${12+4*158+73}" y="64" text-anchor="middle">its trace stills all others · 1.50</text>`;
+      return svg("ladder",960,350,this.claim,b);
+    }},
+};
+function plate(k, compact){
+  const P = PLATES[k];
+  return `<figure class="plate" id="plate-${k}" style="margin-inline:0">
+    <div class="plate-h"><h3>${P.title}</h3><span class="mono muted" style="font-size:var(--s-2)">${P.cites}</span>${grade("editorial")}</div>
+    ${P.draw()}
+    <figcaption class="dg-cap">${esc(P.claim)} ${compact?`<a href="#visuals">All diagrams</a>`:`Every box opens its sūtra. The words come from the text; the arrangement is a reading of it.`}</figcaption></figure>`;
+}
+function inRange(id, a, b){ const v = s => { const [p,n] = s.split(".").map(Number); return p*100+n; }; return v(id) >= v(a) && v(id) <= v(b); }
+function platesFor(id){
+  const ks = Object.keys(PLATES).filter(k => { const c = PLATES[k].covers; for (let i=0;i<c.length;i+=2) if (inRange(id,c[i],c[i+1])) return true; return false; });
+  return ks.length ? `<section style="margin-top:var(--s-7)"><p class="eyebrow">In a diagram</p>${ks.map(k => plate(k,true)).join("")}</section>` : "";
+}
+function heatmap(){
+  const per = c => [1,2,3,4].map(p => c.sutras.filter(id => id.startsWith(p+".")).length);
+  const max = Math.max(...C.flatMap(per));
+  const cell = (c,p,n) => { const pct = n ? Math.round(12 + 78*n/max) : 0; const strong = n/max > .55;
+    return `<td class="c" style="background:${n?`color-mix(in oklab, var(--indigo) ${pct}%, var(--card))`:"transparent"};color:${strong?"var(--paper)":"var(--ink)"}" title="${esc(c.iast)} in pāda ${p}: ${n} sūtra${n===1?"":"s"}">${n?`<a href="#c-${c.id}">${n}</a>`:'<span style="color:var(--ink-3)">·</span>'}</td>`; };
+  const rows = Object.entries(D.kinds).map(([k,label]) => `<tr><th class="k" colspan="5">${label}</th></tr>` +
+    C.filter(c => c.kind===k).map(c => `<tr><td class="term"><a href="#c-${c.id}" class="iast">${esc(c.iast)}</a> <span class="muted" style="font-family:var(--f-ui);font-size:var(--s-1)">${esc(c.en)}</span></td>${per(c).map((n,i)=>cell(c,i+1,n)).join("")}</tr>`).join("")).join("");
+  return `<figure class="plate" style="margin-inline:0"><div class="plate-h"><h3>Where each term lives</h3>${grade("derived")}</div>
+    <div class="tbl-wrap"><table class="heat"><thead><tr><th></th>${D.padas.map(p => `<th style="text-align:center">${p.n}<br><span class="muted" style="font-weight:400;text-transform:none;letter-spacing:0">${p.name.replace("-pāda","")}</span></th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>
+    <figcaption class="dg-cap">Number of sūtras in each pāda whose Sanskrit contains the term; darker means more. Pādas differ in length (51, 55, 55, 34), so compare within a row.</figcaption></figure>`;
+}
+function visuals(){
+  return `<div class="sec-h"><p class="eyebrow">Visualize</p><h2>The structure of the text, drawn</h2>
+  <p>Each diagram is built from sūtras the text gives in sequence, and every box opens the sūtra it rests on. They are graded Editorial: the words are Patañjali's, the arrangement is a reading. The grid at the end is computed from the term index.</p>
+  <p style="margin-top:.4rem"><a href="#graph">Open the term graph</a>, which shows which ideas share a sūtra.</p></div>
+  ${["limbs","vrtti","klesa","pain","ladder"].map(k => plate(k,false)).join("")}
+  ${heatmap()}`;
+}
+
+/* ---------- Gītā connections ---------- */
+const G = D.gita;
+const KIND_LABEL = {teaching:"Same teaching", list:"Shared list", wording:"Shared wording"};
+function linkCard(l, showYs){
+  const v = G.verses[l.bg], s = byId[l.ys];
+  const [ch, vs] = l.bg.split(".");
+  return `<div class="link-card">
+    <div class="lk"><span class="kind-pill">${KIND_LABEL[l.kind]}</span><span class="mono">Yoga Sūtra <a href="${sHref(l.ys)}">${l.ys}</a> ↔ Gītā ${l.bg}</span>
+      <span>${l.origin==="search"?"Found by search, kept after reading":"Added in review"}</span></div>
+    <div class="pair">
+      ${showYs?`<div><span class="deva" style="font-size:1.1rem">${esc(s.deva)}</span><br><span class="iast muted">${esc(s.iast)}</span></div>`:""}
+      <div><span class="bgd">${esc(v.deva)}</span><br><span class="iast muted">${esc(v.iast)}</span></div>
+    </div>
+    <p>${esc(l.note)}</p>
+    <p class="cite"><a href="https://bhagavadgita.io/chapter/${ch}/verse/${vs}/" target="_blank" rel="noopener">Read Gītā ${l.bg} with translations</a></p>
+  </div>`;
+}
+function gitaFor(id){
+  const ls = G.links.filter(l => l.ys === id);
+  if (!ls.length) return "";
+  return `<section style="margin-top:var(--s-7)"><div class="sec-h"><p class="eyebrow">In the Bhagavad Gītā</p>
+    <p style="display:flex;gap:var(--s-4);flex-wrap:wrap;align-items:center">${grade("derived")}<span class="muted" style="font-size:var(--s-2)">found by matching the Sanskrit</span>${grade("editorial")}<span class="muted" style="font-size:var(--s-2)">type and note, after reading both</span></p></div>
+    ${ls.map(l => linkCard(l,false)).join("")}</section>`;
+}
+function connections(){
+  const by = k => G.links.filter(l => l.kind === k);
+  return `<div class="sec-h"><p class="eyebrow">Connections</p><h2>The Yoga Sūtra beside the Bhagavad Gītā</h2>
+  <p>The two texts share a vocabulary: practice and non-attachment, a steady seat, the one-pointed mind. These links show where, sūtra by verse. They record shared words and teachings. They make no claim about which text borrowed from which, since neither can be dated precisely.</p></div>
+  <div class="stats"><span><b>${G.verseCount}</b>Gītā verses searched</span><span><b>${G.candidates}</b>candidate pairs</span><span><b>${G.reviewedTop}</b>read by a person</span><span><b>${G.links.length}</b>kept</span></div>
+  <div class="layers" style="margin-top:0">
+    <div class="layer"><div class="lh"><span>Candidates</span>${grade("derived")}</div><div>A pair becomes a candidate when it shares two or more of the ${C.length} indexed terms, or a run of eight or more letters that occurs in no more than twelve Gītā verses.</div></div>
+    <div class="layer"><div class="lh"><span>Kept links</span>${grade("editorial")}</div><div>The ${G.reviewedTop} highest-scoring candidates were read against both texts. Each kept link is typed and given a one-line note. Two links were added during reading that the search missed. The other ${G.candidates - G.reviewedTop} candidates were not read and are not shown.</div></div>
+  </div>
+  ${["teaching","list","wording"].map(k => `<section style="margin-top:var(--s-7)"><div class="sec-h"><h3 style="font-size:var(--s-5)">${KIND_LABEL[k]} <span class="mono muted" style="font-size:var(--s-3)">${by(k).length}</span></h3><p>${esc(G.kinds[k].split(": ")[1])}</p></div>${by(k).map(l => linkCard(l,true)).join("")}</section>`).join("")}
+  <section style="margin-top:var(--s-7)"><div class="sec-h"><h3 style="font-size:var(--s-5)">Rejected, with reasons</h3><p>A few of the candidates that were read and turned down, so the rule's blind spots are visible.</p></div>
+  <div class="mini" style="max-width:68ch">${G.rejected.map(x => `<a href="${sHref(x.ys)}"><span class="mono">${x.ys}</span><span>Gītā ${x.bg}: ${esc(x.why)}</span></a>`).join("")}</div></section>`;
+}
+
+/* ---------- Ask test set ---------- */
+const T = D.tests;
+const dbP = (window.claude && claude.use) ? claude.use("db").catch(() => null) : Promise.resolve(null);
+const userP = (window.claude && claude.use) ? claude.use("user").catch(() => null) : Promise.resolve(null);
+let latestRun = null, latestRunId = null, runLoaded = false, canRun = false;
+async function loadLatestRun(){
+  const db = await dbP; if (!db){ runLoaded = true; return null; }
+  try { const snap = await db.collection("runs").orderBy("at","desc").limit(1).get(); latestRun = snap.empty ? null : snap.docs[0].data(); latestRunId = snap.empty ? null : snap.docs[0].id; }
+  catch(e){ latestRun = null; }
+  runLoaded = true; return latestRun;
+}
+function parseAnswer(text){
+  text = String(text||"");
+  const body = text.slice(text.indexOf("{"), text.lastIndexOf("}")+1);
+  const tries = [text, (text.match(/```(?:json)?\s*([\s\S]*?)```/)||[])[1], body, body.replace(/,\s*([}\]])/g,"$1")];
+  for (const x of tries){ if (!x) continue; try { return JSON.parse(x); } catch(e){} }
+  return null;
+}
+// Ask once; if the reply can't be read as JSON, ask once more. A reply that still fails keeps a short excerpt so the cause can be seen.
+async function askScored(t, opts){
+  let last = "";
+  for (let k = 0; k < 2; k++){
+    const res = await sample_(buildPrompt(t.q), {...opts, cache:false});
+    last = String(res.text||"");
+    const r = parseAnswer(last);
+    if (r) return {res, row:{id:t.id, ...scoreAnswer(t, r)}};
+  }
+  return {res:{}, row:{id:t.id, outcome:"review", why:`Answer could not be read as JSON after 2 tries (${last.length} characters; starts: ${last.slice(0,90).replace(/\s+/g," ")} … ends: ${last.slice(-60).replace(/\s+/g," ")})`, cited:[], status:"?"}};
+}
+function scoreAnswer(test, r){
+  if (!r) return {outcome:"review", why:"Answer could not be read as JSON", cited:[], status:"?"};
+  const sents = Array.isArray(r.sentences) ? r.sentences : [];
+  const cited = new Set(), bad = []; let struck = 0;
+  sents.forEach(x => { const cs = (Array.isArray(x.cites)?x.cites:[]).map(c => String(c).trim()); const ok = cs.filter(c => byId[c]); cs.filter(c => !byId[c]).forEach(c => bad.push(c)); ok.forEach(c => cited.add(c)); if (!ok.length) struck++; });
+  const text = fold(sents.map(x => x.text || "").join(" "));
+  const forbidHit = (test.forbid || []).filter(w => text.includes(fold(w)));
+  const goldHit = (test.gold || []).filter(g => cited.has(g));
+  const status = r.status === "not_in_text" ? "not_in_text" : "answered";
+  const base = {cited:[...cited], status, answer:{note: String(r.note||"").slice(0,600), sentences: sents.slice(0,8).map(x => ({text: String(x.text||"").slice(0,500), cites: (Array.isArray(x.cites)?x.cites:[]).map(String), kind: x.kind === "reading" ? "reading" : "text"}))}};
+  // A flagged term inside a correct refusal is a denial ("the text never mentions…"), so it is not flagged.
+  if (forbidHit.length && !(status === "not_in_text" && test.type !== "cite")) return {...base, outcome:"review", why:`Uses a flagged term: ${forbidHit.join(", ")}`};
+  if (struck || bad.length) return {...base, outcome:"review", why: struck ? `${struck} sentence(s) with no valid citation` : `Unknown citation: ${bad.join(", ")}`};
+  if (test.type === "absent") return status === "not_in_text" ? {...base, outcome:"refused"} : {...base, outcome:"review", why:"Answered a question the text does not address"};
+  if (test.type === "partial") return (goldHit.length || status === "not_in_text") ? {...base, outcome: status==="not_in_text" ? "refused" : "ok"} : {...base, outcome:"missed", why:"Did not cite the nearest sūtras"};
+  if (status === "not_in_text") return {...base, outcome:"missed", why:"Said the text does not address it"};
+  return goldHit.length ? {...base, outcome:"ok"} : {...base, outcome:"missed", why:"Cited none of the expected sūtras"};
+}
+const OUT = {ok:["out-ok","Acceptable"], refused:["out-ref","Correct refusal"], missed:["out-miss","Missed"], review:["out-rev","Needs review"]};
+function outPill(o){ return o ? `<span class="out ${OUT[o][0]}">${OUT[o][1]}</span>` : `<span class="out out-none">Not run</span>`; }
+function runSummary(run){
+  if (!run) return runLoaded ? "The test set has not been run yet." : "Loading the latest run…";
+  const c = k => run.rows.filter(x => x.outcome === k).length;
+  const avg = run.rows.length ? (run.rows.reduce((n,x) => n + (x.cited||[]).length, 0) / run.rows.length).toFixed(1) : 0;
+  return `Latest run, ${new Date(run.at).toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})}: ${c("ok")+c("refused")} of ${run.rows.length} acceptable (${c("ok")} answered, ${c("refused")} correctly refused), ${c("missed")} missed, ${c("review")} need review. Answers cite ${avg} sūtras on average; the score checks that an expected sūtra is among them, not that every citation is needed.${run.tier?` Model tier: ${esc(run.tier)}.`:""}`;
+}
+function tests(){
+  return `<div class="sec-h"><p class="eyebrow">Ask · test set</p><h2>Thirty questions Ask has to get right</h2>
+  <p>Each question has the sūtras a good answer must cite. Some ask about things the text never mentions, where the right answer is to say so. The set and its expected sūtras are written for this edition, so they are graded Editorial; each run's answers are Model-assisted.</p></div>
+  <div class="layers" style="margin-top:0">
+    <div class="layer"><div class="lh"><span>Scoring</span>${grade("derived")}</div><div>
+      <b style="font-weight:500">Acceptable</b> when an answer cites at least one expected sūtra. <b style="font-weight:500">Correct refusal</b> when the text does not cover the question and the answer says so. <b style="font-weight:500">Missed</b> when it cites none of the expected sūtras, or refuses a question the text does answer. <b style="font-weight:500">Needs review</b> when an answer has a sentence with no valid citation, answers what the text does not address, or uses a flagged term; a person then reads it.</div></div>
+  </div>
+  <p id="runsum" class="note-box" style="margin-top:var(--s-5);max-width:68ch">${runSummary(latestRun)}</p>
+  <p id="runctl" style="margin-top:var(--s-4)" hidden><button class="btn" type="button" id="runall">Run all 30</button> <button class="btn ghost" type="button" id="runstop" hidden>Stop</button> <span id="runprog" class="thinking" hidden></span></p>
+  <div class="tbl-wrap" style="margin-top:var(--s-5)"><table>
+    <thead><tr><th>#</th><th>Question</th><th>Expected</th><th>Latest</th></tr></thead>
+    <tbody id="trows">${testRows()}</tbody></table></div>`;
+}
+function testRows(){
+  const rows = latestRun ? Object.fromEntries(latestRun.rows.map(x => [x.id, x])) : {};
+  return T.map((t,i) => { const x = rows[t.id];
+    return `<tr id="row-${t.id}"><td class="mono">${i+1}</td><td>${esc(t.q)}${x && x.why ? `<span class="flag" style="color:var(--ink-3)">${esc(x.why)}</span>`:""}${answerDetails(x)}<button type="button" class="examples-btn runone" data-runone="${t.id}" hidden>Run again</button></td>
+      <td>${t.type==="absent" ? '<span class="muted">Say it isn\'t in the text</span>' : (t.gold||[]).map(g => `<a class="mono" href="${sHref(g)}">${g}</a>`).join(" ")}${t.type==="partial"?' <span class="muted">or say so</span>':""}</td>
+      <td>${latestCell(x)}</td></tr>`; }).join("");
+}
+function latestCell(x){
+  if (!x) return outPill(null);
+  const n = (x.cited||[]).length;
+  return `${outPill(x.outcome)}${n ? `<br><span class="mono muted" style="font-size:var(--s-1)">${n} cited: ${x.cited.slice(0,5).join(" ")}${n>5?" …":""}</span>`:""}`;
+}
+function answerDetails(x){
+  if (!x || !x.answer) return x && x.outcome ? `<span class="flag" style="color:var(--ink-3)">Answer text not saved in this run.</span>` : "";
+  const a = x.answer;
+  return `<details style="margin-top:.35rem;font-size:var(--s-2)"><summary style="cursor:pointer;color:var(--indigo);font-family:var(--f-ui);font-size:var(--s-1)">Read the answer</summary>
+    ${a.note ? `<p class="muted" style="margin-top:.4rem">${esc(a.note)}</p>` : ""}
+    ${a.sentences.map(s => `<p style="margin-top:.4rem">${s.kind==="reading"?"<i>":""}${esc(s.text)}${s.kind==="reading"?"</i>":""} <span class="mono muted" style="font-size:var(--s-1)">${s.cites.map(esc).join(" ")}</span></p>`).join("")}</details>`;
+}
+let runCtl = null, sample_ = null;
+async function wireTests(){
+  const run = await loadLatestRun();
+  if (!document.getElementById("runsum")) return;
+  document.getElementById("runsum").textContent = runSummary(run).replace(/&amp;/g,"&");
+  document.getElementById("trows").innerHTML = testRows();
+  const user = await userP, sample = await samplePromise, db = await dbP;
+  const can = user ? await user.canEdit().catch(() => false) : false;
+  const ctl = document.getElementById("runctl"); if (!ctl) return;
+  if (!(can && sample && db)) return;
+  canRun = true; ctl.hidden = false;
+  if (latestRunId) document.querySelectorAll(".runone").forEach(b => b.hidden = false);
+}
+async function runAll(){
+  const sample = await samplePromise, db = await dbP;
+  const btn = document.getElementById("runall"), stop = document.getElementById("runstop"), prog = document.getElementById("runprog");
+  runCtl = new AbortController(); btn.disabled = true; stop.hidden = false; prog.hidden = false;
+  const rows = []; let tier = null;
+  for (let i = 0; i < T.length; i++){
+    const t = T[i]; prog.textContent = `Asking ${i+1} of ${T.length}`;
+    let row;
+    try {
+      sample_ = sample;
+      const out = await askScored(t, {signal: runCtl.signal});
+      tier = out.res.modelTierApplied || tier; row = out.row;
+    } catch(e){
+      if (e && e.code === "cancelled") break;
+      if (e && (e.code === "not_granted" || e.code === "sampling_disabled" || e.code === "rate_limited")){ prog.textContent = ERR[e.code]; break; }
+      row = {id:t.id, outcome:"review", why:`No answer (${e && e.code || "error"})`, cited:[], status:"?"};
+    }
+    rows.push(row);
+    const tr = document.getElementById("row-"+t.id);
+    if (tr) tr.lastElementChild.innerHTML = latestCell(row);
+  }
+  btn.disabled = false; stop.hidden = true;
+  if (rows.length === T.length){
+    const run = {at: new Date().toISOString(), tier, rows};
+    try { const ref = await db.collection("runs").add(run); latestRun = run; latestRunId = ref.id; prog.textContent = "Saved."; document.getElementById("trows").innerHTML = testRows(); document.querySelectorAll(".runone").forEach(b => b.hidden = false); }
+    catch(e){ prog.textContent = "The run finished but couldn't be saved."; }
+    document.getElementById("runsum").textContent = runSummary(run);
+  } else if (!prog.textContent.startsWith("Too") && !prog.textContent.startsWith("Ask needs")) { prog.textContent = `Stopped after ${rows.length}. Partial runs aren't saved.`; }
+}
+async function runOne(id){
+  const t = T.find(x => x.id === id), sample = await samplePromise, db = await dbP;
+  if (!t || !sample || !db || !latestRun || !latestRunId) return;
+  const tr = document.getElementById("row-"+id), btn = tr.querySelector(".runone");
+  btn.disabled = true; tr.lastElementChild.innerHTML = '<span class="thinking">Asking</span>';
+  let row;
+  try { sample_ = sample; row = (await askScored(t, {})).row; }
+  catch(e){ tr.lastElementChild.innerHTML = latestCell(latestRun.rows.find(x => x.id === id)); btn.disabled = false; const m = document.getElementById("runprog"); m.hidden = false; m.textContent = ERR[e && e.code] || "That question couldn't be asked. Try again in a moment."; return; }
+  const rows = latestRun.rows.map(x => x.id === id ? row : x);
+  try { await db.doc("runs/" + latestRunId).update({rows, edited: new Date().toISOString()}); latestRun = {...latestRun, rows}; }
+  catch(e){ const m = document.getElementById("runprog"); m.hidden = false; m.textContent = "The new answer couldn't be saved."; }
+  document.getElementById("trows").innerHTML = testRows();
+  document.querySelectorAll(".runone").forEach(b => b.hidden = false);
+  document.getElementById("runsum").textContent = runSummary(latestRun);
+}
+document.addEventListener("click", e => {
+  const ro = e.target.closest("[data-runone]"); if (ro) runOne(ro.dataset.runone);
+  if (e.target.id === "runall") runAll();
+  if (e.target.id === "runstop") runCtl?.abort();
+});
+
+/* ---------- Ask ---------- */
+let samplePromise = (window.claude && claude.use) ? claude.use("sample").catch(() => null) : Promise.resolve(null);
+let askCtl = null;
+const EXAMPLES = [
+  "What should posture be like?",
+  "How is the mind stilled?",
+  "What are the obstacles to practice, and what helps?",
+  "Does the Yoga Sūtra mention chakras?",
+  "What does the text say about diet?",
+];
+function ask(){
+  const pre = ask.prefill || ""; ask.prefill = "";
+  return `<div class="sec-h"><p class="eyebrow">Ask</p><h2>Ask the text. Check the answer.</h2>
+  <p>Claude reads only this edition: the 195 sūtras in Sanskrit with the English of Woods, Johnston and Vivekananda. Every sentence it writes must cite a sūtra, and each citation is checked against the edition before it is shown. If the text does not say, it says so.</p></div>
+  <form class="ask-form col" id="askf">
+    <label for="q" class="eyebrow">Your question</label>
+    <textarea id="q" name="q" placeholder="What does Patañjali say about…">${esc(pre)}</textarea>
+    <div class="ask-row"><button class="btn" type="submit" id="askbtn">Ask</button><button class="btn ghost" type="button" id="stopbtn" hidden>Stop</button></div>
+    <div class="examples" aria-label="Example questions">${EXAMPLES.map(x => `<button type="button" data-ex="${esc(x)}">${esc(x)}</button>`).join("")}</div>
+  </form>
+  <div id="ans" class="col" aria-live="polite"></div>
+  <p class="cite" style="margin-top:var(--s-6)">How well does this work? <a href="#tests">See the 30-question test set and its latest score.</a></p>`;
+}
+function corpusForPrompt(){ return S.map(s => `${s.id} | ${s.iast} | Woods: ${s.en} | Johnston: ${s.jn}${s.vv?` | Vivekananda: ${s.vv}`:""}`).join("\n"); }
+function buildPrompt(q){
+  return `You answer questions about Patañjali's Yoga Sūtra using ONLY the edition below: 195 sūtras, each given as "number | Sanskrit (IAST) | Woods: English by J. H. Woods, 1914 | Johnston: English by Charles Johnston, 1912 | Vivekananda: English by Swami Vivekananda, 1896 (absent for 4.16)". Square brackets in Woods are his own additions. Woods is close to the Sanskrit; Johnston is a freer, devotional interpretation; Vivekananda is the Indian voice, written for Western audiences. Where the translations differ in a way that matters to the answer, say so, and prefer what the Sanskrit supports.
+
+Rules:
+1. Every sentence must cite at least one sūtra number from this edition that supports it, written like "2.46".
+2. Use only these sūtras. Do not draw on the Vyāsa commentary, other translations, or general knowledge of yoga. If you would need outside knowledge, leave that part out.
+3. Give each sentence a kind: "text" when it restates what the cited sūtras say, "reading" when it interprets or connects them beyond their wording.
+4. If the edition does not address the question, set status to "not_in_text" and use "note" to say in one or two sentences what the text does and does not cover, citing any nearby sūtras in "sentences". Do not answer from outside knowledge.
+5. At most 6 sentences. Plain English. Sanskrit terms in IAST are fine.
+
+Reply with only JSON in this shape:
+{"status":"answered"|"not_in_text","note":"","sentences":[{"text":"...","cites":["2.46"],"kind":"text"|"reading"}]}
+
+Question: ${q}
+
+Edition:
+${corpusForPrompt()}`;
+}
+const ERR = {
+  not_granted:"Ask needs your permission to use Claude, and it was not given. Reload the page to be asked again.",
+  sampling_disabled:"Claude isn't available on this account, so Ask can't run here.",
+  rate_limited:"Too many questions for now. Wait a moment, then ask again.",
+  session_expired:"Your Claude session has expired. Sign in again, then ask.",
+  refused:"Claude declined to answer this question. Try asking it a different way.",
+  invalid_json:"The answer came back in a shape this page can't check, so it isn't shown. Ask again.",
+  empty_completion:"No answer came back. Try a shorter or simpler question.",
+  prompt_too_large:"The question is too long. Shorten it and ask again.",
+};
+async function runAsk(q){
+  const ans = document.getElementById("ans"), btn = document.getElementById("askbtn"), stop = document.getElementById("stopbtn");
+  const sample = await samplePromise;
+  if (!sample){ ans.innerHTML = `<div class="note-box warn" style="margin-top:var(--s-5)">Ask works when this page is opened in Claude. Here it can't reach Claude, so no answer was made. Everything else on the site works without it.</div>`; return; }
+  askCtl?.abort(); askCtl = new AbortController();
+  btn.disabled = true; stop.hidden = false;
+  ans.innerHTML = `<p class="thinking" style="margin-top:var(--s-5)">Reading the 195 sūtras</p>`;
+  try {
+    const r = await sample.json(buildPrompt(q), {signal: askCtl.signal});
+    renderAnswer(q, r);
+  } catch (e) {
+    if (e && e.code === "cancelled"){ ans.innerHTML = `<p class="muted" style="margin-top:var(--s-5)">Stopped.</p>`; }
+    else ans.innerHTML = `<div class="note-box warn" style="margin-top:var(--s-5)">${esc(ERR[e && e.code] || "Something went wrong reaching Claude. Ask again in a moment.")}</div>`;
+  } finally { btn.disabled = false; stop.hidden = true; }
+}
+function renderAnswer(q, r){
+  const ans = document.getElementById("ans");
+  const sents = Array.isArray(r && r.sentences) ? r.sentences : [];
+  let dropped = 0; const all = new Set();
+  const html = sents.map((x, i) => {
+    const cites = (Array.isArray(x.cites) ? x.cites : []).map(String).map(c => c.trim());
+    const ok = cites.filter(c => byId[c]), bad = cites.filter(c => !byId[c]);
+    ok.forEach(c => all.add(c));
+    const reading = x.kind === "reading";
+    if (!ok.length){ dropped++; return `<p class="sent bad"><span class="stext">${esc(x.text||"")}</span><span class="tag">No valid citation</span></p>`; }
+    return `<p class="sent${reading?" reading":""}"><span class="stext">${esc(x.text||"")}</span>${reading?'<span class="tag">Reading</span>':""}${ok.map(c => `<button type="button" class="cbtn" data-cite="${c}" data-sent="${i}" aria-expanded="false">${c}</button>`).join("")}${bad.length?`<span class="tag" style="color:var(--lac)">Unknown: ${bad.map(esc).join(", ")}</span>`:""}</p><div data-evid="${i}"></div>`;
+  }).join("");
+  const notIn = r && r.status === "not_in_text";
+  ans.innerHTML = `<div class="answer">
+    <div class="meta">${grade("model")}<span>Question: ${esc(q)}</span></div>
+    ${notIn ? `<div class="note-box"><b style="font-weight:500">The text doesn't address this directly.</b> ${esc(r.note||"")}</div>` : (r && r.note ? `<p class="muted">${esc(r.note)}</p>` : "")}
+    ${html || (notIn ? "" : `<p class="muted">No sentences came back.</p>`)}
+    <p class="cite">${all.size} sūtras cited${dropped?` · ${dropped} sentence${dropped>1?"s":""} struck because ${dropped>1?"they cite":"it cites"} nothing in this edition`:""}. Sentences marked Reading interpret beyond the wording. Tap a number to see the sūtra.</p>
+    ${all.size ? `<div class="mini">${[...all].sort((a,b)=>S.indexOf(byId[a])-S.indexOf(byId[b])).map(id => `<a href="${sHref(id)}"><span class="mono">${id}</span><span><span class="deva">${esc(byId[id].deva)}</span><br>${woodsHTML(byId[id].en)}<br><span class="jn" style="font-size:var(--s-2)">${esc(byId[id].jn)}</span>${byId[id].vv?`<br><span class="jn" style="font-size:var(--s-2)">${esc(byId[id].vv)}</span>`:""}</span></a>`).join("")}</div>` : ""}
+  </div>`;
+}
+document.addEventListener("click", e => {
+  const cb = e.target.closest(".cbtn");
+  if (cb){
+    const box = document.querySelector(`[data-evid="${cb.dataset.sent}"]`), open = cb.getAttribute("aria-expanded") === "true";
+    document.querySelectorAll(`.cbtn[data-sent="${cb.dataset.sent}"]`).forEach(b => b.setAttribute("aria-expanded","false"));
+    if (open){ box.innerHTML = ""; return; }
+    cb.setAttribute("aria-expanded","true");
+    const s = byId[cb.dataset.cite];
+    box.innerHTML = `<div class="evid"><span class="mono" style="color:var(--indigo)">${s.id}</span> <span class="deva">${esc(s.deva)}</span><br><span class="iast muted">${esc(s.iast)}</span><br><span class="who">Woods</span>${woodsHTML(s.en)}<br><span class="who">Johnston</span><span class="jn">${esc(s.jn)}</span>${s.vv?`<br><span class="who">Vivekananda</span><span class="jn">${esc(s.vv)}</span>`:""} <a href="${sHref(s.id)}" style="font-family:var(--f-ui);font-size:var(--s-1)">Open</a></div>`;
+    return;
+  }
+  const ab = e.target.closest("[data-askabout]");
+  if (ab){ const s = byId[ab.dataset.askabout]; ask.prefill = `What does ${s.id} mean, and how does it connect to the rest of the text?`; }
+  const ex = e.target.closest("[data-ex]");
+  if (ex){ const q = document.getElementById("q"); q.value = ex.dataset.ex; runAsk(ex.dataset.ex); }
+  const pf = e.target.closest("[data-pref]");
+  if (pf){ store.set(pf.dataset.pref, pf.dataset.val); render(); }
+});
+document.addEventListener("submit", e => {
+  if (e.target.id !== "askf") return;
+  e.preventDefault(); const q = document.getElementById("q").value.trim(); if (q) runAsk(q);
+});
+document.addEventListener("click", e => { if (e.target.id === "stopbtn") askCtl?.abort(); });
+
+/* ---------- Search ---------- */
+function search(){
+  return `<div class="sec-h"><p class="eyebrow">Search</p><h2>Search the 195 sūtras</h2><p>Type a sūtra number (2.46, 2:46, II.46) to jump to it. Words match Devanagari, IAST (diacritics optional, so <span class="iast">samadhi</span> finds <span class="iast">samādhi</span>) and both English translations.</p></div>
+  <label for="sq" class="eyebrow">Search for</label>
+  <input class="search-in" id="sq" type="search" autocomplete="off" placeholder="e.g. 2.46, abhyasa, posture, समाधि" value="${esc(search.q||"")}">
+  <p class="cite" id="scount" style="margin-top:.6rem"></p><div id="sres" class="mini" style="margin-top:var(--s-3)"></div>`;
+}
+const SIDX = S.map(s => ({s, i: fold(s.iast).replace(/[\s']/g,""), e: fold(s.en), j: fold(s.jn), v: fold(s.vv||""), d: s.deva}));
+const ROMAN = {i:1, ii:2, iii:3, iv:4};
+function parseRef(q){
+  const m = fold(q).trim().replace(/^(ys|yogasutra|yoga sutra|sutra)\s*/, "").match(/^(iv|iii|ii|i|[1-4])\s*[.:\-\/\s]\s*(\d{1,2})$/);
+  if (!m) return null;
+  const p = ROMAN[m[1]] || +m[1], n = +m[2];
+  return {p, n, id: `${p}.${n}`};
+}
+function runSearch(q){
+  search.q = q;
+  const out = document.getElementById("sres"), cnt = document.getElementById("scount");
+  const f = fold(q.trim()), fi = f.replace(/[\s']/g,"");
+  if (!f){ out.innerHTML = ""; cnt.textContent = "Type a sūtra number or a word in any script."; return; }
+  const ref = parseRef(q);
+  if (ref){
+    const s = byId[ref.id];
+    if (s){
+      cnt.textContent = `Sūtra ${s.id}`;
+      out.innerHTML = `<a href="${sHref(s.id)}"><span class="mono">${s.id}</span><span><span class="deva">${esc(s.deva)}</span><br><span class="iast">${esc(s.iast)}</span><br>${woodsHTML(s.en)}</span></a>`;
+    } else {
+      const count = S.filter(x => x.pada === ref.p).length;
+      cnt.textContent = `There is no ${ref.id} in this edition: pāda ${ref.p} has ${count} sūtras.` + (ref.p === 3 && ref.n === 56 ? " Editions with 196 sūtras number one extra in pāda 3; their 3.56 is 3.55 here." : "");
+      out.innerHTML = "";
+    }
+    return;
+  }
+  const hits = SIDX.filter(x => x.i.includes(fi) || x.e.includes(f) || x.j.includes(f) || x.v.includes(f) || x.d.includes(q.trim()));
+  cnt.textContent = `${hits.length} sūtra${hits.length===1?"":"s"}`;
+  const hl = t => { const ft = fold(t), k = ft.indexOf(f); return k < 0 ? woodsHTML(t) : esc(t.slice(0,k)) + "<mark>" + esc(t.slice(k,k+f.length)) + "</mark>" + esc(t.slice(k+f.length)); };
+  out.innerHTML = hits.slice(0,80).map(x => `<a href="${sHref(x.s.id)}"><span class="mono">${x.s.id}</span><span><span class="iast">${esc(x.s.iast)}</span><br>${hl(x.s.en)}${x.j.includes(f)&&!x.e.includes(f)?`<br><span class="who">Johnston</span><span class="jn">${hl(x.s.jn)}</span>`:""}${x.v.includes(f)&&!x.e.includes(f)&&!x.j.includes(f)?`<br><span class="who">Vivekananda</span><span class="jn">${hl(x.s.vv)}</span>`:""}</span></a>`).join("");
+}
+
+/* ---------- Method ---------- */
+function method(){
+  const untagged = S.filter(s => !s.concepts.length).length;
+  const noted = S.filter(s => s.jnote);
+  return `<div class="sec-h"><p class="eyebrow">Method</p><h2>Sources, rules, and what is not here</h2><p>Every figure on this site describes this edition. None of them describes the Yoga Sūtra in general.</p></div>
+
+  <div class="prose">
+    <h3 style="margin-top:0">How a source gets in</h3>
+    <p>A source is shown in full, sūtra by sūtra, only when it passes all five tests. Anything else can still be cited and linked, but its text is not reproduced.</p>
+    <ol class="rules">
+      <li><span><b style="font-weight:500">We may republish it.</b> It is public domain or openly licensed. This rules out every modern translation unless its author or publisher gives permission.</span></li>
+      <li><span><b style="font-weight:500">It has a named editor and edition.</b> We can say who made the text and from what.</span></li>
+      <li><span><b style="font-weight:500">It lines up with the Sanskrit.</b> Its numbering matches this 195-sūtra edition, or maps to it by a stated rule.</span></li>
+      <li><span><b style="font-weight:500">It is clean enough to trust.</b> A proofread transcription, or OCR we have corrected and say so.</span></li>
+      <li><span><b style="font-weight:500">It adds a different lens.</b> A second literal translation adds little; a plainer or differently minded one adds a lot.</span></li>
+    </ol>
+    <p>The site never decides which translation is right. Translations sit side by side, each with its translator and year.</p>
+  </div>
+
+  <div class="sec-h" style="margin-top:var(--s-7)"><p class="eyebrow">Sources</p><h3 style="font-size:var(--s-5)">What is held, from exactly where</h3>
+  <p>Where this table and a source file's own terms disagree, the file's terms govern.</p></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Layer</th><th>Grade</th><th>Exact source</th><th>Licence</th></tr></thead>
+    <tbody>
+      <tr><td>Sanskrit (IAST)</td><td>${grade("source")}</td><td>GRETIL, <span class="mono">sa_pataJjali-yogasUtra.txt</span>, TEI version of 2020-07-31. Input and proofreading by Philipp A. Maas, from Kāśinātha Śāstrī Āgāśe, Ānandāśrama Sanskrit Series 47, Pune 1904</td><td>CC BY-NC-SA 4.0, so this site must stay non-commercial</td></tr>
+      <tr><td>English · Woods</td><td>${grade("source")}</td><td>J. H. Woods, <i>The Yoga-System of Patañjali</i>, Harvard Oriental Series 17, 1914, pp. xxx–xli (sūtras without commentary). Internet Archive item <span class="mono">yogasystemofpata00wooduoft</span>, University of Toronto copy, OCR text</td><td>Public domain (published 1914)</td></tr>
+      <tr><td>English · Johnston</td><td>${grade("source")}</td><td>Charles Johnston, <i>The Yoga Sutras of Patanjali: The Book of the Spiritual Man</i>, New York 1912. Project Gutenberg eBook #2526, updated 14 May 2022, read from a copy in the GitHub repository <span class="mono">brylie/yoga-sutras-of-patanjali-llm-rag</span>, SHA-256 <span class="mono">${D.johnstonSha.slice(0,12)}…</span></td><td>Public domain (published 1912). Gutenberg's trademark is not used</td></tr>
+      <tr><td>Gītā Sanskrit</td><td>${grade("source")}</td><td>Bhagavad Gītā, ${G.verseCount} verses, <span class="mono">data/verse.json</span> from the GitHub repository <span class="mono">gita/gita</span>. Speaker lines and verse numbers removed. Only the Sanskrit is used.</td><td>Repository released into the public domain (Unlicense). The repository also holds modern English translations; their translators' rights are not the repository's to release, so they are not used</td></tr>
+      <tr><td>Gītā links</td><td>${grade("derived")} ${grade("editorial")}</td><td>${G.candidates} candidates found by rule; ${G.links.length} kept after reading the top ${G.reviewedTop}</td><td>—</td></tr>
+      <tr><td>Groups and headings</td><td>${grade("source")}</td><td>Woods' own groups, pp. xxx–xli. Two long headings are shortened.</td><td>Public domain</td></tr>
+      <tr><td>Devanagari</td><td>${grade("derived")}</td><td>Transliterated from the IAST with <span class="mono">indic_transliteration</span>, closing up final consonants</td><td>—</td></tr>
+      <tr><td>Term index and links</td><td>${grade("derived")}</td><td>${C.length} stem patterns run over the IAST; two terms are linked when both match one sūtra</td><td>—</td></tr>
+      <tr><td>Term glosses</td><td>${grade("editorial")}</td><td>Written for this edition, one line each</td><td>—</td></tr>
+      <tr><td>English · Vivekananda</td><td>${grade("source")}</td><td>Swami Vivekananda, <i>Raja Yoga</i> (New York, 1896): the numbered aphorisms only, read from <i>The Complete Works</i>, vol. 1 on ramakrishnavivekananda.info. Matched to this edition by the Sanskrit printed beside each aphorism</td><td>Public domain (published 1896). His commentary is not reproduced</td></tr>
+      <tr><td>Ask answers</td><td>${grade("model")}</td><td>Claude, given only the 195 sūtras and all three translations; citations checked against the edition</td><td>—</td></tr>
+    </tbody></table></div>
+
+  <div class="prose" style="margin-top:var(--s-7)">
+    <h3>Why these three translations</h3>
+    <p><b style="font-weight:500">Woods</b> translates from the same Ānandāśrama edition as the Sanskrit here, so the numbers match by construction. He is close to the Sanskrit and translates the two oldest commentaries, which makes him the natural base layer. His English is technical and dated: “mind-stuff”, “self-castigation”.</p>
+    <p><b style="font-weight:500">Johnston</b> was chosen as the second lens: plain, short, and openly interpretive, with a spiritual rather than philological slant. His numbering was checked against this edition: 51, 55, 55 and 34 sūtras, with no extra sūtra after 3.21, and the wording lines up at 1.33, 2.29, 3.1–3.3, 3.55 and 4.29.</p>
+    <p><b style="font-weight:500">Vivekananda</b> is the Indian voice in the set, and the version most read in India. His <i>Raja Yoga</i> (1896) was written for a Western audience in New York, so his wording is plain and his reading is Vedāntic. His aphorisms are numbered 51, 55, 56 and 33. Two differences from this edition were found by checking each aphorism against the Sanskrit he prints: he adds one aphorism after 3.21 (“By this the disappearance or concealment of words…”), and he has none for 4.16. They are shown on the sūtra pages, and his numbers are mapped by the Sanskrit, not by position.</p>
+    <h3>How the texts were transcribed</h3>
+    <ul>
+      <li><b style="font-weight:500">Woods</b> exists online only as raw OCR, so obvious OCR errors were corrected by hand (“Kepetition” to “Repetition”, “Eain-cloud” to “Rain-cloud”). His spelling <i>Içvara</i> is kept.</li>
+      <li><b style="font-weight:500">Vivekananda</b> was read page by page from the online Complete Works and kept as printed, including apparent misprints (flagged on the sūtra, not changed): <a href="#s-1-41">1.41</a>, <a href="#s-2-30">2.30</a>, <a href="#s-3-22">3.22</a>.</li>
+      <li><b style="font-weight:500">Johnston</b> comes from a proofread Gutenberg edition, so it is kept exactly as printed. Suspected errors are flagged on the sūtra, not changed: ${noted.map(s => `<a href="${sHref(s.id)}">${s.id}</a>`).join(", ")}.</li>
+    </ul>
+    <h3>Why 195 sūtras, not 196</h3>
+    <p>This edition follows the Ānandāśrama text, as Woods and Johnston do: 51, 55, 55 and 34 sūtras. Many popular editions, Vivekananda's among them, add one more sūtra after 3.21, which gives 56 in the third pāda and 196 in all. From that point on, their third-pāda numbers run one higher than the numbers here.</p>
+    <h3>What the term index can and cannot tell you</h3>
+    <ul>
+      <li>It finds words, not ideas. A sūtra about stillness that never uses <i>nirodha</i> is not tagged <i>nirodha</i>.</li>
+      <li>Patterns exclude known look-alikes (<i>nivṛtti</i> is not <i>vṛtti</i>; <i>anuśāsana</i> is not <i>āsana</i>). Each pattern is printed on its term's page, so any count can be checked.</li>
+      <li>${untagged} sūtras carry none of the ${C.length} terms. That is a property of the term list.</li>
+      <li>A shared word can carry two senses: <i>bīja</i> is “germ” in 1.25 and “seed” of concentration in 1.46.</li>
+    </ul>
+    <h3>How Ask works</h3>
+    <ul>
+      <li>The whole edition is small enough to hand to the model in full, so nothing is pre-filtered. The model sees only the 195 sūtras, all three translations, and the question.</li>
+      <li>It must return one citation or more for every sentence. The page checks each citation against the edition. A sentence with no valid citation is shown struck through, not quietly removed.</li>
+      <li>Sentences that interpret rather than restate are marked Reading. Where the translations differ in a way that matters, the answer is asked to say so.</li>
+      <li>Questions the text does not reach (diet, for example) are answered with what the text does and does not cover.</li>
+      <li>A <a href="#tests">30-question test set</a> checks all of this. <span id="bench-sum">Loading the latest run…</span></li>
+      <li>The score measures grounding: whether an answer rests on the right sūtras, or says the text is silent. It does not grade how well an answer is written, and it does not penalise extra citations. Every answer can be read on the test page.</li>
+    </ul>
+    <h3>Consulted, not reproduced</h3>
+    <p>These were used to check the edition. None of their text is shown.</p>
+    <ul>
+      <li>Internet Archive scan of Johnston's 1912 printing (item <span class="mono">yogasutrasofpata00pata</span>): title page and imprint confirmed. The readable portion ends in Book III, so the reading at 4.4 is still unverified.</li>
+      <li>The sacred-texts.com transcription of Johnston: could not be reached when the edition was built.</li>
+      <li>GRETIL's Bhagavad Gītā (Tokunaga and Smith, from the Pune critical edition): marked “for reference purposes only”, so it was not used as the Gītā text here.</li>
+    </ul>
+    <h3>Further reading</h3>
+    <p>Modern translations still in copyright. They are cited here so readers can find them; their text is not reproduced. Books marked “teachers' pick” were recommended in a <a href="https://www.reddit.com/r/YogaTeachers/comments/1jrbmy8/yoga_sutras_patanjali_recommendations/" target="_blank" rel="noopener">2024 r/YogaTeachers thread</a>.</p>
+  </div>
+  <div class="shelf" style="margin-top:var(--s-3)">
+    <div><b>Edwin F. Bryant, <i>The Yoga Sūtras of Patañjali</i> (North Point Press, 2009)</b><span>Scholarly translation drawing on the traditional Sanskrit commentaries sūtra by sūtra.</span></div>
+    <div><b>B. K. S. Iyengar, <i>Light on the Yoga Sūtras of Patañjali</i> (1993)</b><span>A practitioner's reading by the founder of Iyengar Yoga, tying the sūtras back to āsana and prāṇāyāma. <i>Teachers' pick.</i></span></div>
+    <div><b>Sri Swami Satchidananda, <i>The Yoga Sutras of Patanjali</i> (Integral Yoga Publications, 1978)</b><span>Accessible and devotional, with the Devanagari, a word-by-word breakdown and commentary on each sūtra. <i>Teachers' pick.</i></span></div>
+    <div><b>Gregor Maehle, <i>Ashtanga Yoga: Practice and Philosophy</i> (New World Library, 2006)</b><span>Translation and commentary inside a practice manual; relates each sūtra to Sāṃkhya, Vedānta and the classical commentaries. <i>Teachers' pick.</i></span></div>
+    <div><b>Swami Satyananda Saraswati, <i>Four Chapters on Freedom</i> (Bihar School of Yoga, 1976)</b><span>Commentary from the Bihar School tradition, written for practitioners. <i>Teachers' pick.</i></span></div>
+    <div><b>Chip Hartranft, <i>The Yoga-Sūtra of Patañjali</i> (Shambhala, 2003)</b><span>Spare translation that reads the text alongside early Buddhist meditation.</span></div>
+    <div><b>T. K. V. Desikachar, <i>The Heart of Yoga</i> (Inner Traditions, 1995)</b><span>Includes a full translation in the Krishnamacharya teaching line.</span></div>
+  </div>
+  <div class="prose" style="margin-top:var(--s-6)">
+    <h3>Not held in this edition</h3>
+    <ul>
+      <li>The Vyāsa Bhāṣya and Vācaspati Miśra's sub-commentary. Woods translates both; GRETIL has the Bhāṣya in Sanskrit. They are the natural next layer.</li>
+            <li>Recitation audio and word-by-word analysis (<i>padaccheda</i>).</li>
+      <li>Any claim about which reading of a sūtra is right.</li>
+    </ul>
+  </div>`;
+}
+function notFound(){ return `<div class="sec-h"><h2>Nothing at this address</h2><p>Try <a href="#read">reading from the start</a> or <a href="#search">searching</a>.</p></div>`; }
+
+/* ---------- Router ---------- */
+function route(){
+  const h = location.hash.slice(1) || "home";
+  let m, html, nav = h.split("-")[0];
+  if (h === "home") html = home();
+  else if (h === "read") { html = read(1); }
+  else if ((m = h.match(/^read-([1-4])$/))) html = read(+m[1]);
+  else if ((m = h.match(/^s-(\d)-(\d+)$/))) { html = sutra(`${m[1]}.${m[2]}`); nav = "read"; }
+  else if (h === "concepts") html = concepts();
+  else if ((m = h.match(/^c-([a-z]+)$/))) { html = concept(m[1]); nav = "concepts"; }
+  else if (h === "graph") { html = graph(); nav = "visuals"; }
+  else if (h === "visuals") html = visuals();
+  else if (h === "connections") html = connections();
+  else if (h === "tests") { html = tests(); nav = "ask"; }
+  else if (h === "ask") html = ask();
+  else if (h === "search") html = search();
+  else if (h === "method") html = method();
+  else html = notFound();
+  return {html, nav, h};
+}
+let last = null;
+function render(){
+  const {html, nav, h} = route();
+  view.innerHTML = html;
+  document.querySelectorAll("nav.main a").forEach(a => { if (a.dataset.nav === nav) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  wireThread();
+  if (h === "graph") drawGraph();
+  if (h === "tests") wireTests();
+  if (h === "method") loadLatestRun().then(run => { const el = document.getElementById("bench-sum"); if (el) el.textContent = runSummary(run); });
+  if (h === "search"){ const i = document.getElementById("sq"); i.addEventListener("input", () => runSearch(i.value));
+    i.addEventListener("keydown", e => { if (e.key === "Enter"){ const r = parseRef(i.value); if (r && byId[r.id]) location.hash = sHref(r.id).slice(1); } });
+    runSearch(i.value); if (last !== h) i.focus(); }
+  if (last !== h) window.scrollTo(0, 0);
+  last = h;
+}
+window.addEventListener("hashchange", render);
+render();
+</script>

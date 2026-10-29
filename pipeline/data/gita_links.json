@@ -1,0 +1,34 @@
+{
+ "reviewed_top": 70,
+ "kinds": {
+  "teaching": "Same teaching: the two passages say substantially the same thing.",
+  "list": "Shared list: both enumerate overlapping items.",
+  "wording": "Shared wording: the same word or compound; its sense may differ."
+ },
+ "rejected_examples": [
+  {"ys": "3.22", "bg": "3.6", "why": "Both use saṃyama, but in the Gītā it is the ordinary verb 'restraining' (the senses), not Patañjali's technical term."},
+  {"ys": "1.41", "bg": "16.3", "why": "Both use abhijāta, but in the Gītā it means 'born to' (a divine nature), not 'flawless' as of a jewel."},
+  {"ys": "1.8", "bg": "2.70", "why": "A shared string (pratiṣṭh-) with no shared meaning."}
+ ],
+ "links": [
+  {"ys": "1.12", "bg": "6.35", "kind": "teaching", "origin": "search", "note": "Both name practice (abhyāsa) and non-attachment (vairāgya) as the way to master a restless mind."},
+  {"ys": "1.15", "bg": "13.9", "kind": "wording", "origin": "search", "note": "Vairāgya appears in the Gītā's list of the marks of knowledge, directed at the objects of the senses."},
+  {"ys": "1.20", "bg": "2.54", "kind": "wording", "origin": "search", "note": "Both join insight (prajñā) to samādhi: the Gītā's person 'steady in wisdom' is 'established in samādhi'."},
+  {"ys": "1.24", "bg": "15.17", "kind": "teaching", "origin": "search", "note": "Both describe a supreme Self distinct from all others, which the Gītā also calls īśvara."},
+  {"ys": "1.27", "bg": "7.8", "kind": "wording", "origin": "search", "note": "Both use praṇava for the syllable Om; the Gītā calls it what is supreme in all the Vedas."},
+  {"ys": "1.28", "bg": "8.13", "kind": "teaching", "origin": "review", "note": "Both teach repeating Om while holding its meaning, or the Lord, in mind."},
+  {"ys": "1.30", "bg": "14.8", "kind": "wording", "origin": "search", "note": "The same compound pramāda-ālasya (heedlessness and sloth): obstacles in the Yoga Sūtra, marks of tamas in the Gītā."},
+  {"ys": "1.33", "bg": "12.13", "kind": "teaching", "origin": "search", "note": "Friendliness (maitrī) and compassion (karuṇā), here as attitudes that calm the mind, in the Gītā as marks of the devotee."},
+  {"ys": "2.1", "bg": "17.15", "kind": "list", "origin": "search", "note": "The Gītā counts study (svādhyāya) as an austerity (tapas) of speech; the Yoga Sūtra pairs the two in kriyā-yoga."},
+  {"ys": "2.15", "bg": "14.18", "kind": "wording", "origin": "search", "note": "The same compound guṇa-vṛtti, the working of the three qualities."},
+  {"ys": "2.20", "bg": "14.19", "kind": "teaching", "origin": "search", "note": "Both speak of the seer (draṣṭṛ) who looks on (anupaś-); in the Gītā, the one who sees that only the guṇas act."},
+  {"ys": "2.29", "bg": "4.29", "kind": "wording", "origin": "search", "note": "Prāṇāyāma: a limb of yoga here, a form of inner offering in the Gītā."},
+  {"ys": "2.30", "bg": "17.14", "kind": "list", "origin": "search", "note": "Non-harming (ahiṃsā) and continence (brahmacarya) appear in the Gītā's austerity of the body and among the five yamas here."},
+  {"ys": "2.32", "bg": "17.14", "kind": "list", "origin": "search", "note": "Cleanliness (śauca) and austerity (tapas) appear in both lists."},
+  {"ys": "2.39", "bg": "6.10", "kind": "wording", "origin": "search", "note": "Aparigraha (non-grasping): a yama here, a condition of the solitary yogin in the Gītā."},
+  {"ys": "2.46", "bg": "6.11", "kind": "teaching", "origin": "review", "note": "Both ask for a steady seat, sthiram āsanam."},
+  {"ys": "2.49", "bg": "4.29", "kind": "wording", "origin": "search", "note": "Prāṇāyāma as the stopping of in- and out-breath here; in the Gītā, the restraint of prāṇa and apāna."},
+  {"ys": "3.1", "bg": "8.12", "kind": "wording", "origin": "search", "note": "Dhāraṇā: binding the mind to a place here; in the Gītā, yoga-dhāraṇā, the mind held in the heart and the breath at the crown."},
+  {"ys": "3.11", "bg": "6.12", "kind": "wording", "origin": "search", "note": "One-pointed mind (ekāgra): an outcome of samādhi here, the yogin's starting point on the seat in the Gītā."}
+ ]
+}

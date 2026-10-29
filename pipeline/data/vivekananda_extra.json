@@ -1,0 +1,17 @@
+{
+ "extra": {
+  "after": "3.21",
+  "vv_number": "3.22",
+  "text": "By this the disappearance or concealment of words which are being spoken and such other things are also explained.",
+  "note": "In Vivekananda's edition, not in this one: the 196th sūtra (etena śabdādy antardhānam uktam)."
+ },
+ "gap": {
+  "ours": "4.16",
+  "note": "Vivekananda's edition has no counterpart for 4.16 (na caikacittatantraṃ vastu...); his Book 4 has 33 aphorisms, so from 4.17 his numbers run one lower than this edition's."
+ },
+ "notes": {
+  "1.41": "Printed 'concentratedness arid sameness'; 'arid' is a misprint for 'and' in the source text.",
+  "2.30": "Printed 'nor-receiving'; presumably 'non-receiving' (aparigraha), kept as printed.",
+  "3.22": "Printed 'Samyana'; kept as printed."
+ }
+}
