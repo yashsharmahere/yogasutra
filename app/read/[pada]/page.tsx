@@ -14,15 +14,21 @@ export async function generateMetadata({ params }: { params: Promise<{ pada: str
 export default async function Read({ params }: { params: Promise<{ pada: string }> }) {
   const n = Number((await params).pada), p = PADAS.find((x) => x.n === n);
   if (!p) notFound();
-  const sutras = S.filter((s) => s.pada === n);
+  const sutras = S.filter((s) => s.pada === n), groups = G.filter((g) => g.pada === n);
   return (
     <>
       <p className="eyebrow">Chapter {n} of 4</p>
       <h1 className="deva" style={{ fontSize: "var(--s-7)" }}>{p.deva}</h1>
       <p className="iast muted" style={{ fontSize: "var(--s-5)" }}>{p.name} · {p.woods}</p>
       <nav className="prefs" style={{ marginTop: "var(--s-5)" }}>{PADAS.map((x) => <Link key={x.n} href={`/read/${x.n}`} aria-current={x.n === n ? "page" : undefined}>{x.n}. {x.name}</Link>)}</nav>
-      <div className="muted" style={{ fontSize: "var(--s-2)", marginBottom: "var(--s-5)" }}>{G.filter((g) => g.pada === n).length} groups, under Woods&apos; own headings.</div>
-      <ReaderList sutras={sutras} />
+      <div className="page-grid">
+        <div className="page-main"><ReaderList sutras={sutras} groups={groups} /></div>
+        <aside className="page-aside" aria-label="In this chapter">
+          <p className="eyebrow">In this chapter</p>
+          <ol className="toc">{groups.map((g) => <li key={g.id}><a href={`#g-${g.id}`}><span className="mono">{g.range}</span><span>{g.heading}</span></a></li>)}</ol>
+          <p className="prov">{groups.length} groups, under Woods&apos; own headings.</p>
+        </aside>
+      </div>
     </>
   );
 }

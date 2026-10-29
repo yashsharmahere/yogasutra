@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { C, cById, byId, D, slug } from "@/lib/corpus";
+import Icon from "@/components/Icons";
 import { Woods } from "@/components/Bits";
 
 export const generateStaticParams = () => C.map((c) => ({ id: c.id }));
@@ -16,15 +17,25 @@ export default async function ConceptPage({ params }: { params: Promise<{ id: st
   const co = (D.links as any[]).filter((l) => l.a === c.id || l.b === c.id).sort((x, y) => y.n - x.n).slice(0, 8);
   return (
     <>
-      <div className="crumbs"><Link href="/concepts">Concepts</Link><span>/</span><span>{c.kind}</span></div>
+      <div className="crumbs"><Link href="/concepts">Concepts</Link><span>/</span><span>{(D.kinds as Record<string, string>)[c.kind] ?? c.kind}</span></div>
       <h1 className="deva" style={{ fontSize: "var(--s-7)" }}>{c.deva}</h1>
       <p className="iast" style={{ fontSize: "var(--s-5)" }}>{c.iast} <span className="muted">· {c.en}</span></p>
       <p className="col" style={{ margin: "var(--s-4) 0" }}>{c.gloss}</p>
       <p className="muted" style={{ fontSize: "var(--s-2)" }}>Woods renders it “{c.woods}”. Matched by the stem pattern <span className="pattern">{c.pattern}</span> in the Sanskrit.</p>
-      {co.length > 0 && <p style={{ margin: "var(--s-4) 0" }}>Often with: {co.map((l) => { const o = cById[l.a === c.id ? l.b : l.a]; return <Link key={o.id} className="chip" href={`/concepts/${o.id}`}><span className="iast">{o.iast}</span><small>{l.n} sūtras</small></Link>; })}</p>}
+      {co.length > 0 && <p style={{ margin: "var(--s-4) 0" }}>Often with: {co.map((l) => { const o = cById[l.a === c.id ? l.b : l.a]; return <Link key={o.id} className="chip" href={`/concepts/${o.id}`}><span className="iast">{o.iast}</span><small>{l.n} sūtra{l.n === 1 ? "" : "s"}</small></Link>; })}</p>}
+      <div className="page-grid">
+      <div className="page-main">
       <h2 style={{ fontSize: "var(--s-5)", margin: "var(--s-6) 0 var(--s-3)" }}>{c.sutras.length} sūtras</h2>
       <div className="rows">{c.sutras.map((id) => { const s = byId[id]; return (
         <Link key={id} className="row" href={`/sutra/${slug(id)}`}><span className="num">{id}</span><span><span className="r-iast" style={{ display: "block" }}>{s.iast}</span><span className="r-en" style={{ display: "block" }}><Woods t={s.en} /></span></span></Link>); })}</div>
+      </div>
+      <aside className="page-aside" aria-label="Where it runs">
+        <p className="eyebrow">Where it runs</p>
+        <div className="statbar stack">{[1, 2, 3, 4].map((n) => <div key={n}><b>{c.sutras.filter((id) => id.startsWith(n + ".")).length}</b><span>pāda {n}</span></div>)}</div>
+        <p className="prov">Number of sūtras in each pāda whose Sanskrit contains the term.</p>
+        <p style={{ marginTop: "var(--s-5)" }}><Link href="/graph">See it in the term graph</Link></p>
+      </aside>
+      </div>
     </>
   );
 }

@@ -16,7 +16,7 @@ export default function Home() {
         <h1>One text.<br /><i>One thread.</i></h1>
         <p className="lede2">The word <i>sūtra</i> means thread. Here are all {S.length} of them in Sanskrit with three public-domain translations, joined by the words they share. Every layer says where it came from.</p>
         <p className="hero-cta"><Link className="btn" href="/sutra/1-1">Begin at 1.1</Link><Link className="btn ghost" href="/patanjali">Meet Patañjali</Link></p>
-        <div className="facts"><span><b>{S.length}</b>sūtras</span><span><b>4</b>pādas</span><span><b>{C.length}</b>indexed terms</span><span><b>{D.links.length}</b>term links</span><span><b>{D.gita.links.length}</b>Gītā links</span></div>
+        <div className="statbar"><div><b>{S.length}</b><span>sūtras</span></div><div><b>4</b><span>pādas</span></div><div><b>{C.length}</b><span>indexed terms</span></div><div><b>{D.links.length}</b><span>term links</span></div><div><b>{D.gita.links.length}</b><span>Gītā links</span></div></div>
       </section>
 
       <section>
