@@ -4,6 +4,7 @@ import { S, C, G, D, PADAS, byId, cById, slug, unslug } from "@/lib/corpus";
 import { Grade, Woods, SLink } from "@/components/Bits";
 import { Plate } from "@/components/Plate";
 import { platesFor } from "@/lib/plates";
+import SutraNav from "@/components/SutraNav";
 import ThreadServer from "@/components/ThreadServer";
 
 export const generateStaticParams = () => S.map((s) => ({ id: slug(s.id) }));
@@ -24,7 +25,10 @@ export default async function SutraPage({ params }: { params: Promise<{ id: stri
     .sort((a, b) => b.concepts.filter((c) => s.concepts.includes(c)).length - a.concepts.filter((c) => s.concepts.includes(c)).length).slice(0, 8).map((x) => x.id);
   return (
     <>
-      <div className="crumbs"><Link href={`/read/${s.pada}`}>{pada.name}</Link><span>/</span><span>{g.heading}</span><span>/</span><span className="mono">{s.id}</span></div>
+      <div className="crumb-bar">
+        <div className="crumbs"><Link href={`/read/${s.pada}`}>{pada.name}</Link><span>/</span><span>{g.heading}</span><span>/</span><span className="mono">{s.id}</span></div>
+        <SutraNav prev={prev ? { id: prev.id, iast: prev.iast } : null} next={next ? { id: next.id, iast: next.iast } : null} />
+      </div>
       <div className="sutra-top">
       <div className="s-head">
         <span className="s-num">{s.id}</span>
