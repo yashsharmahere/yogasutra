@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { C, D, S } from "@/lib/corpus";
+import { C, D, S, cById } from "@/lib/corpus";
 import { Grade } from "@/components/Bits";
 import { PLATES } from "@/lib/plates";
 import { glyph } from "@/lib/visGlyphs";
 import VisToc from "@/components/VisToc";
+import VisThreads from "@/components/VisThreads";
 
 export const metadata = { title: "Visualize", description: "The structure of the Yoga Sūtra, drawn from the sūtras themselves." };
 
@@ -31,21 +32,11 @@ function Head({ i }: { i: number }) {
   );
 }
 
-function TermRow({ c }: { c: (typeof C)[number] }) {
-  const hits = c.sutras.map((id) => IDX[id]).filter((n) => n !== undefined);
-  return (
-    <div className="tr">
-      <Link className="tr-nm" href={`/concepts/${c.id}`}><span className="iast">{c.iast}</span><em>{c.en}</em></Link>
-      <svg className="tr-tx" viewBox={`0 0 ${N} 10`} preserveAspectRatio="none" role="img" aria-label={`${c.iast}: ${hits.length} sūtras`}>
-        <line className="tr-base" x1="0" y1="5" x2={N} y2="5" />
-        {CUTS.slice(1, 4).map((x) => <line key={x} className="tr-sep" x1={x} y1="0" x2={x} y2="10" />)}
-        {hits.map((n) => (
-          <a key={n} href={`/sutra/${S[n].id.replace(".", "-")}`}><title>{`${c.iast} · ${S[n].id}`}</title><rect className="tr-hit" x={n + 0.1} y="0.5" width="0.8" height="9" /></a>
-        ))}
-      </svg>
-    </div>
-  );
-}
+const GROUPS = Object.entries(D.kinds as Record<string, string>).map(([k, label]) => ({
+  label,
+  rows: C.filter((c) => c.kind === k).map((c) => ({ id: c.id, iast: c.iast, en: c.en, pattern: c.pattern, hits: c.sutras.map((id) => IDX[id]).filter((n) => n !== undefined) })),
+}));
+const INFO = S.map((s) => ({ id: s.id, pada: s.pada, deva: s.deva, iast: s.iast, en: s.en, terms: s.concepts.map((id) => cById[id]?.iast).filter(Boolean) as string[] }));
 
 export default function Visuals() {
   return (
@@ -86,16 +77,8 @@ export default function Visuals() {
           })}
           <section id="terms" className="vs">
             <Head i={5} />
-            <div className="tr-legend"><span><i />a sūtra whose Sanskrit holds the term</span><span>One row per term, one column per sūtra in order. Each tick opens its sūtra; each name opens the term.</span></div>
-            <div className="tr-wrap">
-              <div className="tr tr-axis" aria-hidden="true"><span /><div>{[0, 1, 2, 3].map((p) => <span key={p} style={{ flex: CUTS[p + 1] - CUTS[p] }}>Pāda {p + 1}</span>)}</div></div>
-              {Object.entries(D.kinds as Record<string, string>).map(([k, label]) => (
-                <div key={k} className="tr-group">
-                  <p className="tr-k">{label}</p>
-                  {C.filter((c) => c.kind === k).map((c) => <TermRow key={c.id} c={c} />)}
-                </div>
-              ))}
-            </div>
+            <div className="tr-legend"><span><i />a knot: a sūtra whose Sanskrit holds the term</span><span>One thread per term, tied off at each sūtra that holds it, in order. Hover a knot to read the sūtra; click it to open. Brush a thread and it moves.</span></div>
+            <VisThreads groups={GROUPS} info={INFO} cuts={CUTS} />
             <p className="vs-read"><b>How to read it</b><span>Computed from the term index: a tick means the term&apos;s Sanskrit form occurs in that sūtra. Pādas differ in length (51, 55, 55, 34), so read each row for its shape, not its total.</span></p>
           </section>
         </div>
