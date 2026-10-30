@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { C, D, S, cById } from "@/lib/corpus";
+import { C, D, S, PADAS, cById } from "@/lib/corpus";
 import { Grade } from "@/components/Bits";
 import { PLATES } from "@/lib/plates";
 import { glyph } from "@/lib/visGlyphs";
 import VisToc from "@/components/VisToc";
 import VisThreads from "@/components/VisThreads";
+import TermMap from "@/components/TermMap";
 
 export const metadata = { title: "Visualize", description: "The structure of the Yoga Sūtra, drawn from the sūtras themselves." };
 
@@ -37,6 +38,30 @@ const GROUPS = Object.entries(D.kinds as Record<string, string>).map(([k, label]
   rows: C.filter((c) => c.kind === k).map((c) => ({ id: c.id, iast: c.iast, en: c.en, pattern: c.pattern, hits: c.sutras.map((id) => IDX[id]).filter((n) => n !== undefined) })),
 }));
 const INFO = S.map((s) => ({ id: s.id, pada: s.pada, deva: s.deva, iast: s.iast, en: s.en, terms: s.concepts.map((id) => cById[id]?.iast).filter(Boolean) as string[] }));
+
+function Counts() {
+  const per = (c: any) => [1, 2, 3, 4].map((p) => c.sutras.filter((id: string) => id.startsWith(p + ".")).length);
+  const max = Math.max(...C.flatMap(per));
+  return (
+    <div className="tbl-wrap"><table className="heat"><thead><tr><th />{PADAS.map((p) => <th key={p.n} style={{ textAlign: "center" }}>{p.n}<br /><span className="muted" style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0 }}>{p.name.replace("-pāda", "")}</span></th>)}<th style={{ textAlign: "center" }}>All</th></tr></thead>
+      <tbody>{Object.entries(D.kinds as Record<string, string>).map(([k, label]) => (
+        <>
+          <tr key={k}><th className="k" colSpan={6}>{label}</th></tr>
+          {C.filter((c) => c.kind === k).map((c) => (
+            <tr key={c.id}>
+              <td className="term"><Link href={`/concepts/${c.id}`} className="iast">{c.iast}</Link> <span className="muted" style={{ fontFamily: "var(--f-ui)", fontSize: "var(--s-1)" }}>{c.en}</span></td>
+              {per(c).map((n, i) => {
+                const pct = n ? Math.round(12 + (78 * n) / max) : 0, strong = n / max > 0.55;
+                return <td key={i} className="c" style={{ background: n ? `color-mix(in oklab, var(--indigo) ${pct}%, var(--card))` : "transparent", color: strong ? "var(--paper)" : "var(--ink)" }} title={`${c.iast} in pāda ${i + 1}: ${n} sūtra${n === 1 ? "" : "s"}`}>
+                  {n ? <Link href={`/concepts/${c.id}`}>{n}</Link> : <span style={{ color: "var(--ink-3)" }}>·</span>}</td>;
+              })}
+              <td className="c tot">{c.sutras.length}</td>
+            </tr>
+          ))}
+        </>
+      ))}</tbody></table></div>
+  );
+}
 
 export default function Visuals() {
   return (
@@ -77,9 +102,7 @@ export default function Visuals() {
           })}
           <section id="terms" className="vs">
             <Head i={5} />
-            <div className="tr-legend"><span><i />a knot: a sūtra whose Sanskrit holds the term</span><span>One thread per term, tied off at each sūtra that holds it, in order. Hover a knot to read the sūtra; click it to open. Brush a thread and it moves.</span></div>
-            <VisThreads groups={GROUPS} info={INFO} cuts={CUTS} />
-            <p className="vs-read"><b>How to read it</b><span>Computed from the term index: a tick means the term&apos;s Sanskrit form occurs in that sūtra. Pādas differ in length (51, 55, 55, 34), so read each row for its shape, not its total.</span></p>
+            <TermMap threads={<VisThreads groups={GROUPS} info={INFO} cuts={CUTS} />} counts={<Counts />} />
           </section>
         </div>
         <aside className="vis-side"><VisToc items={ITEMS.map(({ id, k, title }) => ({ id, k, title }))} /></aside>

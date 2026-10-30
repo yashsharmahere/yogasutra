@@ -180,7 +180,7 @@ export default function VisThreads({ groups, info, cuts }: { groups: TGroup[]; i
   }, [s, term]);
   return (
     <div className="tr-wrap" ref={boxRef}>
-      <div className="tr tr-axis" aria-hidden="true"><span /><div>{[0, 1, 2, 3].map((p) => <span key={p} style={{ flex: cuts[p + 1] - cuts[p] }}>Pāda {p + 1}</span>)}</div></div>
+      <div className="tr tr-axis" aria-hidden="true"><span /><div>{[0, 1, 2, 3].map((p) => <span key={p} style={{ flex: cuts[p + 1] - cuts[p] }}>Pāda {p + 1}</span>)}</div><span className="tr-n-h">Total</span></div>
       {groups.map((g) => (
         <div key={g.label} className="tr-group">
           <p className="tr-k">{g.label}</p>
@@ -188,6 +188,7 @@ export default function VisThreads({ groups, info, cuts }: { groups: TGroup[]; i
             <div className="tr" key={r.id}>
               <Link className="tr-nm" href={`/concepts/${r.id}`}><span className="iast">{r.iast}</span><em>{r.en}</em></Link>
               <div className="tr-tx">{w > 0 && <ThreadRow row={r} n={n} cuts={cuts.slice(1, 4)} w={w} active={act} setActive={setAct} reduce={reduce} />}</div>
+              <span className="tr-n" title={`${r.iast}: ${r.hits.length} sūtra${r.hits.length === 1 ? "" : "s"}`}>{r.hits.length}</span>
             </div>
           ))}
         </div>
