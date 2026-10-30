@@ -1,3 +1,4 @@
+import Listen from "@/components/Listen";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { S, C, G, D, PADAS, byId, cById, slug, unslug } from "@/lib/corpus";
@@ -36,6 +37,7 @@ export default async function SutraPage({ params }: { params: Promise<{ id: stri
         </div>
         <p className="big-deva">{s.deva}</p>
         <p className="big-iast">{s.iast}</p>
+        <Listen id={s.id} />
         <p className="woods col" style={{ marginTop: "var(--s-3)" }}>“<Woods t={s.en} />” <span className="who">Woods, 1914</span></p>
         <p className="jn col">“{s.jn}” <span className="who">Johnston, 1912</span></p>
         {s.vv ? <p className="jn col">“{s.vv}” <span className="who">Vivekananda, 1896</span></p> : <p className="jn col muted"><i>Vivekananda&apos;s edition has no counterpart for this sūtra.</i></p>}

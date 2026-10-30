@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div></header>
         <main id="main"><div className="wrap" id="view">{children}</div></main>
         <footer><div className="wrap">
-          <span>Sanskrit from GRETIL (CC BY-NC-SA 4.0). English by J. H. Woods (1914), Charles Johnston (1912) and Swami Vivekananda (1896), all public domain. Non-commercial. Chapter emblems by Lorc and Delapouite from <a href="https://game-icons.net">game-icons.net</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</span>
+          <span>Sanskrit from GRETIL (CC BY-NC-SA 4.0). English by J. H. Woods (1914), Charles Johnston (1912) and Swami Vivekananda (1896), all public domain. Non-commercial. Chapter emblems by Lorc and Delapouite from <a href="https://game-icons.net">game-icons.net</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>). Chanted audio generated with <a href="https://prathosh.in/vagdhenu/">Vāgdhenu</a> (Prof. Prathosh A P, IISc; code Apache-2.0, data CC BY 4.0).</span>
           <span><Link href="/method">How this edition is built</Link></span>
         </div></footer>
       </body>

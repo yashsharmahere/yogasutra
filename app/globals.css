@@ -692,3 +692,20 @@ html,body{overflow-x:clip}
 
 /* pāda header stays pinned to the top of the screen while scrolling the term rows (the site header is not sticky) */
 .tr-wrap .tr-axis{position:sticky;top:env(safe-area-inset-top,0px);z-index:4;background:var(--paper);box-shadow:0 1px 0 var(--rule)}
+
+/* chant player: label + time, play button with clickable waveform, source line */
+.listen{display:grid;gap:.6rem;max-width:30rem;margin:.5rem 0 1.1rem;padding:.8rem 1rem .75rem;border:1px solid var(--rule);border-radius:14px;background:color-mix(in oklab,var(--ink) 4%,transparent)}
+.listen-h{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font:.68rem var(--f-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.listen-t{font:.74rem var(--f-mono);letter-spacing:0;text-transform:none;color:var(--ink-2)}
+.listen-row{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:.9rem}
+.listen-btn{display:inline-flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border:1px solid var(--indigo);border-radius:50%;background:color-mix(in oklab,var(--indigo) 10%,transparent);color:var(--indigo);cursor:pointer;transition:background .15s,box-shadow .15s}
+.listen-btn:hover,.listen-btn.on{background:color-mix(in oklab,var(--indigo) 22%,transparent);box-shadow:0 0 12px var(--glow)}
+.listen-btn:focus-visible,.listen-wave:focus-visible{outline:2px solid var(--indigo);outline-offset:3px}
+.listen-wave{height:34px;cursor:pointer;touch-action:none}
+.listen-wave svg{display:block;width:100%;height:100%}
+.lw-off{fill:var(--ink-3);opacity:.55}
+.lw-on{fill:var(--indigo)}
+.listen-src{margin:0;padding-top:.55rem;border-top:1px solid var(--rule);font:.74rem var(--f-ui);color:var(--ink-3)}
+.listen-src a{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:2px}
+.listen-src a:hover{color:var(--indigo)}
+@media (max-width:520px){.listen{max-width:none}}
