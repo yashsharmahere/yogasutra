@@ -15,7 +15,7 @@ export default function Home() {
   const s12 = byId["1.2"];
   return (
     <>
-      <section className="hh" aria-label="Ekatāna">
+      <section className="hh" aria-label="Introduction">
         <div className="hh-in">
           <div className="hh-lead">
             <div className="hh-intro">

@@ -27,7 +27,6 @@ export default function Splash() {
         <p className="iast sq-iast">tatra pratyayaikatānatā dhyānam</p>
         <blockquote className="sq-en">“An unbroken flow of knowledge in that object is Dhyāna.”</blockquote>
         <figcaption className="sq-cite">Yoga Sūtra 3.2 · translated by Swami Vivekananda, 1896</figcaption>
-        <p className="sq-name"><b>Ekatāna</b> (एकतान): the unbroken flow. This is where the name comes from.</p>
         <button type="button" className="sq-btn" ref={btn} onClick={(e) => { e.stopPropagation(); (root.current as any)?.__close?.(); }}>Enter</button>
       </figure>
     </div>

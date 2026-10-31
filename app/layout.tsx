@@ -4,11 +4,12 @@ import type { Metadata } from "next";
 import ThemeToggle from "@/components/ThemeToggle";
 import Nav from "@/components/Nav";
 import Splash from "@/components/Splash";
+import Logo from "@/components/Logo";
 
 const boot = `try{var d=document.documentElement,t=localStorage.getItem("ek:theme");if(t==="light"||t==="dark")d.dataset.theme=t;if(location.pathname==="/"&&!sessionStorage.getItem("ek:splash"))d.dataset.splash="1"}catch(e){}`;
 
 export const metadata: Metadata = {
-  title: { default: "Ekatāna: Patañjali's Yoga Sūtra", template: "%s · Ekatāna" },
+  title: { default: "Patañjali's Yoga Sūtra", template: "%s · Patañjali's Yoga Sūtra" },
   description: "A connected, source-graded reader for Patañjali's Yoga Sūtra: Sanskrit, three public-domain translations, a term index and Gītā connections.",
 };
 
@@ -25,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Splash />
         <header className="top"><div className="wrap top-in">
-          <Link className="mark" href="/"><span className="deva">एकतान</span><span className="en">Ekatāna</span></Link>
+          <Link className="mark" href="/" aria-label="Patañjali's Yoga Sutras, home"><Logo className="mark-logo" /></Link>
           <Nav />
           <ThemeToggle />
         </div></header>

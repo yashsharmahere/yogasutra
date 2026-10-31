@@ -1,4 +1,4 @@
-# Ekatāna (एकतान)
+# Patañjali's Yoga Sūtra
 
 A connected, source-graded reader for Patañjali's Yoga Sūtra: Sanskrit, three public-domain English translations, an index of 44 terms, and links to the Bhagavad Gītā. Every layer says where it came from.
 
