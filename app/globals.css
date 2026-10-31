@@ -459,8 +459,8 @@ section+section,.ornament+section{margin-top:var(--section)}
 
 /* footer */
 footer .wrap{gap:var(--s-3) var(--s-7);align-items:baseline}
-footer .wrap>span+span{padding-left:var(--s-7);border-left:1px solid var(--rule)}
-@media (max-width:720px){footer .wrap>span+span{padding-left:0;border-left:0}}
+footer .credits{list-style:none;margin:0;padding:0;display:grid;gap:.25rem;max-width:72ch}
+footer .method-link{white-space:nowrap}
 
 .pref{display:inline-flex;align-items:center;gap:var(--s-2);flex-wrap:wrap}
 .prefs{gap:var(--s-3) var(--s-6)}
