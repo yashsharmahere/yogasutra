@@ -9,6 +9,7 @@ export type Chapter = { n: number; deva: string; name: string; about: string; fi
 const MOON = [{ x: 65.5, y: 20.4 }, { x: 81.5, y: 11.7 }, { x: 51.2, y: 21.7 }, { x: 77.6, y: 15.6 }];
 const MOON_R = 6.8;
 const ease = (s: number) => s * s * (3 - 2 * s);
+const HDR = 0;
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
 function moonAt(t: number) {
@@ -37,8 +38,8 @@ export default function ChapterJourney({ chapters }: { chapters: Chapter[] }) {
     const run = () => {
       raf = 0;
       const el = sec.current; if (!el) return;
-      const r = el.getBoundingClientRect(), travel = el.offsetHeight - window.innerHeight;
-      const p = clamp(-r.top / Math.max(1, travel)), t = p * (chapters.length - 1);
+      const r = el.getBoundingClientRect(), travel = el.offsetHeight - (stage.current?.offsetHeight ?? window.innerHeight);
+      const p = clamp((HDR - r.top) / Math.max(1, travel)), t = p * (chapters.length - 1);
       layers.current.forEach((l, i) => {
         if (!l) return;
         const d = t - i, o = i === 0 ? 1 : ease(clamp((t - (i - 1) - 0.2) / 0.65));
@@ -48,7 +49,7 @@ export default function ChapterJourney({ chapters }: { chapters: Chapter[] }) {
       });
       const m = moonAt(t);
       if (moon.current) { moon.current.style.left = `${m.x}%`; moon.current.style.top = `${m.y}%`; }
-      stage.current?.style.setProperty("--p", p.toFixed(4));
+      stage.current?.style.setProperty("--t", t.toFixed(4));
       const a = Math.min(chapters.length - 1, Math.floor(t + 0.45)); if (a !== last) { last = a; setActive(a); }
     };
     const on = () => { if (!raf) raf = requestAnimationFrame(run); };
@@ -59,8 +60,8 @@ export default function ChapterJourney({ chapters }: { chapters: Chapter[] }) {
   const go = (i: number) => (e: React.MouseEvent) => {
     if (still || !sec.current) return;
     e.preventDefault();
-    const el = sec.current, travel = el.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + (i / (chapters.length - 1)) * travel, behavior: "smooth" });
+    const el = sec.current, travel = el.offsetHeight - (stage.current?.offsetHeight ?? window.innerHeight);
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - HDR + (i / (chapters.length - 1)) * travel, behavior: "smooth" });
   };
 
   const text = (c: Chapter) => (
@@ -91,19 +92,20 @@ export default function ChapterJourney({ chapters }: { chapters: Chapter[] }) {
   return (
     <section id="chapters" className="jr" ref={sec} aria-label="The four chapters">
       <div className="jr-stage" ref={stage}>
-        <div className="hs-h"><h2>Four chapters</h2><p>The text moves from what yoga is, to how it is practised, to what it opens, to where it ends.</p></div>
-        <div className="jr-grid">
-          <nav className="jr-rail" aria-label="Chapters">
-            <span className="line"><i /></span>
+        <div className="jr-col">
+          <div className="jr-top"><h2>Four chapters</h2><span>The text moves from what yoga is, to where it ends.</span></div>
+          <div className="jr-text">{chapters.map((c, i) => <div key={c.n} className={`jr-t${i === active ? " on" : ""}`} aria-hidden={i !== active}>{text(c)}</div>)}</div>
+          <nav className="jr-idx" aria-label="Chapters">
             <ol>{chapters.map((c, i) => (
-              <li key={c.n} className={i === active ? "on" : i < active ? "done" : ""}><a href={`/read/${c.n}`} onClick={go(i)} aria-current={i === active}><span className="dot" /><span className="n">Chapter {c.n}</span><span lang="sa" className="d">{c.deva}</span></a></li>
+              <li key={c.n} className={i === active ? "on" : i < active ? "done" : ""} style={{ "--i": i } as React.CSSProperties}>
+                <a href={`/read/${c.n}`} onClick={go(i)} aria-current={i === active}><span className="bar"><i /></span><span className="n">{c.n}</span><span className="nm">{c.name.replace("-pāda", "")}</span></a>
+              </li>
             ))}</ol>
           </nav>
-          <div className="jr-text">{chapters.map((c, i) => <div key={c.n} className={`jr-t${i === active ? " on" : ""}`} aria-hidden={i !== active}>{text(c)}</div>)}</div>
-          <div className="jr-panel">
-            {chapters.map((c, i) => <div key={c.n} className="jr-layer" ref={(el) => { layers.current[i] = el; }} style={{ opacity: i === 0 ? 1 : 0 }}><img src={`/home/j-${i + 1}.webp`} alt="" width={814} height={1086} loading={i === 0 ? "eager" : "lazy"} /><Fx i={i} /></div>)}
-            <span className="jr-moon" ref={moon} style={{ left: `${MOON[0].x}%`, top: `${MOON[0].y}%` }} />
-          </div>
+        </div>
+        <div className="jr-panel">
+          {chapters.map((c, i) => <div key={c.n} className="jr-layer" ref={(el) => { layers.current[i] = el; }} style={{ opacity: i === 0 ? 1 : 0 }}><img src={`/home/j-${i + 1}.webp`} alt="" width={814} height={1086} loading={i === 0 ? "eager" : "lazy"} /><Fx i={i} /></div>)}
+          <span className="jr-moon" ref={moon} style={{ left: `${MOON[0].x}%`, top: `${MOON[0].y}%` }} />
         </div>
       </div>
     </section>
