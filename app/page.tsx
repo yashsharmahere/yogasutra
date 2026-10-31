@@ -1,9 +1,7 @@
 import Link from "next/link";
-import fs from "node:fs";
-import path from "node:path";
 import { PADAS, S, G, D } from "@/lib/corpus";
 import NextLeaf, { type LeafSutra } from "@/components/NextLeaf";
-import ReadBar from "@/components/ReadBar";
+import ChapterJourney from "@/components/ChapterJourney";
 import "./home.css";
 import PullServer from "@/components/PullServer";
 
@@ -19,9 +17,7 @@ const ABOUT: Record<number, string> = {
   4: "How mind, karma and perception work, ending in kaivalya: the self standing free.",
 };
 const LIMBS: [string, string, string][] = [["yama", "abstentions", "2.30"], ["niyama", "observances", "2.32"], ["āsana", "posture", "2.46"], ["prāṇāyāma", "breath", "2.49"], ["pratyāhāra", "withdrawing the senses", "2.54"], ["dhāraṇā", "fixed attention", "3.1"], ["dhyāna", "contemplation", "3.2"], ["samādhi", "absorption", "3.3"]];
-const ARCH = "M0,1 V0.3704 A0.5,0.3704 0 0 1 1,0.3704 V1 Z";
 const slug = (id: string) => id.replace(".", "-");
-const vignette = (n: number) => fs.existsSync(path.join(process.cwd(), "public/home", `arch-${n}.webp`)) ? `/home/arch-${n}.webp` : null;
 
 const LEAF: LeafSutra[] = S.map((s) => ({ id: s.id, pada: PADAS.find((p) => p.n === s.pada)!.name, deva: s.deva, iast: s.iast, en: s.en }));
 
@@ -62,37 +58,8 @@ export default function Home() {
         </ul>
       </section>
 
-      <section id="chapters" className="hs-chapters">
-        <div className="hs-h"><h2>Four chapters</h2><p>The text moves from what yoga is, to how it is practised, to what it opens, to where it ends.</p></div>
-        <svg width="0" height="0" aria-hidden="true" style={{ position: "absolute" }}><defs><clipPath id="arch" clipPathUnits="objectBoundingBox"><path d={ARCH} /></clipPath></defs></svg>
-        <div className="hs-padas">
-          {PADAS.map((p) => {
-            const ss = S.filter((s) => s.pada === p.n), groups = G.filter((g) => g.pada === p.n), img = vignette(p.n);
-            return (
-              <article key={p.n} className="hs-pada">
-                <Link className="hs-pada-top" href={`/read/${p.n}`}>
-                  <span className="hs-box">
-                    <span className="hs-arch">
-                      {img ? <img src={img} alt="" width={543} height={724} loading="lazy" /> : <span className="ph" lang="sa">{p.deva}</span>}
-                      <svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><path d={ARCH} vectorEffect="non-scaling-stroke" /></svg>
-                    </span>
-                  </span>
-                  <span className="hs-num">Chapter {p.n}</span>
-                  <h3><span lang="sa" className="deva">{p.deva}</span><span className="iast">{p.name}</span></h3>
-                  <p className="about">{ABOUT[p.n]}</p>
-                  <span className="hs-range"><span className="mono">{ss[0].id}–{ss[ss.length - 1].id}</span><span>{ss.length} sūtras · {groups.length} sections</span></span>
-                  <ReadBar ids={ss.map((s) => s.id)} />
-                </Link>
-                <details className="hs-toc">
-                  <summary>Contents</summary>
-                  <ol>{groups.map((g) => <li key={g.id}><Link href={`/sutra/${slug(g.sutras[0])}`}><span>{g.heading}</span><span className="mono">{g.range}</span></Link></li>)}</ol>
-                </details>
-              </article>
-            );
-          })}
-        </div>
-        {PADAS.some((p) => vignette(p.n)) && <p className="hs-credit">Chapter illustrations AI-edited</p>}
-      </section>
+      <ChapterJourney chapters={PADAS.map((p) => { const ss = S.filter((s) => s.pada === p.n); return { n: p.n, deva: p.deva, name: p.name, about: ABOUT[p.n], first: ss[0].id, last: ss[ss.length - 1].id, sutras: ss.length, sections: G.filter((g) => g.pada === p.n).length, ids: ss.map((s) => s.id) }; })} />
+      <p className="hs-credit">Chapter illustrations AI-edited</p>
 
       <section className="hs-limbs">
         <div className="hs-h"><h2>The eight limbs</h2><p>Sūtra 2.29 names them; the text then takes them one by one. The first five turn outward, the last three inward.</p></div>
