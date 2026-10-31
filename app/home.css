@@ -64,7 +64,12 @@
 .hh-halo circle{fill:none;stroke:#e6bd62}
 .hh-halo .draw{stroke-width:1.1;opacity:0}
 .hh-halo .breath{stroke-width:.8;opacity:0;transform-origin:50% 50%}
-.hh-art figcaption{position:absolute;right:16px;bottom:10px;font-family:var(--f-ui);font-size:11px;color:rgba(239,232,214,.55)}
+.hh-wind{position:absolute;inset:-10% 0 0 -18%;z-index:2;pointer-events:none;overflow:hidden;display:none;container-type:size;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 22%,#000 88%,transparent)}
+.hh-wind .mist{position:absolute;left:0;width:70%;height:16%;border-radius:50%;background:radial-gradient(closest-side,rgba(235,228,210,.16),rgba(235,228,210,0));filter:blur(6px)}
+.hh-wind .m1{top:58%}.hh-wind .m2{top:74%;width:85%}.hh-wind .m3{top:40%;width:55%;height:11%}
+.hh-wind .petal{position:absolute;left:0}
+.hh-wind .petal i{display:block;border-radius:60% 40% 60% 40%;opacity:.9;box-shadow:0 0 3px rgba(0,0,0,.25)}
+.hh-art figcaption{z-index:4;position:absolute;right:16px;bottom:10px;font-family:var(--f-ui);font-size:11px;color:rgba(239,232,214,.55)}
 
 @media (max-width:1100px) and (min-width:821px){ .hh-art{width:38vw} .hh-lead{max-width:56vw} }
 @media (max-width:820px){
@@ -88,6 +93,15 @@
 @media (prefers-reduced-motion:no-preference){
   .hh-sky{animation:hh-drift 36s ease-in-out infinite alternate;will-change:transform}
   @keyframes hh-drift{from{transform:scale(1.03) translate3d(-2.2%,.6%,0) rotate(-.6deg)}to{transform:scale(1.11) translate3d(2.4%,-1.6%,0) rotate(.6deg)}}
+.hh-wind{display:block}
+  .hh-wind .mist{animation:hh-mist 26s linear infinite}
+  .hh-wind .m2{animation-duration:34s;animation-delay:-12s}
+  .hh-wind .m3{animation-duration:22s;animation-delay:-7s}
+  @keyframes hh-mist{0%{transform:translateX(-80%);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateX(160%);opacity:0}}
+  .hh-wind .petal{animation:hh-blow 12s linear infinite}
+  @keyframes hh-blow{0%{transform:translate(-4cqw,0);opacity:0}8%{opacity:.95}25%{transform:translate(26cqw,-3cqh)}50%{transform:translate(54cqw,2cqh)}75%{transform:translate(80cqw,-2.5cqh)}92%{opacity:.95}100%{transform:translate(104cqw,1cqh);opacity:0}}
+  .hh-wind .petal i{animation:hh-tumble 2.4s ease-in-out infinite alternate}
+  @keyframes hh-tumble{0%{transform:rotate(-40deg) scaleY(1)}50%{transform:rotate(60deg) scaleY(.35)}100%{transform:rotate(170deg) scaleY(1)}}
   .hh-stars i{animation:hh-twinkle 5s ease-in-out infinite;opacity:0}
   @keyframes hh-twinkle{0%,100%{opacity:0;transform:scale(.6)}50%{opacity:.9;transform:scale(1)}}
 
