@@ -19,8 +19,10 @@ const ABOUT: Record<number, string> = {
   4: "How mind, karma and perception work, ending in kaivalya: the self standing free.",
 };
 const LIMBS: [string, string, string][] = [["yama", "abstentions", "2.30"], ["niyama", "observances", "2.32"], ["āsana", "posture", "2.46"], ["prāṇāyāma", "breath", "2.49"], ["pratyāhāra", "withdrawing the senses", "2.54"], ["dhāraṇā", "fixed attention", "3.1"], ["dhyāna", "contemplation", "3.2"], ["samādhi", "absorption", "3.3"]];
+const ARCH = "M0,1 V0.4 C0,0.25 0.3,0.2 0.41,0.09 C0.46,0.04 0.48,0.01 0.5,0 C0.52,0.01 0.54,0.04 0.59,0.09 C0.7,0.2 1,0.25 1,0.4 V1 Z";
+const RISE = [1.1, 1.3, 1.5, 1.7];
 const slug = (id: string) => id.replace(".", "-");
-const vignette = (n: number) => fs.existsSync(path.join(process.cwd(), "public/home", `pada-${n}.webp`)) ? `/home/pada-${n}.webp` : null;
+const vignette = (n: number) => fs.existsSync(path.join(process.cwd(), "public/home", `arch-${n}.webp`)) ? `/home/arch-${n}.webp` : null;
 
 const LEAF: LeafSutra[] = S.map((s) => ({ id: s.id, pada: PADAS.find((p) => p.n === s.pada)!.name, deva: s.deva, iast: s.iast, en: s.en }));
 
@@ -63,13 +65,19 @@ export default function Home() {
 
       <section id="chapters" className="hs-chapters">
         <div className="hs-h"><h2>Four chapters</h2><p>The text moves from what yoga is, to how it is practised, to what it opens, to where it ends.</p></div>
+        <svg width="0" height="0" aria-hidden="true" style={{ position: "absolute" }}><defs><clipPath id="arch" clipPathUnits="objectBoundingBox"><path d={ARCH} /></clipPath></defs></svg>
         <div className="hs-padas">
           {PADAS.map((p) => {
             const ss = S.filter((s) => s.pada === p.n), groups = G.filter((g) => g.pada === p.n), img = vignette(p.n);
             return (
-              <article key={p.n} className="hs-pada">
+              <article key={p.n} className="hs-pada" style={{ "--r": RISE[p.n - 1] } as React.CSSProperties}>
                 <Link className="hs-pada-top" href={`/read/${p.n}`}>
-                  {img ? <img className="hs-vig" src={img} alt="" width={800} height={600} loading="lazy" /> : <span className="hs-vig ph" aria-hidden="true"><span lang="sa">{p.deva}</span></span>}
+                  <span className="hs-box">
+                    <span className="hs-arch">
+                      {img ? <img src={img} alt="" width={543} height={724} loading="lazy" /> : <span className="ph" lang="sa">{p.deva}</span>}
+                      <svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><path d={ARCH} vectorEffect="non-scaling-stroke" /></svg>
+                    </span>
+                  </span>
                   <span className="hs-num">Chapter {p.n}</span>
                   <h3><span lang="sa" className="deva">{p.deva}</span><span className="iast">{p.name}</span></h3>
                   <p className="about">{ABOUT[p.n]}</p>
