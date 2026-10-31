@@ -10,6 +10,8 @@
   linear-gradient(90deg,rgba(7,11,34,.74) 0,rgba(7,11,34,.5) 40%,rgba(7,11,34,0) 66%),
   radial-gradient(120% 90% at 50% 50%,rgba(8,12,38,.15) 45%,rgba(5,8,28,.55) 100%)}
 .hh-sky{position:absolute;inset:-4%;z-index:0;background:#0b1230 url(/home/sky.webp) center/cover no-repeat}
+.hh-stars{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hh-stars i{position:absolute;border-radius:50%;background:#f3d68f;box-shadow:0 0 6px 1px rgba(243,214,143,.6);opacity:.55}
 .hh-in{position:relative;z-index:5;max-width:1080px;margin:0 auto;padding:clamp(48px,9vh,104px) 24px clamp(48px,8vh,96px)}
 .hh-lead{max-width:640px}
 
@@ -56,7 +58,7 @@
 
 .hh-art{position:absolute;z-index:3;right:0;bottom:0;width:min(42vw,800px);margin:0}
 .hh-yogi{position:relative}
-.hh-yogi img{display:block;width:100%;height:auto;transform:scaleX(-1)}
+.hh-yogi img{position:relative;z-index:1;display:block;width:100%;height:auto;transform:scaleX(-1)}
 /* ring laid over the painted halo (centre and size measured from yogi.webp, mirrored) */
 .hh-halo{position:absolute;left:63.7%;top:19.4%;width:26.8%;transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
 .hh-halo circle{fill:none;stroke:#e6bd62}
@@ -84,8 +86,10 @@
    Entrance once on load; then a slow sky drift and a breathing halo. Text is never held back for long
    (everything is visible within ~0.9s). With reduced motion, the hero is simply still. */
 @media (prefers-reduced-motion:no-preference){
-  .hh-sky{animation:hh-drift 70s ease-in-out infinite alternate}
-  @keyframes hh-drift{from{transform:scale(1.02) translate3d(-1%,0,0)}to{transform:scale(1.07) translate3d(1.2%,-1%,0)}}
+  .hh-sky{animation:hh-drift 36s ease-in-out infinite alternate;will-change:transform}
+  @keyframes hh-drift{from{transform:scale(1.03) translate3d(-2.2%,.6%,0) rotate(-.6deg)}to{transform:scale(1.11) translate3d(2.4%,-1.6%,0) rotate(.6deg)}}
+  .hh-stars i{animation:hh-twinkle 5s ease-in-out infinite;opacity:0}
+  @keyframes hh-twinkle{0%,100%{opacity:0;transform:scale(.6)}50%{opacity:.9;transform:scale(1)}}
 
   .hh h1,.hh-intro p,.hh-next-h,.hh-meta,.hh-act{animation:hh-up .8s cubic-bezier(.2,.7,.2,1) both}
   .hh-intro p{animation-delay:.1s}

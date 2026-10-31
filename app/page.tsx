@@ -9,6 +9,8 @@ import PullServer from "@/components/PullServer";
 
 const GROUND = [["/sutra/1-1", "Read from 1.1", "Sanskrit, transliteration and three translations, grouped under Woods' own headings.", "read"], ["/concepts/samadhi", "Follow samādhi", "Concentration, traced through every sūtra whose Sanskrit names it.", "samadhi"], ["/sutra/2-29", "The eight limbs", "2.29 lists them; the following 34 sūtras take them one by one.", "limb"], ["/concepts/klesa", "The five afflictions", "What troubles the mind, and the order in which the text says they arise.", "affliction"], ["/gita", "Read it beside the Gītā", "Where the Bhagavad Gītā uses the same words or teaches the same thing, each link read and typed.", "gita"], ["/visuals", "See the structure", "The eight limbs, the afflictions, the ladder of concentration, drawn from the sūtras themselves.", "structure"], ["/patanjali", "Meet Patañjali", "What the tradition says, and what scholars can say with confidence.", "serpent"], ["/tests", "How Ask is tested", "Thirty questions with the sūtras a good answer must cite.", "test"]];
 
+const STARS = [{x:69.3,y:14.6,s:1.5,d:3.8,dl:3.2},{x:71.0,y:10.6,s:3,d:4.3,dl:0.5},{x:73.1,y:18.6,s:3,d:5.0,dl:5.0},{x:61.1,y:17.8,s:3,d:6.8,dl:3.5},{x:72.3,y:51.0,s:1.5,d:5.4,dl:0.8},{x:73.2,y:31.8,s:3,d:4.6,dl:4.9},{x:63.4,y:33.6,s:2,d:4.8,dl:3.3},{x:58.6,y:10.6,s:2,d:5.2,dl:3.2},{x:87.9,y:28.5,s:2.5,d:4.8,dl:1.5},{x:63.4,y:42.3,s:1.5,d:5.5,dl:3.2},{x:91.9,y:40.1,s:2,d:5.6,dl:0.4},{x:77.0,y:15.3,s:2,d:4.0,dl:2.9},{x:57.6,y:37.4,s:3,d:5.5,dl:5.3},{x:68.9,y:38.6,s:3,d:5.2,dl:4.8},{x:58.8,y:12.1,s:2,d:5.2,dl:4.0},{x:58.5,y:38.9,s:3,d:7.0,dl:4.9}];
+
 const LEAF: LeafSutra[] = S.map((s) => ({ id: s.id, pada: PADAS.find((p) => p.n === s.pada)!.name, deva: s.deva, iast: s.iast, en: s.en }));
 
 export default function Home() {
@@ -17,6 +19,7 @@ export default function Home() {
     <>
       <section className="hh" aria-label="Introduction">
         <div className="hh-sky" aria-hidden="true" />
+        <div className="hh-stars" aria-hidden="true">{STARS.map((t, k) => <i key={k} style={{ left: `${t.x}%`, top: `${t.y}%`, width: t.s, height: t.s, animationDuration: `${t.d}s`, animationDelay: `${t.dl}s` } as React.CSSProperties} />)}</div>
         <div className="hh-in">
           <div className="hh-lead">
             <div className="hh-intro">
@@ -28,8 +31,8 @@ export default function Home() {
         </div>
         <figure className="hh-art">
           <div className="hh-yogi">
-            <img src="/home/yogi.webp" width={1009} height={673} alt="A seated yogi in profile with a thin gold halo, painted in the manner of a Jodhpur miniature" />
             <svg className="hh-halo" viewBox="0 0 100 100" aria-hidden="true"><circle className="draw" cx="50" cy="50" r="48" pathLength="1" /><circle className="breath" cx="50" cy="50" r="48" /></svg>
+            <img src="/home/yogi.webp" width={1009} height={673} alt="A seated yogi in profile with a thin gold halo, painted in the manner of a Jodhpur miniature" />
           </div>
           <figcaption>Illustration AI-edited</figcaption>
         </figure>
