@@ -149,7 +149,7 @@
 .hs-pada{display:flex;flex-direction:column;border:1px solid var(--rule);border-radius:8px;background:var(--card);overflow:hidden}
 .hs-pada-top{display:flex;flex-direction:column;gap:.55rem;padding:0 0 var(--s-4);text-decoration:none;color:inherit;flex:1}
 .hs-pada-top>*:not(.hs-vig){margin-inline:var(--s-4)}
-.hs-vig{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:.35rem;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.hs-vig{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;margin-bottom:.35rem;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .hs-vig.ph{display:grid;place-items:center;background:radial-gradient(120% 90% at 50% 30%,#18204a,#0b1230);color:rgba(232,196,122,.35);font-family:var(--f-deva);font-size:2.2rem}
 .hs-pada-top:hover .hs-vig{transform:scale(1.03)}
 .hs-num{font-family:var(--f-ui);font-size:var(--s-1);color:var(--ink-3)}
