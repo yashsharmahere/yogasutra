@@ -3,10 +3,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import ThemeToggle from "@/components/ThemeToggle";
 import Nav from "@/components/Nav";
-import Splash from "@/components/Splash";
 import Logo from "@/components/Logo";
 
-const boot = `try{var d=document.documentElement,t=localStorage.getItem("ek:theme");if(t==="light"||t==="dark")d.dataset.theme=t;if(location.pathname==="/"&&!sessionStorage.getItem("ek:splash"))d.dataset.splash="1"}catch(e){}`;
+const boot = `try{var d=document.documentElement,t=localStorage.getItem("ek:theme");if(t==="light"||t==="dark")d.dataset.theme=t;}catch(e){}`;
 
 export const metadata: Metadata = {
   title: { default: "Patañjali's Yoga Sūtra", template: "%s · Patañjali's Yoga Sūtra" },
@@ -24,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
       <body>
-        <Splash />
         <header className="top"><div className="wrap top-in">
           <Link className="mark" href="/" aria-label="Patañjali's Yoga Sutras, home"><Logo className="mark-logo" /></Link>
           <Nav />

@@ -2,13 +2,14 @@
    The hero is always dark (it is a painting), whichever site theme is on. */
 .hh{position:relative;left:50%;width:100vw;margin:calc(-1 * var(--s-7)) 0 var(--s-8) -50vw;
   min-height:clamp(620px,calc(100svh - 64px),940px);overflow:hidden;color:#efe8d6;
-  background:#0b1230 url(/home/sky.webp) center/cover no-repeat;
+  background:#0b1230;
   --hh-gold:#dcb257; --hh-paper:#efe8d6; --hh-muted:#d3cdbd; --hh-dim:#a9a593;
   --hh-leaf:#e3c37e; --hh-ink:#1d140a; --hh-red:#a3391f; --hh-edge:#4a3214}
 .hh::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:
   linear-gradient(180deg,rgba(7,11,34,.75) 0,rgba(7,11,34,0) 18%),
   linear-gradient(90deg,rgba(7,11,34,.74) 0,rgba(7,11,34,.5) 40%,rgba(7,11,34,0) 66%),
   radial-gradient(120% 90% at 50% 50%,rgba(8,12,38,.15) 45%,rgba(5,8,28,.55) 100%)}
+.hh-sky{position:absolute;inset:-4%;z-index:0;background:#0b1230 url(/home/sky.webp) center/cover no-repeat}
 .hh-in{position:relative;z-index:5;max-width:1080px;margin:0 auto;padding:clamp(48px,9vh,104px) 24px clamp(48px,8vh,96px)}
 .hh-lead{max-width:640px}
 
@@ -54,7 +55,13 @@
 .hh a:focus-visible{outline:2px solid var(--hh-gold);outline-offset:3px}
 
 .hh-art{position:absolute;z-index:3;right:0;bottom:0;width:min(42vw,800px);margin:0}
-.hh-art img{display:block;width:100%;height:auto;transform:scaleX(-1)}
+.hh-yogi{position:relative}
+.hh-yogi img{display:block;width:100%;height:auto;transform:scaleX(-1)}
+/* ring laid over the painted halo (centre and size measured from yogi.webp, mirrored) */
+.hh-halo{position:absolute;left:63.7%;top:19.4%;width:26.8%;transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
+.hh-halo circle{fill:none;stroke:#e6bd62}
+.hh-halo .draw{stroke-width:1.1;opacity:0}
+.hh-halo .breath{stroke-width:.8;opacity:0;transform-origin:50% 50%}
 .hh-art figcaption{position:absolute;right:16px;bottom:10px;font-family:var(--f-ui);font-size:11px;color:rgba(239,232,214,.55)}
 
 @media (max-width:1100px) and (min-width:821px){ .hh-art{width:38vw} .hh-lead{max-width:56vw} }
@@ -70,5 +77,39 @@
   .hh-sutra{font-size:24px}
   .hh-btn{flex:1 1 100%;text-align:center}
   .hh-art{position:relative;z-index:3;width:100%;height:clamp(200px,58vw,320px);overflow:hidden;margin-top:30px}
-  .hh-art img{position:absolute;right:-6%;top:0;width:112%;max-width:none}
+  .hh-yogi{position:absolute;right:-6%;top:0;width:112%}
 }
+
+/* ---------- motion ----------
+   Entrance once on load; then a slow sky drift and a breathing halo. Text is never held back for long
+   (everything is visible within ~0.9s). With reduced motion, the hero is simply still. */
+@media (prefers-reduced-motion:no-preference){
+  .hh-sky{animation:hh-drift 70s ease-in-out infinite alternate}
+  @keyframes hh-drift{from{transform:scale(1.02) translate3d(-1%,0,0)}to{transform:scale(1.07) translate3d(1.2%,-1%,0)}}
+
+  .hh h1,.hh-intro p,.hh-next-h,.hh-meta,.hh-act{animation:hh-up .8s cubic-bezier(.2,.7,.2,1) both}
+  .hh-intro p{animation-delay:.1s}
+  .hh-next-h{animation-delay:.25s}
+  .hh-meta{animation-delay:.5s}
+  .hh-act{animation-delay:.62s}
+  @keyframes hh-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+  .hh-leaf{animation:hh-draw-out .9s .3s cubic-bezier(.2,.75,.25,1) backwards}
+  @keyframes hh-draw-out{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+
+  .hh-yogi{animation:hh-fade 1.4s .35s ease-out both}
+  @keyframes hh-fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  .hh-halo .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:hh-ring 1.6s 1s cubic-bezier(.45,.05,.25,1) forwards, hh-settle 1.2s 2.6s ease-out forwards}
+  @keyframes hh-ring{0%{opacity:.95;stroke-dashoffset:1}100%{opacity:.95;stroke-dashoffset:0}}
+  @keyframes hh-settle{to{opacity:.35}}
+  /* breath: about 6s in and out, like a slow pranayama count */
+  .hh-halo .breath{animation:hh-breath 6.5s 3s ease-in-out infinite}
+  @keyframes hh-breath{0%{opacity:0;transform:scale(1)}40%{opacity:.5}100%{opacity:0;transform:scale(1.28)}}
+
+  /* returning reader: the last leaf turns over to show the next one */
+  .hh-leaf.turn{animation:hh-turn .9s cubic-bezier(.5,0,.3,1) backwards}
+  .hh-meta.swap{animation:hh-up .5s ease-out both}
+  @keyframes hh-turn{0%{transform:perspective(900px) rotateX(0)}48%{transform:perspective(900px) rotateX(88deg);filter:brightness(.7)}52%{transform:perspective(900px) rotateX(-88deg);filter:brightness(.7)}100%{transform:perspective(900px) rotateX(0)}}
+}
+.hh-next:not(.ready) .hh-leaf,.hh-next:not(.ready) .hh-meta{visibility:hidden}

@@ -16,6 +16,7 @@ export default function Home() {
   return (
     <>
       <section className="hh" aria-label="Introduction">
+        <div className="hh-sky" aria-hidden="true" />
         <div className="hh-in">
           <div className="hh-lead">
             <div className="hh-intro">
@@ -26,7 +27,10 @@ export default function Home() {
           </div>
         </div>
         <figure className="hh-art">
-          <img src="/home/yogi.webp" width={1009} height={673} alt="A seated yogi in profile with a thin gold halo, painted in the manner of a Jodhpur miniature" />
+          <div className="hh-yogi">
+            <img src="/home/yogi.webp" width={1009} height={673} alt="A seated yogi in profile with a thin gold halo, painted in the manner of a Jodhpur miniature" />
+            <svg className="hh-halo" viewBox="0 0 100 100" aria-hidden="true"><circle className="draw" cx="50" cy="50" r="48" pathLength="1" /><circle className="breath" cx="50" cy="50" r="48" /></svg>
+          </div>
           <figcaption>Illustration AI-edited</figcaption>
         </figure>
       </section>
