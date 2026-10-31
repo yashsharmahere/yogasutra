@@ -236,16 +236,3 @@
   .jr-t h3 .deva{font-size:2.4rem}.jr-t .about{font-size:var(--s-2)}
   .jr-row{grid-template-columns:1fr}.jr-still .jr-panel{height:min(52svh,420px);justify-self:center}
 }
-
-/* drawn scenes */
-.sc{display:block;width:100%;height:100%}
-.jr-layer>.sc:first-child{width:100%;height:100%}
-@media (prefers-reduced-motion:no-preference){
-  .sc .st{animation:sc-tw 4.5s ease-in-out infinite}
-  .sc-lake .sh{transform-box:fill-box;transform-origin:center;animation:sc-sh 3.6s ease-in-out infinite}
-  .sc-lake .rp ellipse{transform-box:fill-box;transform-origin:center;opacity:0;animation:sc-rp 9s ease-out infinite}
-  .sc-lake .rp ellipse:nth-child(2){animation-delay:3s}.sc-lake .rp ellipse:nth-child(3){animation-delay:6s}
-}
-@keyframes sc-tw{0%,100%{opacity:.25}50%{opacity:1}}
-@keyframes sc-sh{0%,100%{transform:scaleX(1);opacity:1}50%{transform:scaleX(.7);opacity:.7}}
-@keyframes sc-rp{0%{opacity:0;transform:scale(.3)}15%{opacity:.55}100%{opacity:0;transform:scale(2.6)}}

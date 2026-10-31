@@ -2,12 +2,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ReadBar from "@/components/ReadBar";
-import { SceneLake } from "@/components/JourneyScenes";
 
 export type Chapter = { n: number; deva: string; name: string; about: string; first: string; last: string; sutras: number; sections: number; ids: string[] };
 
 // Where the one gold moon sits in each painting (percent of the panel), and its size.
-const MOON = [{ x: 65.3, y: 20.5 }, { x: 81.5, y: 11.7 }, { x: 51.2, y: 21.7 }, { x: 77.6, y: 15.6 }];
+const MOON = [{ x: 65.5, y: 20.4 }, { x: 81.5, y: 11.7 }, { x: 51.2, y: 21.7 }, { x: 77.6, y: 15.6 }];
 const HDR = 0;
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
@@ -86,7 +85,7 @@ export default function ChapterJourney({ chapters }: { chapters: Chapter[] }) {
           </nav>
         </div>
         <div className="jr-panel">
-          {chapters.map((c, i) => <div key={c.n} className={`jr-layer${i <= active ? " on" : ""}${i === active ? " cur" : ""}`}>{i === 0 ? <SceneLake /> : <img src={`/home/j-${i + 1}.webp`} alt="" width={814} height={1086} loading="lazy" />}<Fx i={i} /></div>)}
+          {chapters.map((c, i) => <div key={c.n} className={`jr-layer${i <= active ? " on" : ""}${i === active ? " cur" : ""}`}><img src={`/home/j-${i + 1}.webp`} alt="" width={814} height={1086} loading={i === 0 ? "eager" : "lazy"} /><Fx i={i} /></div>)}
           <span className="jr-moon" style={{ left: `${MOON[active].x}%`, top: `${MOON[active].y}%` }} />
         </div>
       </div>
